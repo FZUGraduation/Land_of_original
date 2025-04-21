@@ -1,0 +1,253 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2493689293589992625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a23bac3bcf9ec7409d375dc73118d2d, type: 3}
+  m_Name: Hero1Skill_2
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  icon: {fileID: 3057905047214039000, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+  key: Hero1Skill_2
+  displayedName: Hero1Skill_2
+  prefab: {fileID: 0}
+  desc: 
+  note: 
+  isBasicAttack: 0
+  target: 2
+  mpCost: 1
+  autoTargetSelectType: 0
+  needUnlock: 0
+  unlockTalent: {fileID: 0}
+  effects:
+  - {fileID: -1316289956520362249, guid: 9efc7c755a2170649b9b2f115f275ddf, type: 2}
+  coolDown: 0
+  hasCondition: 0
+  condition:
+    isPercenage: 0
+    MinValue: 0
+    MaxValue: 0
+    statType: 0
+  animationName: 
+--- !u!114 &-65826455168272949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a23bac3bcf9ec7409d375dc73118d2d, type: 3}
+  m_Name: Hero1Skill_3
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  icon: {fileID: 6763061955623211119, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+  key: Hero1Skill_3
+  displayedName: Hero1Skill_3
+  prefab: {fileID: 0}
+  desc: 
+  note: 
+  isBasicAttack: 0
+  target: 2
+  mpCost: 2
+  autoTargetSelectType: 0
+  needUnlock: 0
+  unlockTalent: {fileID: 0}
+  effects:
+  - {fileID: 9067456828917890805, guid: 9efc7c755a2170649b9b2f115f275ddf, type: 2}
+  coolDown: 0
+  hasCondition: 0
+  condition:
+    isPercenage: 0
+    MinValue: 0
+    MaxValue: 0
+    statType: 0
+  animationName: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927a61084ec688e498f5ddbaa8645025, type: 3}
+  m_Name: "\u6280\u80FD"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: type
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: SkillConfigData, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+  datas:
+  - {fileID: 7068928617378887902}
+  - {fileID: 7791752213047137225}
+  - {fileID: 9218938522647048434}
+  - {fileID: -2493689293589992625}
+  - {fileID: -65826455168272949}
+--- !u!114 &7068928617378887902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a23bac3bcf9ec7409d375dc73118d2d, type: 3}
+  m_Name: Enemy1Skill1
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  icon: {fileID: -5095230640273581963, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+  key: Enemy1Skill1
+  displayedName: Enemy1Skill1
+  prefab: {fileID: 0}
+  desc: 123444
+  note: 
+  isBasicAttack: 1
+  target: 1
+  mpCost: 0
+  autoTargetSelectType: 0
+  needUnlock: 0
+  unlockTalent: {fileID: 0}
+  effects:
+  - {fileID: 1748040263752676371, guid: 9efc7c755a2170649b9b2f115f275ddf, type: 2}
+  coolDown: 0
+  hasCondition: 1
+  condition:
+    isPercenage: 1
+    MinValue: 0.5
+    MaxValue: 1
+    statType: 0
+  animationName: 
+--- !u!114 &7791752213047137225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a23bac3bcf9ec7409d375dc73118d2d, type: 3}
+  m_Name: Enemy1Skill2
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  icon: {fileID: 1851222492271288986, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+  key: Enemy1Skill2
+  displayedName: Enemy1Skill2
+  prefab: {fileID: 0}
+  desc: 44444
+  note: 
+  isBasicAttack: 1
+  target: 1
+  mpCost: 0
+  autoTargetSelectType: 0
+  needUnlock: 0
+  unlockTalent: {fileID: 0}
+  effects:
+  - {fileID: -8328164826558358575, guid: 9efc7c755a2170649b9b2f115f275ddf, type: 2}
+  coolDown: 0
+  hasCondition: 1
+  condition:
+    isPercenage: 1
+    MinValue: 0
+    MaxValue: 0.5
+    statType: 0
+  animationName: 
+--- !u!114 &9218938522647048434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a23bac3bcf9ec7409d375dc73118d2d, type: 3}
+  m_Name: Hero1Skill_1
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  icon: {fileID: 5292965025900596926, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+  key: Hero1Skill_1
+  displayedName: Hero1Skill_1
+  prefab: {fileID: 0}
+  desc: 
+  note: 
+  isBasicAttack: 1
+  target: 2
+  mpCost: 0
+  autoTargetSelectType: 0
+  needUnlock: 0
+  unlockTalent: {fileID: 0}
+  effects:
+  - {fileID: 1748040263752676371, guid: 9efc7c755a2170649b9b2f115f275ddf, type: 2}
+  coolDown: 1
+  hasCondition: 0
+  condition:
+    isPercenage: 0
+    MinValue: 0
+    MaxValue: 0
+    statType: 0
+  animationName: 

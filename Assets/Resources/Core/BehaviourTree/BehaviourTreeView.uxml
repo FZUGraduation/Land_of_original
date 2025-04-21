@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Resources/Core/BehaviourTree/BehaviourTreeView.uss?fileID=7433441132597879392&amp;guid=3ac2dff440adb554bade4fcc54129aa4&amp;type=3#BehaviourTreeView" />
+    <JLBehaviourTree.Editor.View.SplitView fixed-pane-initial-dimension="300" name="SplitView">
+        <ui:VisualElement name="left-view">
+            <ui:Label text="Inspector" display-tooltip-when-elided="true" name="InspectorTitle" style="align-items: stretch; justify-content: flex-start; -unity-font: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&amp;guid=e3265ab4bf004d28a9537516768c1c75&amp;type=3#LiberationSans&quot;); font-size: 21px; -unity-text-align: middle-left; -unity-font-style: bold; -unity-font-definition: none; background-color: rgb(37, 37, 37); color: rgb(255, 255, 255);" />
+            <JLBehaviourTree.Editor.View.InspectorView name="InspectorView" style="flex-grow: 1;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="right-view">
+            <JLBehaviourTree.Editor.View.TreeView focusable="true" name="TreeView" style="flex-grow: 1;" />
+        </ui:VisualElement>
+    </JLBehaviourTree.Editor.View.SplitView>
+</ui:UXML>

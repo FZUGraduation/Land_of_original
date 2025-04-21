@@ -1,0 +1,589 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8328164826558358575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b03cda9de31fca43a273cb607bc24e3, type: 3}
+  m_Name: "\u6982\u7387\u6C89\u9ED8\u4E24\u56DE\u5408"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 21300000, guid: de91fcf09b3a58c40bd25a04beee4093, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: statModifier
+      Entry: 6
+      Data: 
+    - Name: specialEffect
+      Entry: 7
+      Data: 0|SpecialEffect, Assembly-CSharp
+    - Name: icon
+      Entry: 10
+      Data: 0
+    - Name: effectName
+      Entry: 1
+      Data: "\u6C89\u9ED8"
+    - Name: description
+      Entry: 1
+      Data: "\u65E0\u6CD5\u4F7F\u7528\u6280\u80FD"
+    - Name: stayCount
+      Entry: 3
+      Data: 2
+    - Name: needCaculateHitrate
+      Entry: 5
+      Data: true
+    - Name: baseHitRate
+      Entry: 4
+      Data: 0
+    - Name: OnStayCountChange
+      Entry: 6
+      Data: 
+    - Name: executeTime
+      Entry: 3
+      Data: 1
+    - Name: type
+      Entry: 3
+      Data: 2
+    - Name: value
+      Entry: 3
+      Data: 0
+    - Name: sourceData
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  icon: {fileID: 0}
+  key: "\u6982\u7387\u6C89\u9ED8\u4E24\u56DE\u5408"
+  displayedName: 
+  prefab: {fileID: 0}
+  desc: 
+  note: 
+  effectType: 2
+--- !u!114 &-5668304598886410287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b03cda9de31fca43a273cb607bc24e3, type: 3}
+  m_Name: 123
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: statModifier
+      Entry: 6
+      Data: 
+    - Name: specialEffect
+      Entry: 6
+      Data: 
+  icon: {fileID: 0}
+  key: 123
+  displayedName: 
+  prefab: {fileID: 0}
+  desc: 
+  note: 
+  effectType: 2
+--- !u!114 &-3326183664943967092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b03cda9de31fca43a273cb607bc24e3, type: 3}
+  m_Name: def -50
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 21300000, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: statModifier
+      Entry: 7
+      Data: 0|StatModifierEffect, Assembly-CSharp
+    - Name: icon
+      Entry: 10
+      Data: 0
+    - Name: effectName
+      Entry: 1
+      Data: "\u9632\u5FA1\u964D\u4F4E"
+    - Name: description
+      Entry: 1
+      Data: "\u9632\u5FA1\u964D\u4F4E"
+    - Name: stayCount
+      Entry: 3
+      Data: 2
+    - Name: needCaculateHitrate
+      Entry: 5
+      Data: false
+    - Name: baseHitRate
+      Entry: 4
+      Data: 0
+    - Name: OnStayCountChange
+      Entry: 6
+      Data: 
+    - Name: statCalculatetype
+      Entry: 3
+      Data: 0
+    - Name: executeTime
+      Entry: 3
+      Data: 5
+    - Name: sourceObject
+      Entry: 3
+      Data: 0
+    - Name: baseStat
+      Entry: 3
+      Data: 0
+    - Name: excuteStat
+      Entry: 3
+      Data: 3
+    - Name: value
+      Entry: 4
+      Data: -50
+    - Name: canCrit
+      Entry: 5
+      Data: false
+    - Name: canDef
+      Entry: 5
+      Data: false
+    - Name: canMulti
+      Entry: 5
+      Data: false
+    - Name: sourceData
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: specialEffect
+      Entry: 6
+      Data: 
+  icon: {fileID: 0}
+  key: def -50
+  displayedName: 
+  prefab: {fileID: 0}
+  desc: 
+  note: 
+  effectType: 1
+--- !u!114 &-1409722200362235436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b03cda9de31fca43a273cb607bc24e3, type: 3}
+  m_Name: hp +90
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 21300012, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: statModifier
+      Entry: 7
+      Data: 0|StatModifierEffect, Assembly-CSharp
+    - Name: icon
+      Entry: 10
+      Data: 0
+    - Name: effectName
+      Entry: 1
+      Data: "\u7ED9\u81EA\u5DF1\u56DE90\u8840"
+    - Name: description
+      Entry: 1
+      Data: "\u7ED9\u81EA\u5DF1\u56DE90\u8840"
+    - Name: stayCount
+      Entry: 3
+      Data: 0
+    - Name: needCaculateHitrate
+      Entry: 5
+      Data: false
+    - Name: baseHitRate
+      Entry: 4
+      Data: 0
+    - Name: OnStayCountChange
+      Entry: 6
+      Data: 
+    - Name: statCalculatetype
+      Entry: 3
+      Data: 0
+    - Name: executeTime
+      Entry: 3
+      Data: 0
+    - Name: sourceObject
+      Entry: 3
+      Data: 0
+    - Name: baseStat
+      Entry: 3
+      Data: 0
+    - Name: excuteStat
+      Entry: 3
+      Data: 0
+    - Name: value
+      Entry: 4
+      Data: 90
+    - Name: canCrit
+      Entry: 5
+      Data: true
+    - Name: canDef
+      Entry: 5
+      Data: false
+    - Name: canMulti
+      Entry: 5
+      Data: false
+    - Name: sourceData
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: specialEffect
+      Entry: 6
+      Data: 
+  icon: {fileID: 0}
+  key: hp +90
+  displayedName: 
+  prefab: {fileID: 0}
+  desc: 
+  note: 
+  effectType: 1
+--- !u!114 &-1316289956520362249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b03cda9de31fca43a273cb607bc24e3, type: 3}
+  m_Name: speed -50%
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 2392802615079106282, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: statModifier
+      Entry: 7
+      Data: 0|StatModifierEffect, Assembly-CSharp
+    - Name: icon
+      Entry: 10
+      Data: 0
+    - Name: effectName
+      Entry: 1
+      Data: "\u901F\u5EA6\u964D\u4F4E"
+    - Name: description
+      Entry: 1
+      Data: "\u901F\u5EA6\u964D\u4F4E"
+    - Name: stayCount
+      Entry: 3
+      Data: 2
+    - Name: needCaculateHitrate
+      Entry: 5
+      Data: false
+    - Name: baseHitRate
+      Entry: 4
+      Data: 0
+    - Name: OnStayCountChange
+      Entry: 6
+      Data: 
+    - Name: statCalculatetype
+      Entry: 3
+      Data: 1
+    - Name: executeTime
+      Entry: 3
+      Data: 5
+    - Name: sourceObject
+      Entry: 3
+      Data: 1
+    - Name: baseStat
+      Entry: 3
+      Data: 4
+    - Name: excuteStat
+      Entry: 3
+      Data: 4
+    - Name: value
+      Entry: 4
+      Data: -0.5
+    - Name: canCrit
+      Entry: 5
+      Data: false
+    - Name: canDef
+      Entry: 5
+      Data: false
+    - Name: canMulti
+      Entry: 5
+      Data: false
+    - Name: sourceData
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: specialEffect
+      Entry: 6
+      Data: 
+  icon: {fileID: 0}
+  key: speed -50%
+  displayedName: 
+  prefab: {fileID: 0}
+  desc: 
+  note: 
+  effectType: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927a61084ec688e498f5ddbaa8645025, type: 3}
+  m_Name: "\u6280\u80FD\u6548\u679C"
+  m_EditorClassIdentifier: Assembly-CSharp::EntityCreator
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: type
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: EffectConfigData, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+  datas:
+  - {fileID: -5668304598886410287}
+  - {fileID: -3326183664943967092}
+  - {fileID: -1409722200362235436}
+  - {fileID: 9067456828917890805}
+  - {fileID: -1316289956520362249}
+  - {fileID: -8328164826558358575}
+  - {fileID: 1748040263752676371}
+--- !u!114 &1748040263752676371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b03cda9de31fca43a273cb607bc24e3, type: 3}
+  m_Name: "\u9020\u6210\u653B\u51FB100%\u4F24\u5BB3"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: statModifier
+      Entry: 7
+      Data: 0|StatModifierEffect, Assembly-CSharp
+    - Name: icon
+      Entry: 6
+      Data: 
+    - Name: effectName
+      Entry: 1
+      Data: "100%\u4F24\u5BB3"
+    - Name: description
+      Entry: 1
+      Data: "100%\u4F24\u5BB3"
+    - Name: stayCount
+      Entry: 3
+      Data: 0
+    - Name: needCaculateHitrate
+      Entry: 5
+      Data: false
+    - Name: baseHitRate
+      Entry: 4
+      Data: 0
+    - Name: OnStayCountChange
+      Entry: 6
+      Data: 
+    - Name: statCalculatetype
+      Entry: 3
+      Data: 1
+    - Name: executeTime
+      Entry: 3
+      Data: 0
+    - Name: sourceObject
+      Entry: 3
+      Data: 0
+    - Name: baseStat
+      Entry: 3
+      Data: 2
+    - Name: excuteStat
+      Entry: 3
+      Data: 0
+    - Name: value
+      Entry: 4
+      Data: -1
+    - Name: canCrit
+      Entry: 5
+      Data: true
+    - Name: canDef
+      Entry: 5
+      Data: true
+    - Name: canMulti
+      Entry: 5
+      Data: false
+    - Name: sourceData
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: specialEffect
+      Entry: 6
+      Data: 
+  icon: {fileID: 0}
+  key: "\u9020\u6210\u653B\u51FB100%\u4F24\u5BB3"
+  displayedName: 
+  prefab: {fileID: 0}
+  desc: 
+  note: 
+  effectType: 1
+--- !u!114 &9067456828917890805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b03cda9de31fca43a273cb607bc24e3, type: 3}
+  m_Name: hp -90 in ActionEnd
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 21300012, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: statModifier
+      Entry: 7
+      Data: 0|StatModifierEffect, Assembly-CSharp
+    - Name: icon
+      Entry: 10
+      Data: 0
+    - Name: effectName
+      Entry: 1
+      Data: "\u4E2D\u6BD2"
+    - Name: description
+      Entry: 1
+      Data: "\u4E2D\u6BD2"
+    - Name: stayCount
+      Entry: 3
+      Data: 2
+    - Name: needCaculateHitrate
+      Entry: 5
+      Data: false
+    - Name: baseHitRate
+      Entry: 4
+      Data: 0
+    - Name: OnStayCountChange
+      Entry: 6
+      Data: 
+    - Name: statCalculatetype
+      Entry: 3
+      Data: 0
+    - Name: executeTime
+      Entry: 3
+      Data: 2
+    - Name: sourceObject
+      Entry: 3
+      Data: 0
+    - Name: baseStat
+      Entry: 3
+      Data: 0
+    - Name: excuteStat
+      Entry: 3
+      Data: 0
+    - Name: value
+      Entry: 4
+      Data: -90
+    - Name: canCrit
+      Entry: 5
+      Data: false
+    - Name: canDef
+      Entry: 5
+      Data: false
+    - Name: canMulti
+      Entry: 5
+      Data: false
+    - Name: sourceData
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: specialEffect
+      Entry: 6
+      Data: 
+  icon: {fileID: 0}
+  key: hp -90 in ActionEnd
+  displayedName: 
+  prefab: {fileID: 0}
+  desc: 
+  note: 
+  effectType: 1

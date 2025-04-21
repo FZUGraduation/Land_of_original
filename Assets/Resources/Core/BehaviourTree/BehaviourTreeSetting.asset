@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a8eee827030b8641bd80ae787f9c6c6, type: 3}
+  m_Name: BehaviourTreeSetting
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: CopyNode
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[JLBehaviourTree.BehaviourTree.BtNodeBase,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|JLBehaviourTree.BehaviourTree.SetObjectActive, Assembly-CSharp
+    - Name: Guid
+      Entry: 1
+      Data: 72278d5e-5d9a-4195-9f62-3ec12978a9e1
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 669
+    - Name: 
+      Entry: 4
+      Data: 1042
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: NodeType
+      Entry: 3
+      Data: 4
+    - Name: NodeState
+      Entry: 3
+      Data: 0
+    - Name: className
+      Entry: 1
+      Data: SetObjectActive
+    - Name: NodeName
+      Entry: 1
+      Data: "\u7981\u7528capsule"
+    - Name: _isActive
+      Entry: 5
+      Data: true
+    - Name: _particle
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _colorAll
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.8584906
+    - Name: 
+      Entry: 4
+      Data: 0.433294773
+    - Name: 
+      Entry: 4
+      Data: 0.433294773
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _textColorAll
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+  compositeColor: {r: 0.85882354, g: 0.6862234, b: 0.43137255, a: 1}
+  preconditionColor: {r: 0.19517621, g: 0.65105504, b: 0.8113208, a: 1}
+  actionColor: {r: 0.47113168, g: 0.85882354, b: 0.43137255, a: 1}
+  compositeTextColor: {r: 0, g: 0, b: 0, a: 1}
+  preconditionTextColor: {r: 0, g: 0, b: 0, a: 1}
+  actionTextColor: {r: 0, g: 0, b: 0, a: 1}

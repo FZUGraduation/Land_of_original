@@ -1,0 +1,157 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3405040946529050232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f8ac6786b815b24f8f408aa56f2e386, type: 3}
+  m_Name: "\u5929\u8D4B4"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  icon: {fileID: -2784360641354068651, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+  key: "\u5929\u8D4B4"
+  displayedName: 
+  prefab: {fileID: 0}
+  desc: 999
+  note: 
+  needPoint: 1
+  preTalents:
+  - {fileID: 6907849050467208971}
+  - {fileID: 7604463465776363985}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927a61084ec688e498f5ddbaa8645025, type: 3}
+  m_Name: "\u5929\u8D4B"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: type
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: TalentConfigData, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+  datas:
+  - {fileID: 1400290224794341222}
+  - {fileID: 6907849050467208971}
+  - {fileID: 7604463465776363985}
+  - {fileID: -3405040946529050232}
+--- !u!114 &1400290224794341222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f8ac6786b815b24f8f408aa56f2e386, type: 3}
+  m_Name: "\u5929\u8D4B1"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  icon: {fileID: 21300030, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+  key: "\u5929\u8D4B1"
+  displayedName: 
+  prefab: {fileID: 0}
+  desc: 123
+  note: 
+  needPoint: 1
+  preTalents: []
+--- !u!114 &6907849050467208971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f8ac6786b815b24f8f408aa56f2e386, type: 3}
+  m_Name: "\u5929\u8D4B2"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  icon: {fileID: -3926732445724006039, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+  key: "\u5929\u8D4B2"
+  displayedName: 
+  prefab: {fileID: 0}
+  desc: 456
+  note: 
+  needPoint: 1
+  preTalents:
+  - {fileID: 1400290224794341222}
+--- !u!114 &7604463465776363985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f8ac6786b815b24f8f408aa56f2e386, type: 3}
+  m_Name: "\u5929\u8D4B3"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  icon: {fileID: -6767189036249922706, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+  key: "\u5929\u8D4B3"
+  displayedName: 
+  prefab: {fileID: 0}
+  desc: 789
+  note: 
+  needPoint: 1
+  preTalents:
+  - {fileID: 1400290224794341222}

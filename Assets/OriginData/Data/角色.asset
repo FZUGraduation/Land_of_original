@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9042137834704335089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7fe5391939646d4e8a87c43a1cd6554, type: 3}
+  m_Name: Hero2
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  icon: {fileID: 3522114207008994751, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+  key: Hero2
+  displayedName: Hero2
+  prefab: {fileID: 9193012399868693732, guid: c9e2298451a85f0438b5b16a3e8f356d, type: 3}
+  desc: 
+  note: "\u540C\u4E00\u4E2A\u89D2\u8272\u7684skill\u7684\u540D\u5B57\u4E0D\u80FD\u4E00\u6837"
+  modelPrefab: {fileID: 9193012399868693732, guid: 59da422a397e05147a7da12b34e7e00f,
+    type: 3}
+  hp: 500
+  mp: 1
+  atk: 100
+  def: 1
+  speed: 120
+  critRate: 0.831
+  critDamage: 1.5
+  hitRate: 0.2
+  skills:
+  - {fileID: 9218938522647048434, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
+  - {fileID: -2493689293589992625, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
+  - {fileID: -65826455168272949, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
+--- !u!114 &-3769399315172018368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7fe5391939646d4e8a87c43a1cd6554, type: 3}
+  m_Name: Hero1
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  icon: {fileID: -1967778827127649970, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+  key: Hero1
+  displayedName: Hero1
+  prefab: {fileID: 9193012399868693732, guid: c9e2298451a85f0438b5b16a3e8f356d, type: 3}
+  desc: 
+  note: "\u540C\u4E00\u4E2A\u89D2\u8272\u7684skill\u7684\u540D\u5B57\u4E0D\u80FD\u4E00\u6837"
+  modelPrefab: {fileID: 9193012399868693732, guid: 59da422a397e05147a7da12b34e7e00f,
+    type: 3}
+  hp: 500
+  mp: 1
+  atk: 100
+  def: 1
+  speed: 120
+  critRate: 0.831
+  critDamage: 1.5
+  hitRate: 0.2
+  skills:
+  - {fileID: 9218938522647048434, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
+  - {fileID: -2493689293589992625, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
+  - {fileID: -65826455168272949, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927a61084ec688e498f5ddbaa8645025, type: 3}
+  m_Name: "\u89D2\u8272"
+  m_EditorClassIdentifier: Assembly-CSharp::EntityCreator
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: type
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: HeroConfigData, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+  datas:
+  - {fileID: -3769399315172018368}
+  - {fileID: -9042137834704335089}
+  - {fileID: 7038608289869744488}
+--- !u!114 &7038608289869744488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7fe5391939646d4e8a87c43a1cd6554, type: 3}
+  m_Name: Hero3
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  icon: {fileID: -562402834258348876, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+  key: Hero3
+  displayedName: Hero3
+  prefab: {fileID: 9193012399868693732, guid: c9e2298451a85f0438b5b16a3e8f356d, type: 3}
+  desc: 
+  note: "\u540C\u4E00\u4E2A\u89D2\u8272\u7684skill\u7684\u540D\u5B57\u4E0D\u80FD\u4E00\u6837"
+  modelPrefab: {fileID: 9193012399868693732, guid: e0bcaae5e6e4b3c41a3787aff54f989a,
+    type: 3}
+  hp: 500
+  mp: 1
+  atk: 100
+  def: 1
+  speed: 120
+  critRate: 0.831
+  critDamage: 1.5
+  hitRate: 0.2
+  skills:
+  - {fileID: 9218938522647048434, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
+  - {fileID: -2493689293589992625, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
+  - {fileID: -65826455168272949, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}

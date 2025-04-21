@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927a61084ec688e498f5ddbaa8645025, type: 3}
+  m_Name: "\u5BF9\u8BDD\u4EBA\u7269"
+  m_EditorClassIdentifier: Assembly-CSharp::EntityCreator
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: type
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: TalkPeopleConfigData, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+  datas:
+  - {fileID: 507164878133279125}
+  - {fileID: 4482615294390416954}
+--- !u!114 &507164878133279125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17408045e460b8e40b98456854bd1338, type: 3}
+  m_Name: people1
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  icon: {fileID: 21300022, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+  key: people1
+  displayedName: 
+  prefab: {fileID: 0}
+  desc: 
+  note: 
+  headIcon: {fileID: 21300022, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+--- !u!114 &4482615294390416954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17408045e460b8e40b98456854bd1338, type: 3}
+  m_Name: people2
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  icon: {fileID: 21300024, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+  key: people2
+  displayedName: 
+  prefab: {fileID: 0}
+  desc: 
+  note: 
+  headIcon: {fileID: 21300024, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}

@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: f0bb02edde3b00a44836ae79e0b35563
+  m_SerializeEntries:
+  - m_GUID: 38486222398a3e14080a258861bd7c2f
+    m_Address: "Assets/OriginData/Data/\u89D2\u8272.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ConfigData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f4b6ab7e55bb3874c91216bc6faa0963
+    m_Address: "Assets/OriginData/Data/\u5173\u5361.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ConfigData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dc35c79302e108a409247c20a1a969eb
+    m_Address: "Assets/OriginData/Data/\u5BF9\u8BDD.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ConfigData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e900af0bcf05e954e890d34232863fc4
+    m_Address: "Assets/OriginData/Data/\u5BF9\u8BDD\u4EBA\u7269.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ConfigData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bfdaf790d5f3623498e7d0572b3833e1
+    m_Address: "Assets/OriginData/Data/\u654C\u4EBA.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ConfigData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe542afaf58f1744f8f9b0527d6db0ee
+    m_Address: "Assets/OriginData/Data/\u6570\u503C.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ConfigData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9efc7c755a2170649b9b2f115f275ddf
+    m_Address: "Assets/OriginData/Data/\u6280\u80FD\u6548\u679C.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ConfigData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b5f0d8d41da55c24cb77812ec87d2668
+    m_Address: "Assets/OriginData/Data/\u7269\u54C1.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ConfigData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a88ec62fad2757b428723438e3448603
+    m_Address: "Assets/OriginData/Data/\u5929\u8D4B.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ConfigData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5c7941a406be7a542aada958581a00fb
+    m_Address: "Assets/OriginData/Data/\u5C40\u5916\u6210\u957F.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ConfigData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 819c1f36b5701524ba2d8241a99c068d
+    m_Address: "Assets/OriginData/Data/\u6280\u80FD.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ConfigData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a14711850a59975438e0bc7dfb586f5f
+    m_Address: "Assets/OriginData/Data/\u88C5\u5907.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ConfigData
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 30a58112c19947e4280db9e59e695f64, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 3d446361f8eabaf479ddc94a9b2b987f, type: 2}
+    - {fileID: 11400000, guid: 309fe2acdfefdcd45ba0bf8c54edf543, type: 2}
