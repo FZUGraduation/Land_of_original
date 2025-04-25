@@ -10,15 +10,12 @@ Shader "URP/Cartoon/PixelizeObject3"
     	[Toggle(_EMISSION)]_EMISSION("Enable Emission",int) = 0
     	[HDR] _EmissionColor("Color", Color) = (0,0,0)
     	_EmissionMap("Emission", 2D) = "white" {}
-        
-        [Header(MatCap)]
-        _MatCap("Mat Cap",2D) = "white"{}
-        _MatCapLerp("MatCapLerp",Range(0,1)) = 1
-        
+
          [Header(Diffuse)]
     	[IntRange]_Shades("Shades Value",Range(2,10)) = 3
     	_DarkLimit("Dark Limitation",Range(0,1)) = 0
         _SmoothValue("Smooth Value",Range(0,0.1)) = 0
+    	_AdditionalLightRange("Additional Light Range",Range(0,25)) = 1
        
         [Header(Outline)]
         _OutlineColor("Outline Color",Color) = (0.0,0.0,0.0,1.0)
@@ -39,6 +36,8 @@ Shader "URP/Cartoon/PixelizeObject3"
     	[Header(DownSample)]
     	[IntRange]_DownSampleValue("Down Sample Value",Range(0,5)) = 0
     	[Toggle(_EnableObjectCenterPoint)]_EnableObjectCenterPoint("Enable Object Center Point",float) = 0.0
+    	
+    	
     }
     
     SubShader
@@ -67,7 +66,6 @@ Shader "URP/Cartoon/PixelizeObject3"
             float _SmoothValue;
 	         float _Shades;
 	         float _DarkLimit;
-            float _MatCapLerp;
             float4 _MainTex_ST;
 
 			int _DownSampleValue;
@@ -85,6 +83,8 @@ Shader "URP/Cartoon/PixelizeObject3"
 			float4 _EmissionMap_ST;
 
 			int _ID;
+
+			float _AdditionalLightRange;
             //----------变量声明结束-----------
             CBUFFER_END
          
@@ -437,9 +437,6 @@ Shader "URP/Cartoon/PixelizeObject3"
             //----------贴图声明开始-----------
             TEXTURE2D(_MainTex);//定义贴图
             SAMPLER(sampler_MainTex);//定义采样器
-            TEXTURE2D(_MatCap);
-            SAMPLER(sampler_MatCap);
-            
             //----------贴图声明结束-----------
             
             struct vertexInput
@@ -476,8 +473,35 @@ Shader "URP/Cartoon/PixelizeObject3"
                 float nDotl = dot(nDir,lDir);
                 float lambert = max(0,nDotl);
                 float halfLambert = nDotl*0.5+0.5;
-                half3 result = halfLambert*lightRadience*lerp(0.5,1,shadow);
+                float result = halfLambert*lightRadience*lerp(0.5,1,shadow);
                 return result;
+            }
+
+            float CalculateMainShades(float diffuse, float shades)
+            {
+	            float lastValue = saturate(ceil(diffuse*shades-1.0)/shades);
+            	float currentValue = saturate(ceil(diffuse*shades)/shades);
+            	float limitMinValue = currentValue-_SmoothValue-0.0000001f;
+            	float limtMaxValue = currentValue;
+            	float newMinValue = lastValue;
+            	float newMaxValue = currentValue;
+            	diffuse = max(limitMinValue,diffuse);
+            	diffuse = remap(diffuse,limitMinValue,limtMaxValue,lastValue,newMaxValue);
+            	float darkLimit = _DarkLimit*rcp(shades);
+            	float result = saturate(lerp(darkLimit,1+rcp(shades),diffuse));
+            	return result;
+            }
+            
+            float CalculateAdditionalShades(float lightRadience)
+            {
+            	float realAddtionalLightrange = rcp(_AdditionalLightRange+0.0000001);
+            	float result = 0;
+            	float mask1 = saturate(step(10*realAddtionalLightrange,lightRadience));
+            	float mask2 = saturate(step(2.5*realAddtionalLightrange,lightRadience))-mask1;
+            	float mask3 = saturate(step(1.2*realAddtionalLightrange,lightRadience))-mask2-mask1;
+            	float mask4 = saturate(step(0.7*realAddtionalLightrange,lightRadience))-mask3-mask2-mask1;
+            	result = mask1*1 + mask2 * 0.5 + mask3*0.25 + mask4*0.125;
+            	return result;
             }
             
             half4 frag (vertexOutput i) : SV_TARGET
@@ -490,49 +514,33 @@ Shader "URP/Cartoon/PixelizeObject3"
                 float3 lDir = mainLight.direction;
                 float3 vDir = normalize(_WorldSpaceCameraPos.xyz - i.posWS.xyz);
                 float3 hDir = normalize(lDir+vDir);
-
-                float3 nDirVS = TransformWorldToViewDir(i.nDirWS);
-                half3 matcap = SAMPLE_TEXTURE2D(_MatCap,sampler_MatCap,abs(nDirVS.xy*0.5+0.5)).rgb;
-
+            	
                 half4 mainTex = SAMPLE_TEXTURE2D(_MainTex,sampler_MainTex,i.uv*_MainTex_ST.xy+_MainTex_ST.zw);
                 half4 albedo = _BaseColor*mainTex;
             	
                 float mainLightRadiance = mainLight.distanceAttenuation;
                 float mainDiffuse = CalculateDiffuseLightResult(nDir,lDir,mainLightRadiance,mainLight.shadowAttenuation);
+            	half3 MainDiffuse = CalculateMainShades(mainDiffuse,_Shades)*albedo;
 
-                uint lightCount = GetAdditionalLightsCount();
-            	float additionalDiffuse = half3(0,0,0);
-            	float additionalSpecular = half3(0,0,0);
+            	uint lightCount = GetAdditionalLightsCount();
+            	half3 AdditionalDiffuse = half3(0,0,0);
 				for (uint lightIndex = 0; lightIndex < lightCount; lightIndex++)
 				{
 				    Light additionalLight = GetAdditionalLight(lightIndex, i.posWS, 1);
 					half3 additionalLightColor = additionalLight.color;
 					float3 additionalLightDir = additionalLight.direction;
 					// 光照衰减和阴影系数
-                    float additionalLightRadiance =  additionalLight.distanceAttenuation;
-					float perDiffuse = CalculateDiffuseLightResult(nDir,additionalLightDir,additionalLightRadiance,additionalLight.shadowAttenuation);
-				    additionalDiffuse += perDiffuse;
+                    float additionalLightRadiance =  additionalLight.distanceAttenuation*additionalLight.shadowAttenuation;
+					float perDiffuse = CalculateAdditionalShades(additionalLightRadiance);//CalculateDiffuseLightResult(nDir,additionalLightDir,additionalLightRadiance,additionalLight.shadowAttenuation);
+				    AdditionalDiffuse += perDiffuse*additionalLightColor;
 				}
-
-                float diffuse = mainDiffuse+additionalDiffuse;
-               
-            	float shades = _Shades;
-            	float lastValue = saturate(ceil(diffuse*shades-1.0)/shades);
-            	float currentValue = saturate(ceil(diffuse*shades)/shades);
-            	float limitMinValue = currentValue-_SmoothValue-0.0000001f;
-            	float limtMaxValue = currentValue;
-            	float newMinValue = lastValue;
-            	float newMaxValue = currentValue;
-            	diffuse = max(limitMinValue,diffuse);
-            	diffuse = remap(diffuse,limitMinValue,limtMaxValue,lastValue,newMaxValue);
-            	float darkLimit = _DarkLimit*rcp(shades);
-            	half3 Diffuse = saturate(lerp(darkLimit,1+rcp(shades),diffuse))*albedo;
-                
+            	half3 FinalRGB = MainDiffuse+AdditionalDiffuse;
+            	
                 //NormalLine
                 float3 normalLine = SAMPLE_TEXTURE2D(_NormalLineTexture,sampler_NormalLineTexture,screenPos);
                 half3 normalInline = normalLine.r * _NormalInlineColor.rgb*_NormalInlineColor.a;
                 half3 normalOutline = normalLine.b * _NormalOutlineColor.rgb*_NormalOutlineColor.a;
-                half3 FinalRGB = lerp(1,matcap,_MatCapLerp)*Diffuse;//Matcap+Diffuse
+                
                 
                 #ifdef _EnableNormalInline
                     FinalRGB+= normalInline;
