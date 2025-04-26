@@ -17,6 +17,21 @@ MonoBehaviour:
     layerMask:
       serializedVersion: 2
       m_Bits: 4294967295
+--- !u!114 &-2892500506307103261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78434f8baf84542a196bb6e69aef22d3, type: 3}
+  m_Name: ScreenSpaceReflectionRenderFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    renderPassEvent: 550
 --- !u!114 &-1878332245247344467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,7 +87,10 @@ MonoBehaviour:
   - {fileID: -1878332245247344467}
   - {fileID: -3969750811786523101}
   - {fileID: 6391605734686519363}
-  m_RendererFeatureMap: adc0de57c6d2eee5234ea558ab9ce8c843f056308d8bb358
+  - {fileID: 2596652447135834874}
+  - {fileID: 8638798513119794423}
+  - {fileID: -2892500506307103261}
+  m_RendererFeatureMap: adc0de57c6d2eee5234ea558ab9ce8c843f056308d8bb358fa22ae9ca4290924f794ad347a2de377e375ed581dc6dbd7
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -115,6 +133,24 @@ MonoBehaviour:
   m_CopyDepthMode: 0
   m_AccurateGbufferNormals: 0
   m_IntermediateTextureMode: 1
+--- !u!114 &2596652447135834874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 828a9754f8867d847a3a6b204a18a19c, type: 3}
+  m_Name: DepthNormalsRendererFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    renderPassEvent: 200
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 4294967295
 --- !u!114 &6391605734686519363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,3 +169,18 @@ MonoBehaviour:
     layerMask:
       serializedVersion: 2
       m_Bits: 4294967295
+--- !u!114 &8638798513119794423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3d5ee6d82c2e24eb15a1eed47cfafb, type: 3}
+  m_Name: NormalLineRenderFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    renderPassEvent: 220
