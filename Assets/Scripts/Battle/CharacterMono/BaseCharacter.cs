@@ -149,7 +149,8 @@ public class BaseCharacter : SerializedMonoBehaviour, ISelectable, IFocusable
         if (battleId != characterData.battleID) return;
         _enableFocus = false;
         _enableSelect = false;
-        gameObject.SetActive(false);
+        blackboard.boolDir["dieAnim"] = true;
+        // gameObject.SetActive(false);
     }
 
     private void OnHpChange(int changeValue)

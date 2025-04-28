@@ -108,25 +108,25 @@ namespace JLBehaviourTree.BehaviourTree
         public string desc = "并行节点，同时执行所有子节点，可配置成功/失败条件（如全部成功、多数成功等）。";
         public override BehaviourState Tick()
         {
-            List<BehaviourState> starts = new();
+            List<BehaviourState> states = new();
             for (int i = 0; i < ChildNodes.Count; i++)
             {
-                var start = ChildNodes[i].Tick();
-                switch (start)
+                var state = ChildNodes[i].Tick();
+                switch (state)
                 {
                     case BehaviourState.失败:
                         // ChangeFailState();
                         NodeState = BehaviourState.失败;
                         return NodeState;
                     default:
-                        starts.Add(start);
+                        states.Add(state);
                         break;
                 }
             }
 
-            for (int i = 0; i < starts.Count; i++)
+            for (int i = 0; i < states.Count; i++)
             {
-                if (starts[i] == BehaviourState.执行中)
+                if (states[i] == BehaviourState.执行中)
                 {
                     NodeState = BehaviourState.执行中;
                     return BehaviourState.执行中;
@@ -304,6 +304,7 @@ namespace JLBehaviourTree.BehaviourTree
 
         public override BehaviourState Tick()
         {
+            if(!_particle) return NodeState = BehaviourState.失败;
             _particle.SetActive(_isActive);
             Debug.Log(NodeName + (_isActive ? "启用" : "禁用") + "了" + _particle.name);
             return NodeState = BehaviourState.成功;
