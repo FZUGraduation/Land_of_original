@@ -42,6 +42,11 @@ MonoBehaviour:
     MinValue: 0
     MaxValue: 0
     statType: 0
+  effectView:
+    effectViewPrefab: {fileID: 0}
+    effectViewType: 0
+    destoryOnEnd: 1
+    isLoop: 0
   animationName: 
 --- !u!114 &-65826455168272949
 MonoBehaviour:
@@ -85,6 +90,11 @@ MonoBehaviour:
     MinValue: 0
     MaxValue: 0
     statType: 0
+  effectView:
+    effectViewPrefab: {fileID: 0}
+    effectViewType: 0
+    destoryOnEnd: 1
+    isLoop: 0
   animationName: 
 --- !u!114 &11400000
 MonoBehaviour:
@@ -164,6 +174,11 @@ MonoBehaviour:
     MinValue: 0.5
     MaxValue: 1
     statType: 0
+  effectView:
+    effectViewPrefab: {fileID: 0}
+    effectViewType: 0
+    destoryOnEnd: 1
+    isLoop: 0
   animationName: 
 --- !u!114 &7791752213047137225
 MonoBehaviour:
@@ -207,6 +222,11 @@ MonoBehaviour:
     MinValue: 0
     MaxValue: 0.5
     statType: 0
+  effectView:
+    effectViewPrefab: {fileID: 0}
+    effectViewType: 0
+    destoryOnEnd: 1
+    isLoop: 0
   animationName: 
 --- !u!114 &9218938522647048434
 MonoBehaviour:
@@ -250,4 +270,10 @@ MonoBehaviour:
     MinValue: 0
     MaxValue: 0
     statType: 0
+  effectView:
+    effectViewPrefab: {fileID: 2605454101640574360, guid: e7818958d35d54146a511c2f8e3ce6a8,
+      type: 3}
+    effectViewType: 1
+    destoryOnEnd: 1
+    isLoop: 0
   animationName: 

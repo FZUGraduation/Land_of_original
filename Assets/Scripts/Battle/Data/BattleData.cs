@@ -301,7 +301,7 @@ public class BattleData : BaseEventCenter
         foreach (var target in targets)
         {
             var targetData = GetCharacterData(target);
-            ApplySkillEffects(attackerData, targetData, skillconfig.effects);
+            ApplySkillEffects(attackerData, targetData, skillconfig);
         }
         CurrSkillConfig = null;
         CheckCharacterDeath();
@@ -383,8 +383,23 @@ public class BattleData : BaseEventCenter
         return targets;
     }
 
-    private void ApplySkillEffects(BattleCharacterData attacker, BattleCharacterData target, List<EffectConfigData> effects)
+    private void ApplySkillEffects(BattleCharacterData attacker, BattleCharacterData target, SkillConfigData skillConfig)
     {
+        List<EffectConfigData> effects = skillConfig.effects;
+        if (skillConfig.effectView != null && skillConfig.effectView.effectViewPrefab)
+        {
+            //加载特效
+            string path = "Prefabs/Battle/EffectView";
+            ResourceManager.Instance.LoadAsync<GameObject>(path, (obj) =>
+            {
+                var effectView = GameObject.Instantiate(obj, target.characterMono.transform);
+                effectView.transform.localPosition = Vector3.zero;
+                effectView.transform.localScale = Vector3.one;
+                effectView.transform.localRotation = Quaternion.identity;
+                var skillEffectView = effectView.GetComponent<EffectView>();
+                skillEffectView.SetInfo(skillConfig.effectView, target.characterMono.transform.position);
+            });
+        }
         foreach (var effect in effects)
         {
             if (effect.statModifier != null)//处理数值效果
