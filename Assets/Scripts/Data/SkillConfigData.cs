@@ -26,7 +26,9 @@ public class SkillConfigData : ConfigData
     public bool hasCondition = false; // 是否有释放条件
     [ShowIf("hasCondition"), BoxGroup(EXT_BOX_LEFT)]
     public SkillCondition condition; // 技能释放条件
+    public SkillEffectViewData effectView = null; // 技能特效
     public string animationName = ""; // 技能动画名称
+
     [Tooltip("判断技能释放条件"), BoxGroup(EXT_BOX_LEFT)]
     public bool CheckCondition(BattleCharacterData character, bool checkCondition = true)
     {
@@ -56,6 +58,22 @@ public class SkillCondition
     public float MinValue = 0;
     public float MaxValue = 0;
     public StatType statType = StatType.HP;
+}
+
+[System.Serializable]
+public class SkillEffectViewData
+{
+    public GameObject effectViewPrefab; // 技能特效预制体
+    public EffectViewType effectViewType; // 技能特效类型
+    public bool destoryOnEnd = true; // 是否在技能结束后销毁特效
+    public bool isLoop = false; // 是否循环播放
+}
+
+public enum EffectViewType
+{
+    None,
+    Particle,
+    Renderer,
 }
 
 public enum SkillTarget
