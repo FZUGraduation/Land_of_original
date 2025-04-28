@@ -1,4 +1,4 @@
-Shader "URP/VFX/PixelizeParticleEffect"
+Shader "URP/VFX/SimpleSheild"
 {
     Properties
     {
@@ -6,17 +6,6 @@ Shader "URP/VFX/PixelizeParticleEffect"
         [Enum(UnityEngine.Rendering.BlendMode)] _BlendSrc("Blend Src Factor", float) = 5   //SrcAlpha
         [Enum(UnityEngine.Rendering.BlendMode)] _BlendDst("Blend Dst Factor", float) = 10  //OneMinusSrcAlpha
         [Enum(UnityEngine.Rendering.CullMode)] _CullMode("Cull Mode", float) = 2 //Back
-        
-        [Space(20)]
-        
-        [Header(FrameTexture)]
-        [Toggle(_EnableFrameTexture)] _EnableFrameTexture("Enable Frame Texture",float) = 0
-        _FrameTex("Sprite Frame Texture", 2D) = "white" {}
-        _FrameNum("Frame Num",int) = 24
-        _FrameRow("Frame Row",int) = 5
-        _FrameColumn("Frame Column",int) = 5
-        _FrameSpeed("Frame Speed",Range(0,10)) = 3
-        _FrameOffset("Frame Offset",Range(0,1)) = 0
         
         [Space(20)]
         
@@ -62,22 +51,15 @@ Shader "URP/VFX/PixelizeParticleEffect"
             //----------贴图声明开始-----------
             TEXTURE2D(_MainTex);
             SAMPLER(sampler_MainTex);
-            TEXTURE2D(_FrameTex);
-            SAMPLER(sampler_FrameTex);
             //----------贴图声明结束-----------
             
             CBUFFER_START(UnityPerMaterial)
             //----------变量声明开始-----------
-            int _FrameNum;
-            int _FrameRow;
-            int _FrameColumn;
-            float _FrameSpeed;
             half4 _BaseColor;
             float4 _MainTex_ST;
             float4 _FrameTex_ST;
             float _DownSampleValue;
             float _AlphaClip;
-            float _FrameOffset;
             //----------变量声明结束-----------
             CBUFFER_END
 
@@ -95,6 +77,8 @@ Shader "URP/VFX/PixelizeParticleEffect"
                 float2 uv : TEXCOORD0;
                 float3 nDirWS : TEXCOORD1;
                 float4 color : TEXCOORD2;
+                float3 posWS : TEXCOORD3;
+                float4 screenPos : TEXCOORD4;
             };
 
             vertexOutput vert (vertexInput v)
@@ -105,31 +89,38 @@ Shader "URP/VFX/PixelizeParticleEffect"
                 o.uv = v.uv;
                 o.color = v.color;
                 float3 positionWS = TransformObjectToWorld(v.vertex.xyz);
+                o.posWS = positionWS;
+                o.screenPos = ComputeScreenPos(o.pos);
                 return o;
             }
 
             half4 frag (vertexOutput i) : SV_TARGET
             {
+                float3 cameraPosWS;
+                if (unity_OrthoParams.w)
+                {
+                    float2 ndcPos = i.screenPos.xy/i.screenPos.w*2-1;//map[0,1] -> [-1,1]
+                    float3 viewPos = float3(unity_OrthoParams.xy * ndcPos.xy, 0);
+                    cameraPosWS = mul(UNITY_MATRIX_I_V, float4(viewPos, 1)).xyz;
+                }
+                else
+                {
+                    cameraPosWS = _WorldSpaceCameraPos;
+                }
+                
+                float3 vDir = normalize(cameraPosWS - i.posWS);
+                float3 nDir = i.nDirWS;
+
+                float nDotv = dot(nDir,vDir);
+                return max(0,1-nDotv);
                 
                 float downSampleValue = pow(2,10-_DownSampleValue);
                 float2 centerUV = float2(0.5,0.5)/downSampleValue;
                 float2 pixelizeUV = floor(i.uv*downSampleValue-centerUV)/downSampleValue+centerUV;
-
-                float2 mainTexUV;
-                half4 mainTex;
-                #ifdef _EnableFrameTexture
-                    mainTexUV = pixelizeUV * _FrameTex_ST.xy + _FrameTex_ST.zw;
-                    float perX = 1.0f /_FrameRow;
-                    float perY = 1.0f /_FrameColumn;
-                    float currentIndex = fmod(_Time.z*_FrameSpeed+_FrameOffset*_FrameNum,_FrameNum);
-                    int rowIndex = currentIndex/_FrameRow;
-                    int columnIndex = fmod(currentIndex,_FrameColumn);
-                    float2 realMainTexUV = mainTexUV*float2(perX,perY)+float2(perX*columnIndex,perY*rowIndex);
-                    mainTex =   SAMPLE_TEXTURE2D(_FrameTex, sampler_FrameTex, realMainTexUV);
-                #else
-                    mainTexUV = pixelizeUV *_MainTex_ST.xy+_MainTex_ST.zw;
-                    mainTex = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, mainTexUV);
-                #endif
+                
+                float2 mainTexUV = pixelizeUV *_MainTex_ST.xy+_MainTex_ST.zw;
+                half4 mainTex = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, mainTexUV);
+                
                 half4 albedo = mainTex;
                 clip(albedo.a-_AlphaClip);
                 float4 result = float4(albedo.rgb*i.color.rgb*_BaseColor.rgb,albedo.a);
