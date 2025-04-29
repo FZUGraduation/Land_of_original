@@ -103,7 +103,7 @@ Material:
     - _DarkLimit: 0
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DownSampleValue: 0
+    - _DownSampleValue: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EMISSION: 1
