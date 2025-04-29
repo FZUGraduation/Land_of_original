@@ -28,7 +28,8 @@ public class SkillConfigData : ConfigData
     public SkillCondition condition; // 技能释放条件
     public SkillEffectViewData effectView = null; // 技能特效
     public string animationName = ""; // 技能动画名称
-
+    public float elseAnimTime = 0; // 需要额外等的时间
+    public bool needGotoTargetPos = true; // 是否需要移动到目标位置
     [Tooltip("判断技能释放条件"), BoxGroup(EXT_BOX_LEFT)]
     public bool CheckCondition(BattleCharacterData character, bool checkCondition = true)
     {
@@ -73,6 +74,7 @@ public enum EffectViewType
 {
     None,
     Particle,
+    Bullet,
     Renderer,
 }
 

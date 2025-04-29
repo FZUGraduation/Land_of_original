@@ -17,6 +17,7 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: -8289599882472916812, guid: bfdaf790d5f3623498e7d0572b3833e1, type: 2}
+    - {fileID: -2602840204037222771, guid: bfdaf790d5f3623498e7d0572b3833e1, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -46,7 +47,7 @@ MonoBehaviour:
       Data: 2|BattleEnemyConfigData, Assembly-CSharp
     - Name: enemyConfig
       Entry: 10
-      Data: 0
+      Data: 1
     - Name: position
       Entry: 3
       Data: 1

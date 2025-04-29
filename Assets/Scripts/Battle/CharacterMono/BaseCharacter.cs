@@ -31,8 +31,10 @@ public class BaseCharacter : SerializedMonoBehaviour, ISelectable, IFocusable
     public bool IsInAction() => characterData.ActionType == BattleActionType.InAction && blackboard.boolDir["inAction"];
     public bool IsDeath() => characterData.ActionType == BattleActionType.Dead;
     public bool IsInSkill() => blackboard.boolDir["inSkill"];
+    public virtual string GetCurrSkillName() { return ""; }
     public BattleCharacterData GetBattleData() => characterData;
     public StatValueRuntimeData GetStat(StatType statType) => characterData.GetStat(statType);
+
     protected virtual void OnEnable()
     {
         BattleData.Instance.On(BattleData.BattleStart, OnStartBattle, this);
@@ -55,6 +57,7 @@ public class BaseCharacter : SerializedMonoBehaviour, ISelectable, IFocusable
         blackboard.objectDir["owner"] = this;
         blackboard.objectDir["animator"] = GetComponentInChildren<Animator>();
         blackboard.boolDir["inSkill"] = false;
+        blackboard.boolDir["actionStartNode"] = false;
         blackboard.boolDir["inHero"] = characterData.IsHero;
         BattleData.Instance.Emit(BattleData.GenerateCharacter, characterData, statusBarTransform);
     }
@@ -73,7 +76,7 @@ public class BaseCharacter : SerializedMonoBehaviour, ISelectable, IFocusable
         blackboard.boolDir["inAction"] = true;
         Debug.Log((int)args[0] + "行动开始");
         // 行动时的外发光之类的效果，或者脚底下的光环之类的
-        transform.localScale = Vector3.one * 1.5f;
+        // transform.localScale = Vector3.one * 1.5f;
     }
 
     private void OnActionEnd(object[] obj)

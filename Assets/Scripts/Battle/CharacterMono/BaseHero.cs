@@ -7,7 +7,11 @@ public class BaseHero : BaseCharacter
     public int SkillTargetBattleId => targetBattleId;
 
     /// <summary> 获取当前回合使用的技能名称 </summary>
-    public string GetCurrSkillName() => currSkillName;
+    public override string GetCurrSkillName()
+    {
+        return currSkillName;
+    }
+
     protected override void OnSkillTargetSelect(object[] args)
     {
         base.OnSkillTargetSelect(args);

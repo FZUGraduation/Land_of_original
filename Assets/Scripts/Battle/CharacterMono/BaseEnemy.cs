@@ -11,6 +11,10 @@ public class BaseEnemy : BaseCharacter
 
     // }
 
-
+    public override string GetCurrSkillName()
+    {
+        var enemyData = GetBattleData() as BattleEnemyData;
+        return enemyData.currSkillName;
+    }
 }
 

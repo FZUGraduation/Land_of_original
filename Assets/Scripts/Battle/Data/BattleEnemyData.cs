@@ -8,6 +8,7 @@ public class BattleEnemyData : BattleCharacterData
     public EnemyConfigData enemyConfig;
     public int position;
     public string currSkillName = ""; // 当前使用的技能名称
+    public List<int> currTargets = new(); // 当前技能的目标列表
     public BattleEnemyData(EnemyConfigData enemyConfig, int position, int battleID) : base(battleID)
     {
         this.enemyConfig = enemyConfig;
@@ -40,6 +41,8 @@ public class BattleEnemyData : BattleCharacterData
         base.BeforeAction();
         //回合开始前获得当前回合使用的技能名称
         currSkillName = GetUseSkillName();
+        if (string.IsNullOrEmpty(currSkillName)) return;
+        currTargets = BattleData.Instance.GetEnemySkillTargets(enemyConfig.skills.Find(s => s.key == currSkillName), battleID);
     }
 
     /// <summary> 获取当前回合使用的技能名称 </summary>

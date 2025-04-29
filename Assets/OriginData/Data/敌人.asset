@@ -41,6 +41,47 @@ MonoBehaviour:
   - {fileID: 7791752213047137225, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
   defaultSkillIndex: 0
   level: 0
+--- !u!114 &-2602840204037222771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8adb2641e87d764fae19a706c746c56, type: 3}
+  m_Name: Enemy2
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  icon: {fileID: 21300006, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+  key: Enemy2
+  displayedName: 
+  prefab: {fileID: 4771152712502093131, guid: 2ab809d422c70b24bb4fb81f6760c53e, type: 3}
+  desc: 
+  note: 
+  modelPrefab: {fileID: 0}
+  hp: 200
+  mp: 5
+  atk: 5
+  def: 55
+  speed: 132.1
+  critRate: 0.235
+  critDamage: 1.702
+  hitRate: 0
+  skills:
+  - {fileID: 7068928617378887902, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
+  - {fileID: 7791752213047137225, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
+  defaultSkillIndex: 0
+  level: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,3 +114,4 @@ MonoBehaviour:
       Data: 
   datas:
   - {fileID: -8289599882472916812}
+  - {fileID: -2602840204037222771}

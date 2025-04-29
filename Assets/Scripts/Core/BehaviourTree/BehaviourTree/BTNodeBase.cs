@@ -304,7 +304,7 @@ namespace JLBehaviourTree.BehaviourTree
 
         public override BehaviourState Tick()
         {
-            if(!_particle) return NodeState = BehaviourState.失败;
+            if (!_particle) return NodeState = BehaviourState.失败;
             _particle.SetActive(_isActive);
             Debug.Log(NodeName + (_isActive ? "启用" : "禁用") + "了" + _particle.name);
             return NodeState = BehaviourState.成功;
@@ -362,33 +362,6 @@ namespace JLBehaviourTree.BehaviourTree
     //     }
     // }
 
-    // [NodeLabel("Goto_直线移动")]
-    // public class Goto : BtActionNode
-    // {
-    //     [LabelText("移动的秒速"), SerializeField, FoldoutGroup("@NodeName"), Range(0, 20)]
-    //     private float speed;
-    //     [LabelText("被移动的"), SerializeField, FoldoutGroup("@NodeName")]
-    //     private Transform move;
-    //     [LabelText("目的地"), SerializeField, FoldoutGroup("@NodeName")]
-    //     private Transform destination;
-    //     [LabelText("停止范围"), SerializeField, FoldoutGroup("@NodeName")]
-    //     private float failover;
-    //     public override BehaviourState Tick()
-    //     {
-    //         if (!move || !destination)
-    //         {
-    //             // ChangeFailState();
-    //             return NodeState;
-    //         }
-    //         if (Vector3.Distance(move.position, destination.position) < failover)
-    //         {
-    //             return NodeState = BehaviourState.成功;
-    //         }
-    //         var v = (destination.position - move.position).normalized;
-    //         move.position += v * speed * Time.deltaTime;
-    //         return NodeState = BehaviourState.执行中;
-    //     }
-    // }
 
     // [NodeLabel("DiscoveryTarget_发现目标")]
     // public class DiscoveryTarget : BtPrecondition

@@ -276,8 +276,8 @@ public class BattleData : BaseEventCenter
         int battleID = (int)args[0];
         string skillName = (string)args[1];
         int targetID = (int)args[2];
-
-        SkillConfigData skillconfig = GetCharacterData(battleID).GetSkillConfig(skillName);
+        var characterData = GetCharacterData(battleID);
+        SkillConfigData skillconfig = characterData.GetSkillConfig(skillName);
         if (skillconfig == null)
         {
             Debug.LogError($"技能{skillName}不存在");
@@ -293,7 +293,7 @@ public class BattleData : BaseEventCenter
         }
         else
         {
-            targets = GetEnemySkillTargets(skillconfig, battleID);
+            targets = (characterData as BattleEnemyData).currTargets;//GetEnemySkillTargets(skillconfig, battleID);
         }
 
         Debug.Log($"{battleID}释放技能{skillName}，目标：{string.Join(",", targets)}");
@@ -307,7 +307,7 @@ public class BattleData : BaseEventCenter
         CheckCharacterDeath();
     }
 
-    private List<int> GetEnemySkillTargets(SkillConfigData skillConfig, int battleID)
+    public List<int> GetEnemySkillTargets(SkillConfigData skillConfig, int battleID)
     {
         List<int> targets = new();
         if (skillConfig.target == SkillTarget.Self)

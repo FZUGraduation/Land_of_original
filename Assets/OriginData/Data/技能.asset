@@ -48,6 +48,8 @@ MonoBehaviour:
     destoryOnEnd: 1
     isLoop: 0
   animationName: 
+  elseAnimTime: 0
+  needGotoTargetPos: 1
 --- !u!114 &-65826455168272949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,6 +98,8 @@ MonoBehaviour:
     destoryOnEnd: 1
     isLoop: 0
   animationName: 
+  elseAnimTime: 0
+  needGotoTargetPos: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,7 +183,9 @@ MonoBehaviour:
     effectViewType: 0
     destoryOnEnd: 1
     isLoop: 0
-  animationName: 
+  animationName: Attack1
+  elseAnimTime: 0
+  needGotoTargetPos: 1
 --- !u!114 &7791752213047137225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +233,9 @@ MonoBehaviour:
     effectViewType: 0
     destoryOnEnd: 1
     isLoop: 0
-  animationName: 
+  animationName: Attack1
+  elseAnimTime: 0
+  needGotoTargetPos: 0
 --- !u!114 &9218938522647048434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,3 +285,5 @@ MonoBehaviour:
     destoryOnEnd: 1
     isLoop: 0
   animationName: 
+  elseAnimTime: 0
+  needGotoTargetPos: 1

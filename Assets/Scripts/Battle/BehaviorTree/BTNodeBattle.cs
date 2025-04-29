@@ -14,18 +14,27 @@ owner->BaseCharacter
 animator->Animator
 */
 [NodeLabel("Battle_ActionStart_行动开始")]
-public class ActionStart : BtActionNode
+public class ActionStart : BtPrecondition
 {
     public override BehaviourState Tick()
     {
-        if (blackboard.boolDir["ActionStart"])
+        if (blackboard.boolDir["actionStartNode"])
         {
-            return NodeState = BehaviourState.成功;
+            return NodeState = ChildNode.Tick();
         }
         blackboard.boolDir["actionStartNode"] = true;
         //判断身上是否有一些特殊状态
         var character = blackboard.objectDir["owner"] as BaseCharacter;
-        return NodeState = BehaviourState.成功;
+        if (character == null) return NodeState = BehaviourState.失败;
+
+        var battleData = character.GetBattleData();
+        if (battleData.GetSpecialEffectValue(SpecialEffectType.Sleep) != null)
+        {
+            Debug.Log(battleData.battleID + " 被睡眠了，不能行动");
+            return NodeState = BehaviourState.失败;
+        }
+
+        return NodeState = ChildNode.Tick();
     }
 }
 
@@ -137,6 +146,7 @@ public class WaitAnimation : BtPrecondition
 {
     [FoldoutGroup("@NodeName"), LabelText("动画名称")]
     public string animationName;
+    public bool isSkill = false;
     [LabelText("额外延时"), SerializeField, FoldoutGroup("@NodeName")]
     private float elseTimer = 0.1f;
     private float clipLength;
@@ -145,6 +155,16 @@ public class WaitAnimation : BtPrecondition
     private AnimatorClipInfo clipInfo;
     public override BehaviourState Tick()
     {
+        if (isSkill)
+        {
+            var character = blackboard.objectDir["owner"] as BaseCharacter;
+            var skillConfig = character.GetBattleData().GetSkillConfig(character.GetCurrSkillName());
+            if (skillConfig != null)
+            {
+                animationName = skillConfig.animationName;
+                elseTimer = skillConfig.elseAnimTime;
+            }
+        }
         if (string.IsNullOrEmpty(animationName))
         {
             Debug.Log("animationName is null or empty");
@@ -196,5 +216,116 @@ public class WaitAnimation : BtPrecondition
             }
         }
         return NodeState = BehaviourState.执行中;
+    }
+}
+
+[NodeLabel("Goto_直线移动")]
+public class Goto : BtActionNode
+{
+    [LabelText("移动的秒速"), SerializeField, FoldoutGroup("@NodeName"), Range(0, 20)]
+    private float speed;
+    [LabelText("被移动的"), SerializeField, FoldoutGroup("@NodeName")]
+    private Transform move;
+    [LabelText("目的地"), SerializeField, FoldoutGroup("@NodeName")]
+    private Transform destination;
+    [LabelText("停止范围"), SerializeField, FoldoutGroup("@NodeName")]
+    private float failover;
+    public override BehaviourState Tick()
+    {
+        var character = blackboard.objectDir["owner"] as BaseCharacter;
+
+        if (!move)
+        {
+            move = character.transform;
+        }
+        if (!destination)
+        {
+            var skillConfig = character.GetBattleData().GetSkillConfig(character.GetCurrSkillName());
+            if (skillConfig != null && !skillConfig.needGotoTargetPos)
+            {
+                return NodeState = BehaviourState.成功;//如果不需要移动，则直接返回成功
+            }
+            blackboard.objectDir["startPosition"] = move.position;
+            blackboard.objectDir["startRotation"] = move.rotation;
+            var animator = blackboard.objectDir["animator"] as Animator;
+            animator.Play("Run");
+            int targetID = (character.GetBattleData() as BattleEnemyData).currTargets[0];
+            var target = BattleData.Instance.GetCharacterData(targetID).characterMono.transform;
+            if (target == null) return NodeState = BehaviourState.失败;
+            destination = target;
+            character.transform.LookAt(destination.position);
+        }
+        if (Vector3.Distance(move.position, destination.position) < failover)
+        {
+            destination = null;
+            return NodeState = BehaviourState.成功;
+        }
+        var v = (destination.position - move.position).normalized;
+        move.position += v * speed * Time.deltaTime;
+        return NodeState = BehaviourState.执行中;
+    }
+}
+
+[NodeLabel("GoBack_对应Goto")]
+public class GotBack : BtActionNode
+{
+    public float jumpHeight = 2f; // 跳跃高度
+    public float jumpDuration = 1f; // 跳跃时间
+    private bool isInit = false;
+    private bool isJumping = false;
+    private Vector3 startPosition;
+    private Vector3 targetPosition;
+    private float elapsedTime = 0f;
+    public override BehaviourState Tick()
+    {
+        var character = blackboard.objectDir["owner"] as BaseCharacter;
+        var animator = blackboard.objectDir["animator"] as Animator;
+        if (!isInit)
+        {
+            var skillConfig = character.GetBattleData().GetSkillConfig(character.GetCurrSkillName());
+            if (skillConfig != null && !skillConfig.needGotoTargetPos)
+            {
+                return NodeState = BehaviourState.成功;//如果不需要移动，则直接返回成功
+            }
+
+            isInit = true;
+            animator.Play("Jump");
+            elapsedTime = 0f;
+            startPosition = character.transform.position;
+            targetPosition = (Vector3)blackboard.objectDir["startPosition"];
+            isJumping = true;
+        }
+        if (isJumping)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / jumpDuration;
+
+            // 计算水平位置
+            Vector3 horizontalPosition = Vector3.Lerp(startPosition, targetPosition, t);
+
+            // 计算垂直位置（抛物线）
+            float verticalOffset = jumpHeight * Mathf.Sin(Mathf.PI * t);
+
+            // 更新物体位置
+            character.transform.position = horizontalPosition + Vector3.up * verticalOffset;
+
+            // 结束跳跃
+            if (t >= 1f)
+            {
+                isJumping = false;
+            }
+        }
+        if (!isJumping)
+        {
+            isInit = false;
+            animator.Play("Idle");
+            character.transform.position = targetPosition;
+            character.transform.rotation = (Quaternion)blackboard.objectDir["startRotation"];
+            return NodeState = BehaviourState.成功;
+        }
+        else
+        {
+            return NodeState = BehaviourState.执行中;
+        }
     }
 }

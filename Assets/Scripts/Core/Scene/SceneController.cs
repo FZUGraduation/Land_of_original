@@ -20,6 +20,7 @@ public class SceneController : MonoBehaviour
     {
         var saveRuntime = new SaveSlotData();
         saveRuntime.AddHero("Hero1");
+        saveRuntime.AddHero("Hero2");
         SaveSlotData.ReplaceInstance(saveRuntime);
 
         BattleData.Init(level);
