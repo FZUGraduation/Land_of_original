@@ -11,8 +11,8 @@ public class PixelizeObject : ScriptableRendererFeature
     {
         public LayerMask layerMask;
     }
-    private static readonly RenderPassEvent pixelizeObjectMaskPassEvent = RenderPassEvent.BeforeRenderingPrePasses;
-    private static readonly RenderPassEvent pixelizeObjectClearCartoonRenderPassEvent = RenderPassEvent.BeforeRenderingPrePasses;
+    private static readonly RenderPassEvent pixelizeObjectMaskPassEvent = RenderPassEvent.AfterRenderingPrePasses;
+    private static readonly RenderPassEvent pixelizeObjectClearCartoonRenderPassEvent = RenderPassEvent.AfterRenderingPrePasses;
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
      
     //PixelizeObjectMaskPass
@@ -23,8 +23,8 @@ public class PixelizeObject : ScriptableRendererFeature
         private List<ShaderTagId> shaderTagsList = new List<ShaderTagId>();
         
         //定义一个 ProfilingSampler 方便设置在FrameDebugger里查看
-        private const string ProfilerTag = "PixelizeObjectMaskPass";
-        private ProfilingSampler m_ProfilingSampler = new("PixelizeObjectMask");
+        private const string ProfilerTag = "Pixelize Object Mask Pass";
+        private ProfilingSampler m_ProfilingSampler = new("Pixelize Object Mask");
         
         private RTHandle cameraColorRTHandle;//可以理解为GameView_RenderTarget的句柄
         private RTHandle depthTarget;
@@ -46,7 +46,6 @@ public class PixelizeObject : ScriptableRendererFeature
             if (desc.msaaSamples>1)
             {
                 desc.bindMS = true;
-                desc.msaaSamples = 2;
             }
             else
             {
@@ -93,9 +92,6 @@ public class PixelizeObject : ScriptableRendererFeature
                 //确保执行前清空
                 context.ExecuteCommandBuffer(cmd);
                 cmd.Clear();
-                var depthParams = new RenderStateBlock(RenderStateMask.Depth);
-                DepthState depthState = new DepthState(writeEnabled: true, CompareFunction.LessEqual);
-                depthParams.depthState = depthState;
             
                 SortingCriteria sortingCriteria = SortingCriteria.CommonOpaque;
                 var draw = CreateDrawingSettings(shaderTagsList, ref renderingData, sortingCriteria);
@@ -120,7 +116,7 @@ public class PixelizeObject : ScriptableRendererFeature
         }
     }
     
-        //Pixelize VFX Mask Pass
+    //Pixelize VFX Mask Pass
     class PixelizeVFXMaskPass : ScriptableRenderPass
     {
         private RenderingData renderingData;
@@ -198,9 +194,6 @@ public class PixelizeObject : ScriptableRendererFeature
                 //确保执行前清空
                 context.ExecuteCommandBuffer(cmd);
                 cmd.Clear();
-                var depthParams = new RenderStateBlock(RenderStateMask.Depth);
-                DepthState depthState = new DepthState(writeEnabled: true, CompareFunction.LessEqual);
-                depthParams.depthState = depthState;
             
                 SortingCriteria sortingCriteria = SortingCriteria.CommonOpaque;
                 var draw = CreateDrawingSettings(shaderTagsList, ref renderingData, sortingCriteria);
@@ -233,8 +226,8 @@ public class PixelizeObject : ScriptableRendererFeature
         private List<ShaderTagId> shaderTagsList = new List<ShaderTagId>();
         
         //定义一个 ProfilingSampler 方便设置在FrameDebugger里查看
-        private const string ProfilerTag = "PixelizeObjectCartoonPass";
-        private ProfilingSampler m_ProfilingSampler = new("PixelizeObjectCartoonPass");
+        private const string ProfilerTag = "Pixelize Object Cartoon Pass";
+        private ProfilingSampler m_ProfilingSampler = new("Pixelize Object Cartoon Pass");
         
 
         private RTHandle cameraColorRTHandle;
@@ -244,7 +237,7 @@ public class PixelizeObject : ScriptableRendererFeature
         //自定义Pass的构造函数(用于传参)
         public PixelizeObjectCartoonPass(Settings settings)
         {
-            filtering = new FilteringSettings(RenderQueueRange.all);//设置过滤器
+            filtering = new FilteringSettings(RenderQueueRange.all, settings.layerMask);//设置过滤器
             shaderTagsList.Add(new ShaderTagId("PixelizeObjectCartoonPass"));
             shaderTagsList.Add(new ShaderTagId("PixelizeObjectOutlinePass"));
             renderPassEvent = pixelizeObjectClearCartoonRenderPassEvent;
@@ -258,7 +251,6 @@ public class PixelizeObject : ScriptableRendererFeature
             if (desc.msaaSamples>1)
             {
                 desc.bindMS = true;
-                desc.msaaSamples = 2;
             }
             else
             {
@@ -305,6 +297,7 @@ public class PixelizeObject : ScriptableRendererFeature
                 //确保执行前清空
                 context.ExecuteCommandBuffer(cmd);
                 cmd.Clear();
+                
                 SortingCriteria sortingCriteria = SortingCriteria.CommonOpaque;
                 var draw = CreateDrawingSettings(shaderTagsList, ref renderingData, sortingCriteria);
                 context.DrawRenderers(renderingData.cullResults, ref draw, ref filtering);
@@ -330,7 +323,7 @@ public class PixelizeObject : ScriptableRendererFeature
         }
     }
     
-    //PixelizeObjectCartoonPass
+    //PixelizeVFXCartoonPass
     class PixelizeVFXCartoonPass : ScriptableRenderPass
     {
         private RenderingData renderingData;
@@ -349,7 +342,7 @@ public class PixelizeObject : ScriptableRendererFeature
         //自定义Pass的构造函数(用于传参)
         public PixelizeVFXCartoonPass(Settings settings)
         {
-            filtering = new FilteringSettings(RenderQueueRange.all);//设置过滤器
+            filtering = new FilteringSettings(RenderQueueRange.all,settings.layerMask);//设置过滤器
             shaderTagsList.Add(new ShaderTagId("PixelizeVFXCartoonPass"));
             renderPassEvent = pixelizeObjectClearCartoonRenderPassEvent;
         }
@@ -362,7 +355,6 @@ public class PixelizeObject : ScriptableRendererFeature
             if (desc.msaaSamples>1)
             {
                 desc.bindMS = true;
-                desc.msaaSamples = 2;
             }
             else
             {
@@ -442,8 +434,8 @@ public class PixelizeObject : ScriptableRendererFeature
         private List<ShaderTagId> shaderTagsList = new List<ShaderTagId>();
         
         //定义一个 ProfilingSampler 方便设置在FrameDebugger里查看
-        private const string ProfilerTag = "PixelizeObjectCartoonPass_EditorMode";
-        private ProfilingSampler m_ProfilingSampler = new("PixelizeObjectCartoonPass_EditorMode");
+        private const string ProfilerTag = "Pixelize Object Cartoon Pass_EditorMode";
+        private ProfilingSampler m_ProfilingSampler = new("Pixelize Object Cartoon Pass_EditorMode");
         
 
         private RTHandle cameraColorRTHandle;
@@ -467,7 +459,6 @@ public class PixelizeObject : ScriptableRendererFeature
             if (desc.msaaSamples>1)
             {
                 desc.bindMS = true;
-                desc.msaaSamples = 2;
             }
             else
             {
@@ -538,36 +529,35 @@ public class PixelizeObject : ScriptableRendererFeature
         }
     }
     
-    
     //-------------------------------------------------------------------------------------------------------
-    private PixelizeObjectCartoonPass pixelizeObjectCartoonPass;
     private PixelizeObjectMaskPass pixelizeObjectMaskPass;
+    private PixelizeObjectCartoonPass pixelizeObjectCartoonPass;
     private PixelizeObjectCartoonForDebugPass_EditorMode pixelizeObjectCartoonPass_EditorMode;
     
-    private PixelizeVFXCartoonPass pixelizeVFXCartoonPass;
     private PixelizeVFXMaskPass pixelizeVFXMaskPass;
+    private PixelizeVFXCartoonPass pixelizeVFXCartoonPass;
     public Settings settings = new Settings();
     
     //初始化时调用
     public override void Create()
     {
-        pixelizeObjectCartoonPass = new PixelizeObjectCartoonPass(settings);
         pixelizeObjectMaskPass = new PixelizeObjectMaskPass(settings);
+        pixelizeObjectCartoonPass = new PixelizeObjectCartoonPass(settings);
         pixelizeObjectCartoonPass_EditorMode = new PixelizeObjectCartoonForDebugPass_EditorMode(settings);
 
-        pixelizeVFXCartoonPass = new PixelizeVFXCartoonPass(settings);
         pixelizeVFXMaskPass = new PixelizeVFXMaskPass(settings);
+        pixelizeVFXCartoonPass = new PixelizeVFXCartoonPass(settings);
     }
     
     //每帧调用,将pass添加进流程
     public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
     {
-        renderer.EnqueuePass(pixelizeObjectCartoonPass_EditorMode);
         renderer.EnqueuePass(pixelizeObjectMaskPass);
         renderer.EnqueuePass(pixelizeObjectCartoonPass);
+        renderer.EnqueuePass(pixelizeObjectCartoonPass_EditorMode);
         
-        renderer.EnqueuePass(pixelizeVFXCartoonPass);
         renderer.EnqueuePass(pixelizeVFXMaskPass);
+        renderer.EnqueuePass(pixelizeVFXCartoonPass);
     }
 
     //每帧调用,渲染目标初始化后的回调。这允许在创建并准备好目标后从渲染器访问目标
@@ -577,20 +567,20 @@ public class PixelizeObject : ScriptableRendererFeature
         pixelizeObjectCartoonPass.Setup(renderer.cameraColorTargetHandle,renderingData);
         pixelizeObjectCartoonPass_EditorMode.Setup(renderer.cameraColorTargetHandle,renderingData);
         
-        pixelizeVFXCartoonPass.Setup(renderer.cameraColorTargetHandle,renderingData);
         pixelizeVFXMaskPass.Setup(renderer.cameraColorTargetHandle,renderingData);
+        pixelizeVFXCartoonPass.Setup(renderer.cameraColorTargetHandle,renderingData);
     }
     
     protected override void Dispose(bool disposing)
     {
         base.Dispose(disposing);
         
-        pixelizeObjectCartoonPass.OnDispose();
         pixelizeObjectMaskPass.OnDispose();
+        pixelizeObjectCartoonPass.OnDispose();
         pixelizeObjectCartoonPass_EditorMode.OnDispose();
         
-        pixelizeVFXCartoonPass.OnDispose();
         pixelizeVFXMaskPass.OnDispose();
+        pixelizeVFXCartoonPass.OnDispose();
     }
 }
 
