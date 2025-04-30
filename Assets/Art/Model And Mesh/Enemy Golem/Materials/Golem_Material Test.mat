@@ -15,6 +15,7 @@ Material:
   - _EMISSION
   - _EnableInline
   - _EnableObjectCenterPoint
+  - _EnableShadow
   m_InvalidKeywords:
   - _METALLICGLOSSMAP
   - _METALLICSPECGLOSSMAP
@@ -92,6 +93,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AdditionalLightBlendIntensity: 1
+    - _AdditionalLightRange: 1
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0
@@ -104,7 +107,7 @@ Material:
     - _DarkLimit: 0.32
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DownSampleValue: 1
+    - _DownSampleValue: 2
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EMISSION: 1
@@ -112,6 +115,7 @@ Material:
     - _EnableNormalInline: 0
     - _EnableNormalOutline: 0
     - _EnableObjectCenterPoint: 1
+    - _EnableShadow: 1
     - _EnvironmentReflections: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
