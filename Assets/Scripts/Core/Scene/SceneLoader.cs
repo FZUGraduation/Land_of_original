@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -84,6 +85,7 @@ public class SceneLoader : Singleton<SceneLoader>
         {
             return;
         }
+        DOTween.KillAll();
         if (string.IsNullOrEmpty(currSceneName))
         {
             currSceneName = SceneManager.GetActiveScene().name;

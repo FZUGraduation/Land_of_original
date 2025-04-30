@@ -2,9 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum EnemyState
+{
+    RandomMove,
+    Hate,
+}
+
 public class WorldEnemy : MonoBehaviour
 {
-    public float patrolRadius = 5f; // 巡逻范围半径
+    public float patrolRadius = 10f; // 巡逻范围半径
+    public float hateRadius = 5f; // 攻击范围半径
+    public float attackRadius = 0.01f; // 攻击范围半径
     public float moveSpeed = 2f; // 移动速度
     public float minIdleTime = 1f; // 最小停顿时间
     public float maxIdleTime = 3f; // 最大停顿时间
@@ -14,9 +22,12 @@ public class WorldEnemy : MonoBehaviour
     private bool isMoving = false; // 是否正在移动
     private float idleTimer = 0f; // 停顿计时器
     private Animator animator; // 动画控制器
-
+    private EnemyState currentState = EnemyState.RandomMove; // 当前状态
+    private GameObject player; // 玩家对象
     void Start()
     {
+        // 获取玩家对象（假设玩家对象有一个标签为"Player"）
+        player = GameObject.FindGameObjectWithTag("Player");
         startPosition = transform.position;
         animator = GetComponentInChildren<Animator>();
         SetNewTargetPosition();
@@ -24,8 +35,31 @@ public class WorldEnemy : MonoBehaviour
 
     void Update()
     {
-        RandomMove();
+        if (currentState == EnemyState.RandomMove)
+        {
+            RandomMove();
+            // 检查与玩家的距离
+            if (Vector3.Distance(transform.position, player.transform.position) < hateRadius)
+            {
+                // 切换到仇恨状态
+                currentState = EnemyState.Hate;
+                animator?.Play("Walk"); // 播放攻击动画
+            }
+        }
+        else if (currentState == EnemyState.Hate)
+        {
+            GotoPlayer();
+            // 检查与玩家的距离
+            if (Vector3.Distance(transform.position, player.transform.position) > hateRadius + 1)
+            {
+                // 切换到巡逻状态
+                currentState = EnemyState.RandomMove;
+                animator?.Play("Idle"); // 播放攻击动画
+                isMoving = false; // 停止移动
+            }
+        }
     }
+
 
     private void RandomMove()
     {
@@ -63,6 +97,26 @@ public class WorldEnemy : MonoBehaviour
         }
     }
 
+    private void GotoPlayer()
+    {
+        // 移动到玩家位置
+        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+
+        // 调整朝向
+        Vector3 direction = player.transform.position - transform.position;
+        if (direction.magnitude > 0.1f) // 避免零向量
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f); // 平滑旋转
+        }
+        if (Vector3.Distance(transform.position, player.transform.position) < attackRadius)
+        {
+            // 切换到攻击状态
+            Debug.Log("攻击玩家！" + Vector3.Distance(transform.position, player.transform.position));
+            GameManager.Instance.GoToBattle(levelName);
+        }
+    }
+
     private void SetNewTargetPosition()
     {
         // 在巡逻范围内随机生成一个目标位置
@@ -78,10 +132,10 @@ public class WorldEnemy : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            BattleData.Init(levelName);
-            SceneLoader.Instance.LoadScene(SceneLoader.battleScene);
-        }
+        // if (collision.gameObject.CompareTag("Player"))
+        // {
+        //     BattleData.Init(levelName);
+        //     SceneLoader.Instance.LoadScene(SceneLoader.battleScene);
+        // }
     }
 }

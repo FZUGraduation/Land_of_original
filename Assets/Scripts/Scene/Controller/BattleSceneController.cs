@@ -9,6 +9,7 @@ public class BattleSceneController : SceneController
     private List<BattlePos> activeHeroPos = new();
     void Awake()
     {
+        BattleData.Instance.On(BattleData.ExitBattle, ExitBattle, this);
         InitBattle();
     }
 

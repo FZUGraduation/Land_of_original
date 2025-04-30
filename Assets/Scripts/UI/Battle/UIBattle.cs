@@ -49,6 +49,7 @@ public class UIBattle : MonoBehaviour
         BattleData.Instance.On(BattleData.RemoveEffect, OnRemoveEffect, this);
         BattleData.Instance.On(BattleData.CharacterDeath, OnCharacterDeath, this);
         BattleData.Instance.On(BattleData.MPChange, OnMPChange, this);
+        BattleData.Instance.On(BattleData.BattleEnd, OnBattleEnd, this);
     }
 
     public void OnEnable()
@@ -64,6 +65,12 @@ public class UIBattle : MonoBehaviour
 
         BattleData.Instance.Emit(BattleData.BattleStart);
         BattleData.Instance.Emit(BattleData.ActionNext);
+    }
+
+    private void OnBattleEnd(object[] args)
+    {
+        bool isWin = (bool)args[0];
+        WindowManager.Instance.ShowDialog(UIDefine.UIBattleOver, UIIndex.STACK, isWin);
     }
 
     private void OnEnemyDetailBtnClick()

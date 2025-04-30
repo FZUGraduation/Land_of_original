@@ -1,8 +1,12 @@
 
+using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class KeepLastPos : MonoBehaviour
 {
+
+    [ReadOnly, SerializeField, Tooltip("唯一标识符")]
     public string guid;
     private void Awake()
     {
@@ -25,6 +29,13 @@ public class KeepLastPos : MonoBehaviour
     {
         FrameEvent.Instance.OffAll(this);
     }
+
+    [Button("生成 GUID")]
+    private void GenerateGUID()
+    {
+        guid = Guid.NewGuid().ToString(); // 生成新的 GUID
+    }
+
     private void OnBeforeSceneLoder()
     {
         SceneLoader.Instance.lastPosDict[guid] = transform.position;
