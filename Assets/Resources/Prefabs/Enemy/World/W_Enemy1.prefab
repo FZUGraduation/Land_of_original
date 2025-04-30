@@ -103,6 +103,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrolRadius: 10
+  hateRadius: 7
+  attackRadius: 1
   moveSpeed: 2
   minIdleTime: 1
   maxIdleTime: 3

@@ -52,7 +52,14 @@ public class BattleData : BaseEventCenter
         mp.OnValueModified += (value) => Emit(MPChange, value);//蓝量变化事件`
     }
     /// <summary> 初始化战斗数据 </summary>
-    public static void Init(string battleLevel) { Instance = new BattleData(battleLevel); }
+    public static void Init(string battleLevel)
+    {
+        if (Instance != null)
+        {
+            return;//说明已经在战斗了
+        }
+        Instance = new BattleData(battleLevel);
+    }
 
     public static void Clear()
     {
@@ -595,7 +602,7 @@ public class BattleData : BaseEventCenter
     public readonly static string RemoveEffect = GetEventName("RemoveEffect");//移除buff,参数1：battleID,参数2：mod
     public readonly static string CharacterDeath = GetEventName("CharacterDeath");//角色死亡,参数1：battleID
     public readonly static string BattleEnd = GetEventName("BattleEnd");//战斗结束,参数1：是否胜利
-
+    public readonly static string ExitBattle = GetEventName("ExitBattle");//退出战斗
     //battleUI事件
     public readonly static string ShowDetail = GetEventName("ShowSkillDetail");//显示技能面板
     public readonly static string HideDetail = GetEventName("HideSkillDetail");//隐藏技能面板

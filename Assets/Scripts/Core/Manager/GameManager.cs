@@ -137,4 +137,10 @@ public class GameManager : SingletonMono<GameManager>
         SaveFilePath = $"{SaveSlotPath}saveslot_{currSaveSlotIndex}.txt";
         ToJsonAndSave(SaveFilePath, global::SaveSlotData.Instance);
     }
+
+    public void GoToBattle(string level = "Level1")
+    {
+        BattleData.Init(level);
+        SceneLoader.Instance.LoadScene(SceneLoader.battleScene);
+    }
 }
