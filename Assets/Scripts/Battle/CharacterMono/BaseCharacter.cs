@@ -1,5 +1,6 @@
 using System;
 using Core.EasyInteractive;
+using DG.Tweening;
 using JLBehaviourTree.BehaviourTree;
 using JLBehaviourTree.ExTools;
 using Sirenix.OdinInspector;
@@ -17,7 +18,8 @@ public class BaseCharacter : SerializedMonoBehaviour, ISelectable, IFocusable
     public Transform statusBarTransform;
     protected BlackBoard blackboard = null;
     protected BattleCharacterData characterData = null;
-    private Renderer selectRenderder = null;
+    private Renderer[] selectRenderder = null;
+    private Color startColor = Color.white;
     public int BattleID
     {
         get => characterData.battleID;
@@ -25,6 +27,7 @@ public class BaseCharacter : SerializedMonoBehaviour, ISelectable, IFocusable
     // 交互相关
     private bool _enableSelect = true;
     private bool _enableFocus = true;
+    private GameObject _signObj = null;
     public bool enableSelect => _enableSelect;
     public bool enableFocus => _enableFocus;
     public Type interactTag => GetType();
@@ -60,6 +63,24 @@ public class BaseCharacter : SerializedMonoBehaviour, ISelectable, IFocusable
         blackboard.boolDir["actionStartNode"] = false;
         blackboard.boolDir["inHero"] = characterData.IsHero;
         BattleData.Instance.Emit(BattleData.GenerateCharacter, characterData, statusBarTransform);
+        // 生成行动标志
+        string path = characterData.IsHero ? "Prefabs/Battle/SignBlue" : "Prefabs/Battle/SignRed";
+        ResourceManager.Instance.LoadAndInstantiate<GameObject>(path, statusBarTransform, (obj) =>
+        {
+            if (obj == null) return;
+            obj.transform.SetParent(transform);
+            obj.transform.localRotation = Quaternion.identity;
+            obj.transform.localScale = Vector3.one;
+            obj.transform.position = statusBarTransform.position + Vector3.up * 0.15f;
+            // 获取当前物体的初始 Y 位置
+            float startY = obj.transform.position.y;
+            // 使用 DoTween 实现上下浮动
+            obj.transform.DOLocalMoveY(startY + 0.5f, 1f)
+                .SetEase(Ease.InOutSine) // 设置缓动效果
+                .SetLoops(-1, LoopType.Yoyo); // 无限循环，Yoyo 模式（往返）
+            _signObj = obj;
+            _signObj.SetActive(false);
+        });
     }
 
     protected void OnStartBattle()
@@ -76,14 +97,14 @@ public class BaseCharacter : SerializedMonoBehaviour, ISelectable, IFocusable
         blackboard.boolDir["inAction"] = true;
         Debug.Log((int)args[0] + "行动开始");
         // 行动时的外发光之类的效果，或者脚底下的光环之类的
-        // transform.localScale = Vector3.one * 1.5f;
+        _signObj.SetActive(true);
     }
 
     private void OnActionEnd(object[] obj)
     {
         int battleID = (int)obj[0];
         if (battleID != characterData.battleID) return;
-        transform.localScale = Vector3.one;
+        _signObj.SetActive(false);
     }
 
     /// <summary>-1：取消选择，1：选择</summary>
@@ -91,16 +112,23 @@ public class BaseCharacter : SerializedMonoBehaviour, ISelectable, IFocusable
     {
         if (selectRenderder == null)
         {
-            selectRenderder = GetComponentInChildren<Renderer>();
+            selectRenderder = GetComponentsInChildren<Renderer>();
+            startColor = selectRenderder[0].material.GetColor("_BaseColor");
         }
         if (selectRenderder == null) return;
         if (type < 0)
         {
-            selectRenderder.material.color = Color.gray;
+            for (int i = 0; i < selectRenderder.Length; i++)
+            {
+                selectRenderder[i].material.SetColor("_BaseColor", startColor);//没选中
+            }
         }
         else if (type > 0)
         {
-            selectRenderder.material.color = Color.yellow;
+            for (int i = 0; i < selectRenderder.Length; i++)
+            {
+                selectRenderder[i].material.SetColor("_BaseColor", Color.yellow);//选中
+            }
         }
         // else if (type == 1)
         // {

@@ -851,10 +851,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 700
+      Data: 702
     - Name: 
       Entry: 4
-      Data: 1065.251
+      Data: 1073
     - Name: 
       Entry: 8
       Data: 
@@ -875,7 +875,7 @@ MonoBehaviour:
       Data: 2
     - Name: jumpDuration
       Entry: 4
-      Data: 1
+      Data: 0.5
     - Name: 
       Entry: 8
       Data: 
