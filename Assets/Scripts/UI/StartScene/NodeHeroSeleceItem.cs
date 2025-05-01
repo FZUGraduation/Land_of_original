@@ -11,13 +11,15 @@ public class NodeHeroSeleceItem : MonoBehaviour
     public TextMeshProUGUI heroName;
     private string heroKey;
     private Action<string> onSelect;
+    private Color defaultColor = Color.white;
     void Start()
     {
+
         GetComponent<Button>().onClick.AddListener(SelectHero);
     }
     public void Init(HeroConfigData data, Action<string> onSelect)
     {
-        background.color = Color.green;
+        defaultColor = background.color;
         heroIcon.sprite = data.icon;
         heroName.text = data.name;
         heroKey = data.key;
@@ -26,11 +28,11 @@ public class NodeHeroSeleceItem : MonoBehaviour
 
     public void SelectHero()
     {
-        background.color = Color.red;
+        background.color = Color.green;
         onSelect?.Invoke(heroKey);
     }
     public void UnSelectHero()
     {
-        background.color = Color.green;
+        background.color = defaultColor;
     }
 }

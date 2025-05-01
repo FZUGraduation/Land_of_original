@@ -187,8 +187,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: a87d143cace9ca64581a7e24800179bc, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -209,6 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d0d12d9412c3b4f817f12ee6f56c3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canClick: 1
   cellButton: {fileID: 1034473235495739144}
   icon: {fileID: 6342420146599433559}
   bgImage: {fileID: 5187922822438896631}

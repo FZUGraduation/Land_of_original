@@ -8,6 +8,7 @@ public class NodeTalentItem : MonoBehaviour
     public Image icon;
     public Button button;
     public Image bg;
+    public GameObject lockObj;
     void Awake()
     {
         SaveSlotEvent.Instance.On(SaveSlotEvent.UnlockTalent, OnUnlockTalent, this);
@@ -39,7 +40,7 @@ public class NodeTalentItem : MonoBehaviour
     private void RefreshTalentShow()
     {
         bool isUnlock = SaveSlotData.Instance.CheckTalent(talentKey);
-        icon.color = isUnlock ? Color.white : Color.gray;
+        lockObj.SetActive(!isUnlock);
     }
 
     public void OnSelectTalent()

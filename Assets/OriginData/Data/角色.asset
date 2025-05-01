@@ -21,7 +21,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  icon: {fileID: 3522114207008994751, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+  icon: {fileID: 21300000, guid: 2b1e6d9b897aa524a855e44241d101d2, type: 3}
   key: Hero2
   displayedName: Hero2
   prefab: {fileID: 9193012399868693732, guid: c9e2298451a85f0438b5b16a3e8f356d, type: 3}
@@ -41,6 +41,7 @@ MonoBehaviour:
   - {fileID: 9218938522647048434, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
   - {fileID: -2493689293589992625, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
   - {fileID: -65826455168272949, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
+  defaultSkillIndex: 0
 --- !u!114 &-3769399315172018368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,7 +63,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  icon: {fileID: -1967778827127649970, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+  icon: {fileID: 21300000, guid: 38733447088f00744805a7c95ebf9204, type: 3}
   key: Hero1
   displayedName: Hero1
   prefab: {fileID: 9193012399868693732, guid: c9e2298451a85f0438b5b16a3e8f356d, type: 3}
@@ -82,6 +83,7 @@ MonoBehaviour:
   - {fileID: 9218938522647048434, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
   - {fileID: -2493689293589992625, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
   - {fileID: -65826455168272949, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
+  defaultSkillIndex: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,3 +159,4 @@ MonoBehaviour:
   - {fileID: 9218938522647048434, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
   - {fileID: -2493689293589992625, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
   - {fileID: -65826455168272949, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
+  defaultSkillIndex: 0

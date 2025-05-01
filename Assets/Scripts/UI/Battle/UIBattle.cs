@@ -24,6 +24,7 @@ public class UIBattle : MonoBehaviour
     public GameObject statusPrefab;//状态预制体
     public Transform statusRoot;//状态根节点
     public Transform mpBarRoot;//mp根节点
+    public TextMeshProUGUI mpText;//蓝量
     public TextMeshProUGUI roundText;//回合数
     public Button enemyDetailBtn;
     private List<UIActionIcon> actionIconList = new();
@@ -331,6 +332,7 @@ public class UIBattle : MonoBehaviour
             return;
         }
         SetMP((int)mp.ModifiedValue);
+        mpText.text = $"MP: {mp.ModifiedValue}/{mp.MaxValue}";
     }
     private void SetMP(int mp)
     {
@@ -347,7 +349,6 @@ public class UIBattle : MonoBehaviour
             }
         }
     }
-
 }
 
 public struct FlyTextData

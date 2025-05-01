@@ -129,7 +129,7 @@ public class WindowManager : Singleton<WindowManager>
             }
         }
         var preControl = uiDialogues.Count > 0 ? uiDialogues[uiDialogues.Count - 1] : null;
-        if (preControl)
+        if (preControl && preControl.needHide && dialog.needHideOther)
         {
             preControl.OnBeHide();
         }

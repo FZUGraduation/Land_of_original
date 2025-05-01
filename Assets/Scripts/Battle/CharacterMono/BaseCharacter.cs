@@ -18,7 +18,7 @@ public class BaseCharacter : SerializedMonoBehaviour, ISelectable, IFocusable
     public Transform statusBarTransform;
     protected BlackBoard blackboard = null;
     protected BattleCharacterData characterData = null;
-    private Renderer[] selectRenderder = null;
+    // private Renderer[] selectRenderder = null;
     private Color startColor = Color.white;
     public int BattleID
     {
@@ -28,6 +28,7 @@ public class BaseCharacter : SerializedMonoBehaviour, ISelectable, IFocusable
     private bool _enableSelect = true;
     private bool _enableFocus = true;
     private GameObject _signObj = null;
+    private GameObject _selectObj = null;
     public bool enableSelect => _enableSelect;
     public bool enableFocus => _enableFocus;
     public Type interactTag => GetType();
@@ -37,6 +38,11 @@ public class BaseCharacter : SerializedMonoBehaviour, ISelectable, IFocusable
     public virtual string GetCurrSkillName() { return ""; }
     public BattleCharacterData GetBattleData() => characterData;
     public StatValueRuntimeData GetStat(StatType statType) => characterData.GetStat(statType);
+
+    protected virtual void Awake()
+    {
+
+    }
 
     protected virtual void OnEnable()
     {
@@ -54,6 +60,7 @@ public class BaseCharacter : SerializedMonoBehaviour, ISelectable, IFocusable
 
     public void Init(BattleCharacterData characterData)
     {
+        statusBarTransform = transform.Find("statusBar");
         this.characterData = characterData;
         this.characterData.GetStat(StatType.HP).OnBaseValueChanged += OnHpChange;
         blackboard = new BlackBoard();
@@ -80,6 +87,24 @@ public class BaseCharacter : SerializedMonoBehaviour, ISelectable, IFocusable
                 .SetLoops(-1, LoopType.Yoyo); // 无限循环，Yoyo 模式（往返）
             _signObj = obj;
             _signObj.SetActive(false);
+        });
+        // 生成选中标志
+        path = "Prefabs/Battle/SignGreen";
+        ResourceManager.Instance.LoadAndInstantiate<GameObject>(path, statusBarTransform, (obj) =>
+        {
+            if (obj == null) return;
+            obj.transform.SetParent(transform);
+            obj.transform.localRotation = Quaternion.identity;
+            obj.transform.localScale = Vector3.one;
+            obj.transform.position = statusBarTransform.position + Vector3.up * 0.15f;
+            // 获取当前物体的初始 Y 位置
+            float startY = obj.transform.position.y;
+            // 使用 DoTween 实现上下浮动
+            obj.transform.DOLocalMoveY(startY + 0.5f, 1f)
+                .SetEase(Ease.InOutSine) // 设置缓动效果
+                .SetLoops(-1, LoopType.Yoyo); // 无限循环，Yoyo 模式（往返）
+            _selectObj = obj;
+            _selectObj.SetActive(false);
         });
     }
 
@@ -110,30 +135,25 @@ public class BaseCharacter : SerializedMonoBehaviour, ISelectable, IFocusable
     /// <summary>-1：取消选择，1：选择</summary>
     public void OnCharacterSelect(int type)
     {
-        if (selectRenderder == null)
-        {
-            selectRenderder = GetComponentsInChildren<Renderer>();
-            startColor = selectRenderder[0].material.GetColor("_BaseColor");
-        }
-        if (selectRenderder == null) return;
+        if (_selectObj == null) return;
         if (type < 0)
         {
-            for (int i = 0; i < selectRenderder.Length; i++)
+            _selectObj.SetActive(false);
+            blackboard.boolDir["inSelect"] = false;
+            if (characterData.IsHero && IsInAction())
             {
-                selectRenderder[i].material.SetColor("_BaseColor", startColor);//没选中
+                _signObj.SetActive(true);
             }
         }
         else if (type > 0)
         {
-            for (int i = 0; i < selectRenderder.Length; i++)
+            _selectObj.SetActive(true);
+            blackboard.boolDir["inSelect"] = true;
+            if (characterData.IsHero && IsInAction())
             {
-                selectRenderder[i].material.SetColor("_BaseColor", Color.yellow);//选中
+                _signObj.SetActive(false);
             }
         }
-        // else if (type == 1)
-        // {
-        //     selectRenderder.material.color = Color.red;
-        // }
     }
 
     private void OnSkillSelect(object[] objects)

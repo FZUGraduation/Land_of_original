@@ -27,6 +27,7 @@ public class SaveSlotData : RuntimeData
     }
 
     #region SaveData
+    public string saveTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
     private readonly Dictionary<string, bool> storyProgress = new();//用来存储剧情进度
     private int talentPoint = 0;
     private readonly Dictionary<string, bool> unlockTalent = new();//用来存储解锁的天赋
