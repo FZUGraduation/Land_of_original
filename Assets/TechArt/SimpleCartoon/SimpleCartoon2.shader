@@ -202,6 +202,7 @@ Shader "URP/Cartoon/SimpleCartoon2"
                     FinalRGB += normalOutline;
                 #endif
                 
+                //return half4(i.nDirWS,1.0);
                 return half4(FinalRGB,1.0);
             }
             
