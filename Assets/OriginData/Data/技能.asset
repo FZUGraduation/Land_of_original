@@ -186,7 +186,7 @@ MonoBehaviour:
     isLoop: 0
   animationName: Attack1
   elseAnimTime: 0
-  needGotoTargetPos: 1
+  needGotoTargetPos: 0
 --- !u!114 &7791752213047137225
 MonoBehaviour:
   m_ObjectHideFlags: 0
