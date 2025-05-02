@@ -332,20 +332,21 @@ public class UIBattle : MonoBehaviour
             return;
         }
         SetMP((int)mp.ModifiedValue);
-        mpText.text = $"MP: {mp.ModifiedValue}/{mp.MaxValue}";
+
     }
     private void SetMP(int mp)
     {
+        mpText.text = $"MP: {mp}/{7}";
         currMP = mp;
         for (int i = 0; i < mpBarRoot.childCount; i++)
         {
             if (i < mp)
             {
-                mpBarRoot.GetChild(i).gameObject.SetActive(true);
+                mpBarRoot.GetChild(i).GetChild(0).gameObject.SetActive(true);
             }
             else
             {
-                mpBarRoot.GetChild(i).gameObject.SetActive(false);
+                mpBarRoot.GetChild(i).GetChild(0).gameObject.SetActive(false);
             }
         }
     }
