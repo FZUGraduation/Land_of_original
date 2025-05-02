@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MarkAnimationClipAsLegacy
 {
-    [MenuItem("Tools/Mark AnimationClip As Legacy")]
+    [MenuItem("Tools/Editor/Mark AnimationClip As Legacy")]
     static void MarkAsLegacy()
     {
         foreach (Object obj in Selection.objects)

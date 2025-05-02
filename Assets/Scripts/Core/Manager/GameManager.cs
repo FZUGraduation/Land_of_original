@@ -63,11 +63,6 @@ public class GameManager : SingletonMono<GameManager>
         await Datalib.Instance.LoadDataAsync();
     }
 
-    public void testFunction1()
-    {
-        Debug.Log("TestFunction called");
-    }
-
     public bool ToJsonAndSave(string path, object data)
     {
         //同步
@@ -111,6 +106,31 @@ public class GameManager : SingletonMono<GameManager>
             return null;
         }
     }
+
+    public SaveSlotData GetSlotData(int index)
+    {
+        SaveFilePath = $"{SaveSlotPath}saveslot_{index}.txt";
+        if (File.Exists(SaveFilePath))
+        {
+            var saveData = FromJsonAndLoad<SaveSlotData>(SaveFilePath);
+            return saveData;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    public void DeleteSaveSlot(int index)
+    {
+        SaveFilePath = $"{SaveSlotPath}saveslot_{index}.txt";
+        if (File.Exists(SaveFilePath))
+        {
+            File.Delete(SaveFilePath);
+            Debug.Log($"Delete SaveSlot_{index}");
+        }
+    }
+
     public void LoadSaveSlotData(int index)
     {
         SaveFilePath = $"{SaveSlotPath}saveslot_{index}.txt";
@@ -135,6 +155,7 @@ public class GameManager : SingletonMono<GameManager>
     public void SaveSlotData()
     {
         SaveFilePath = $"{SaveSlotPath}saveslot_{currSaveSlotIndex}.txt";
+        global::SaveSlotData.Instance.saveTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         ToJsonAndSave(SaveFilePath, global::SaveSlotData.Instance);
     }
 

@@ -40,6 +40,10 @@ public class UIStartHeroSelect : BaseDialog
 
     private void OnHeroSelect(string heroKey)
     {
+        if (heroKey == selectHeroKey)
+        {
+            return;
+        }
         if (heroItemDic.ContainsKey(selectHeroKey))
         {
             heroItemDic[selectHeroKey].UnSelectHero();

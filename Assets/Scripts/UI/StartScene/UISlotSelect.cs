@@ -18,7 +18,7 @@ public class UISlotSelect : BaseDialog
 
     private void OnSlotSelect(int index)
     {
-        Debug.Log("选择存档：" + index);
+        Debug.Log("选择存档：" + index + 1);
         GameManager.Instance.LoadSaveSlotData(index);
         if (SaveSlotData.Instance.CheckStoryProgress(StoryProgress.heroSelect) == false)
         {

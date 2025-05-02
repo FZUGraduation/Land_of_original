@@ -14,8 +14,12 @@ public class UICharacterShow : BaseDialog
     public ModelRotator rotator;
     public TextMeshProUGUI nameText;
     private List<HeroRuntimeData> herodata;
+    public NodeBagItem headSlot;
+    public NodeBagItem bodySlot;
+    public NodeBagItem legsSlot;
+    public NodeBagItem backSlot;
     public NodeBagItem weaponSlot;
-    public NodeBagItem followerSlot;
+    // public NodeBagItem followerSlot;
     public Dictionary<EquipmentType, NodeBagItem> equipmentSlot = new();
     [FoldoutGroup("Bag")] public GameObject itemPrefab;
     [FoldoutGroup("Bag")] public Transform itemRoot;
@@ -32,8 +36,11 @@ public class UICharacterShow : BaseDialog
     protected override void Start()
     {
         base.Start();
+        equipmentSlot.Add(EquipmentType.Head, headSlot);
+        equipmentSlot.Add(EquipmentType.Body, bodySlot);
+        equipmentSlot.Add(EquipmentType.Legs, legsSlot);
+        equipmentSlot.Add(EquipmentType.Back, backSlot);
         equipmentSlot.Add(EquipmentType.Weapon, weaponSlot);
-        equipmentSlot.Add(EquipmentType.Follower, followerSlot);
         herodata = SaveSlotData.Instance.heroDatas;
         herotableView.Init(herodata, OnCharacterSelected);
         InitBagSlots();
@@ -66,6 +73,7 @@ public class UICharacterShow : BaseDialog
     {
         foreach (var item in equipmentSlot)
         {
+            item.Value.transform.GetChild(2).gameObject.SetActive(true);
             if (selectedHeroData.equipmentData.ContainsKey(item.Key) == false)
             {
                 item.Value.Init(null, OnBagSlotSelect);
@@ -79,6 +87,7 @@ public class UICharacterShow : BaseDialog
             }
             ItemRuntimeData itemData = new(equipKey);
             item.Value.Init(itemData, OnBagSlotSelect);
+            item.Value.transform.GetChild(2).gameObject.SetActive(false);
         }
     }
 
@@ -170,7 +179,15 @@ public class UICharacterShow : BaseDialog
 
     private void OnUnEquipButtonClick()
     {
-        var equipType = selectedItem == equipmentSlot[EquipmentType.Weapon] ? EquipmentType.Weapon : EquipmentType.Follower;
+        var equipType = EquipmentType.None;
+        foreach (var item in equipmentSlot)
+        {
+            if (selectedItem == item.Value)
+            {
+                equipType = item.Key;
+                break;
+            }
+        }
         var oldEquipKey = selectedHeroData.SwitchEquipment(equipType, null);
         if (!string.IsNullOrEmpty(oldEquipKey))
         {

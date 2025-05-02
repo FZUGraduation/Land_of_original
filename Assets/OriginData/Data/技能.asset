@@ -21,7 +21,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  icon: {fileID: 3057905047214039000, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+  icon: {fileID: 21300000, guid: 0f5560b96b400c44cab2dabc291db056, type: 3}
   key: Hero1Skill_2
   displayedName: Hero1Skill_2
   prefab: {fileID: 0}
@@ -71,7 +71,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  icon: {fileID: 6763061955623211119, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+  icon: {fileID: 21300000, guid: 53cff99639470ba4999ae595287143a0, type: 3}
   key: Hero1Skill_3
   displayedName: Hero1Skill_3
   prefab: {fileID: 0}
@@ -157,7 +157,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  icon: {fileID: -5095230640273581963, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+  icon: {fileID: 21300000, guid: a9f04f2f65ed34f45ac6889dfdbd6096, type: 3}
   key: Enemy1Skill1
   displayedName: Enemy1Skill1
   prefab: {fileID: 0}
@@ -208,7 +208,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  icon: {fileID: 1851222492271288986, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+  icon: {fileID: 21300000, guid: f78b0faf31ba4fe47ba26c94e6f55c00, type: 3}
   key: Enemy1Skill2
   displayedName: Enemy1Skill2
   prefab: {fileID: 0}
@@ -258,7 +258,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  icon: {fileID: 5292965025900596926, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+  icon: {fileID: 21300000, guid: 37fea579f7ad11048a0271e708664d5b, type: 3}
   key: Hero1Skill_1
   displayedName: Hero1Skill_1
   prefab: {fileID: 0}

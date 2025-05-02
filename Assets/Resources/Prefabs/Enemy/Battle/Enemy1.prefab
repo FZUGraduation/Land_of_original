@@ -1016,10 +1016,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 1167.46606
+      Data: 1320.16724
     - Name: 
       Entry: 4
-      Data: 1055.50989
+      Data: 733.000061
     - Name: 
       Entry: 8
       Data: 
@@ -1291,7 +1291,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  statusBarTransform: {fileID: 809165457436548362}
+  statusBarTransform: {fileID: 0}
 --- !u!136 &712842209120336149
 CapsuleCollider:
   m_ObjectHideFlags: 0

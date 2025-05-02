@@ -1291,8 +1291,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  statusBarTransform: {fileID: 809165457436548362, guid: c93205f62c9e53745a03c2ed54214df9,
-    type: 3}
+  statusBarTransform: {fileID: 809165457436548362}
 --- !u!136 &712842209120336149
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -1,0 +1,1668 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1391206114899332043
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 809165457436548362}
+  m_Layer: 0
+  m_Name: statusBar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &809165457436548362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391206114899332043}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8440479397295137853}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4771152712502093131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8440479397295137853}
+  - component: {fileID: 5021383144301203473}
+  - component: {fileID: 712842209120336149}
+  m_Layer: 0
+  m_Name: Enemy2_2
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8440479397295137853
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4771152712502093131}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1775307317748941371}
+  - {fileID: 809165457436548362}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5021383144301203473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4771152712502093131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3e928183c7054d419a0fe723f9bd1fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 4771152712502093131, guid: c93205f62c9e53745a03c2ed54214df9, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: TreeData
+      Entry: 7
+      Data: 0|JLBehaviourTree.BehaviourTree.BehaviourTreeData, Assembly-CSharp
+    - Name: IsShow
+      Entry: 5
+      Data: false
+    - Name: Root
+      Entry: 7
+      Data: 1|JLBehaviourTree.BehaviourTree.Sequence, Assembly-CSharp
+    - Name: nodeDes
+      Entry: 6
+      Data: 
+    - Name: Guid
+      Entry: 1
+      Data: 00c7bccd-5f59-474e-a523-906795945154
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 625
+    - Name: 
+      Entry: 4
+      Data: 45.2509956
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: NodeType
+      Entry: 3
+      Data: 2
+    - Name: NodeState
+      Entry: 3
+      Data: 0
+    - Name: className
+      Entry: 1
+      Data: Sequence
+    - Name: NodeName
+      Entry: 1
+      Data: Sequence
+    - Name: ChildNodes
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[JLBehaviourTree.BehaviourTree.BtNodeBase,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 3|JLBehaviourTree.BehaviourTree.Selector, Assembly-CSharp
+    - Name: nodeDes
+      Entry: 6
+      Data: 
+    - Name: Guid
+      Entry: 1
+      Data: a60c7abf-7ebc-4b99-be8f-1ea5520a841c
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 625
+    - Name: 
+      Entry: 4
+      Data: 215.250992
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: NodeType
+      Entry: 3
+      Data: 2
+    - Name: NodeState
+      Entry: 3
+      Data: 0
+    - Name: className
+      Entry: 1
+      Data: Selector
+    - Name: NodeName
+      Entry: 1
+      Data: Selector
+    - Name: ChildNodes
+      Entry: 7
+      Data: 4|System.Collections.Generic.List`1[[JLBehaviourTree.BehaviourTree.BtNodeBase,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 5|JLBehaviourTree.BehaviourTree.So_Blackboard, Assembly-CSharp
+    - Name: nodeDes
+      Entry: 6
+      Data: 
+    - Name: Guid
+      Entry: 1
+      Data: 22947e3e-4747-4598-9f81-87cd73cbce6f
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 200
+    - Name: 
+      Entry: 4
+      Data: 385.250977
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: NodeType
+      Entry: 3
+      Data: 3
+    - Name: NodeState
+      Entry: 3
+      Data: 0
+    - Name: className
+      Entry: 1
+      Data: So_Blackboard
+    - Name: NodeName
+      Entry: 1
+      Data: Death
+    - Name: ChildNode
+      Entry: 7
+      Data: 6|WaitAnimation, Assembly-CSharp
+    - Name: nodeDes
+      Entry: 6
+      Data: 
+    - Name: Guid
+      Entry: 1
+      Data: b17525d8-4451-485c-926d-484d3e757132
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 200
+    - Name: 
+      Entry: 4
+      Data: 555.251
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: NodeType
+      Entry: 3
+      Data: 3
+    - Name: NodeState
+      Entry: 3
+      Data: 0
+    - Name: className
+      Entry: 1
+      Data: WaitAnimation
+    - Name: NodeName
+      Entry: 1
+      Data: DieAnim
+    - Name: ChildNode
+      Entry: 7
+      Data: 7|JLBehaviourTree.BehaviourTree.Parallel, Assembly-CSharp
+    - Name: nodeDes
+      Entry: 6
+      Data: 
+    - Name: Guid
+      Entry: 1
+      Data: 1ef0b0c9-e947-4646-a063-3718d85fedc8
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 200
+    - Name: 
+      Entry: 4
+      Data: 725.251
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: NodeType
+      Entry: 3
+      Data: 2
+    - Name: NodeState
+      Entry: 3
+      Data: 0
+    - Name: className
+      Entry: 1
+      Data: Parallel
+    - Name: NodeName
+      Entry: 1
+      Data: Parallel
+    - Name: ChildNodes
+      Entry: 7
+      Data: 8|System.Collections.Generic.List`1[[JLBehaviourTree.BehaviourTree.BtNodeBase,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 9|JLBehaviourTree.BehaviourTree.SetObjectActive, Assembly-CSharp
+    - Name: nodeDes
+      Entry: 6
+      Data: 
+    - Name: Guid
+      Entry: 1
+      Data: 1260cfb4-be32-4349-97c9-51295c8962f9
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 895.251
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: NodeType
+      Entry: 3
+      Data: 4
+    - Name: NodeState
+      Entry: 3
+      Data: 0
+    - Name: className
+      Entry: 1
+      Data: SetObjectActive
+    - Name: NodeName
+      Entry: 1
+      Data: SetActiveFalse
+    - Name: _isActive
+      Entry: 5
+      Data: false
+    - Name: _particle
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 10|JLBehaviourTree.BehaviourTree.Set_Blackboard, Assembly-CSharp
+    - Name: nodeDes
+      Entry: 6
+      Data: 
+    - Name: Guid
+      Entry: 1
+      Data: df5105e1-553b-4738-876b-b7b5c14239d3
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 200
+    - Name: 
+      Entry: 4
+      Data: 895.251
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: NodeType
+      Entry: 3
+      Data: 4
+    - Name: NodeState
+      Entry: 3
+      Data: 0
+    - Name: className
+      Entry: 1
+      Data: Set_Blackboard
+    - Name: NodeName
+      Entry: 1
+      Data: Set_Blackboard
+    - Name: _key
+      Entry: 1
+      Data: dieAnim
+    - Name: _value
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 11|JLBehaviourTree.BehaviourTree.Set_Blackboard, Assembly-CSharp
+    - Name: nodeDes
+      Entry: 6
+      Data: 
+    - Name: Guid
+      Entry: 1
+      Data: 573cdc97-5d88-4d0e-9834-2d368fe407b1
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 400
+    - Name: 
+      Entry: 4
+      Data: 895.251
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: NodeType
+      Entry: 3
+      Data: 4
+    - Name: NodeState
+      Entry: 3
+      Data: 0
+    - Name: className
+      Entry: 1
+      Data: Set_Blackboard
+    - Name: NodeName
+      Entry: 1
+      Data: Set_Blackboard
+    - Name: _key
+      Entry: 1
+      Data: getHurt
+    - Name: _value
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: desc
+      Entry: 1
+      Data: "\u5E76\u884C\u8282\u70B9\uFF0C\u540C\u65F6\u6267\u884C\u6240\u6709\u5B50\u8282\u70B9\uFF0C\u53EF\u914D\u7F6E\u6210\u529F/\u5931\u8D25\u6761\u4EF6\uFF08\u5982\u5168\u90E8\u6210\u529F\u3001\u591A\u6570\u6210\u529F\u7B49\uFF09\u3002"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: animationName
+      Entry: 1
+      Data: Die
+    - Name: isSkill
+      Entry: 5
+      Data: false
+    - Name: elseTimer
+      Entry: 4
+      Data: -0.2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Key
+      Entry: 1
+      Data: dieAnim
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 12|JLBehaviourTree.BehaviourTree.So_Blackboard, Assembly-CSharp
+    - Name: nodeDes
+      Entry: 6
+      Data: 
+    - Name: Guid
+      Entry: 1
+      Data: b285a00a-04f6-40e5-ac8d-28d2ec63b3c6
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 525
+    - Name: 
+      Entry: 4
+      Data: 385.250977
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: NodeType
+      Entry: 3
+      Data: 3
+    - Name: NodeState
+      Entry: 3
+      Data: 0
+    - Name: className
+      Entry: 1
+      Data: So_Blackboard
+    - Name: NodeName
+      Entry: 1
+      Data: GetHurt
+    - Name: ChildNode
+      Entry: 7
+      Data: 13|WaitAnimation, Assembly-CSharp
+    - Name: nodeDes
+      Entry: 6
+      Data: 
+    - Name: Guid
+      Entry: 1
+      Data: c2a4d985-a6b2-4685-9812-d190dd551d2e
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 525
+    - Name: 
+      Entry: 4
+      Data: 555.251
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: NodeType
+      Entry: 3
+      Data: 3
+    - Name: NodeState
+      Entry: 3
+      Data: 0
+    - Name: className
+      Entry: 1
+      Data: WaitAnimation
+    - Name: NodeName
+      Entry: 1
+      Data: HurtAnim
+    - Name: ChildNode
+      Entry: 7
+      Data: 14|JLBehaviourTree.BehaviourTree.Set_Blackboard, Assembly-CSharp
+    - Name: nodeDes
+      Entry: 6
+      Data: 
+    - Name: Guid
+      Entry: 1
+      Data: 76dcbf0f-cd6e-41fd-9d17-db58f9c38ceb
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 525
+    - Name: 
+      Entry: 4
+      Data: 725.251
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: NodeType
+      Entry: 3
+      Data: 4
+    - Name: NodeState
+      Entry: 3
+      Data: 0
+    - Name: className
+      Entry: 1
+      Data: Set_Blackboard
+    - Name: NodeName
+      Entry: 1
+      Data: Set_Blackboard
+    - Name: _key
+      Entry: 1
+      Data: getHurt
+    - Name: _value
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: animationName
+      Entry: 1
+      Data: GetHurt
+    - Name: isSkill
+      Entry: 5
+      Data: false
+    - Name: elseTimer
+      Entry: 4
+      Data: 0.5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Key
+      Entry: 1
+      Data: getHurt
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 15|JLBehaviourTree.BehaviourTree.So_Blackboard, Assembly-CSharp
+    - Name: nodeDes
+      Entry: 6
+      Data: 
+    - Name: Guid
+      Entry: 1
+      Data: 706f502d-e11e-4f1a-9458-075ff5cb7583
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 850
+    - Name: 
+      Entry: 4
+      Data: 385.250977
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: NodeType
+      Entry: 3
+      Data: 3
+    - Name: NodeState
+      Entry: 3
+      Data: 0
+    - Name: className
+      Entry: 1
+      Data: So_Blackboard
+    - Name: NodeName
+      Entry: 1
+      Data: InAction
+    - Name: ChildNode
+      Entry: 7
+      Data: 16|ActionStart, Assembly-CSharp
+    - Name: nodeDes
+      Entry: 6
+      Data: 
+    - Name: Guid
+      Entry: 1
+      Data: d1923912-66e0-4476-abc6-277b74aef2ce
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 850
+    - Name: 
+      Entry: 4
+      Data: 555.251
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: NodeType
+      Entry: 3
+      Data: 3
+    - Name: NodeState
+      Entry: 3
+      Data: 0
+    - Name: className
+      Entry: 1
+      Data: ActionStart
+    - Name: NodeName
+      Entry: 1
+      Data: ActionStart
+    - Name: ChildNode
+      Entry: 7
+      Data: 17|JLBehaviourTree.BehaviourTree.Selector, Assembly-CSharp
+    - Name: nodeDes
+      Entry: 1
+      Data: "\u9009\u62E9\u4E00\u4E2A\u6280\u80FD\u4F7F\u7528\uFF0C\u5982\u679C\u90FD\u4E0D\u80FD\u4F7F\u7528\u5C31\u76F4\u63A5\u56DE\u5408\u7ED3\u675F"
+    - Name: Guid
+      Entry: 1
+      Data: c656da43-f866-40a3-bda5-39c442d397f5
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 850
+    - Name: 
+      Entry: 4
+      Data: 725.251
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: NodeType
+      Entry: 3
+      Data: 2
+    - Name: NodeState
+      Entry: 3
+      Data: 0
+    - Name: className
+      Entry: 1
+      Data: Selector
+    - Name: NodeName
+      Entry: 1
+      Data: Selector
+    - Name: ChildNodes
+      Entry: 7
+      Data: 18|System.Collections.Generic.List`1[[JLBehaviourTree.BehaviourTree.BtNodeBase,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 19|JLBehaviourTree.BehaviourTree.Sequence, Assembly-CSharp
+    - Name: nodeDes
+      Entry: 6
+      Data: 
+    - Name: Guid
+      Entry: 1
+      Data: f089851d-a76f-4b56-abb1-0f9ee30f7048
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 600
+    - Name: 
+      Entry: 4
+      Data: 895.251
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: NodeType
+      Entry: 3
+      Data: 2
+    - Name: NodeState
+      Entry: 3
+      Data: 0
+    - Name: className
+      Entry: 1
+      Data: Sequence
+    - Name: NodeName
+      Entry: 1
+      Data: Sequence
+    - Name: ChildNodes
+      Entry: 7
+      Data: 20|System.Collections.Generic.List`1[[JLBehaviourTree.BehaviourTree.BtNodeBase,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 4
+    - Name: 
+      Entry: 7
+      Data: 21|Goto, Assembly-CSharp
+    - Name: nodeDes
+      Entry: 6
+      Data: 
+    - Name: Guid
+      Entry: 1
+      Data: 412b33ff-a249-442d-a8eb-f099bf865be8
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 300
+    - Name: 
+      Entry: 4
+      Data: 1065.251
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: NodeType
+      Entry: 3
+      Data: 4
+    - Name: NodeState
+      Entry: 3
+      Data: 0
+    - Name: className
+      Entry: 1
+      Data: Goto
+    - Name: NodeName
+      Entry: 1
+      Data: Goto
+    - Name: speed
+      Entry: 4
+      Data: 10
+    - Name: move
+      Entry: 6
+      Data: 
+    - Name: destination
+      Entry: 6
+      Data: 
+    - Name: failover
+      Entry: 4
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 22|WaitAnimation, Assembly-CSharp
+    - Name: nodeDes
+      Entry: 6
+      Data: 
+    - Name: Guid
+      Entry: 1
+      Data: aa7a3995-6628-4595-9bfe-7c25c6041d13
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 500
+    - Name: 
+      Entry: 4
+      Data: 1065.251
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: NodeType
+      Entry: 3
+      Data: 3
+    - Name: NodeState
+      Entry: 3
+      Data: 0
+    - Name: className
+      Entry: 1
+      Data: WaitAnimation
+    - Name: NodeName
+      Entry: 1
+      Data: WaitAnimation
+    - Name: ChildNode
+      Entry: 7
+      Data: 23|SkillExcute, Assembly-CSharp
+    - Name: nodeDes
+      Entry: 6
+      Data: 
+    - Name: Guid
+      Entry: 1
+      Data: ba7660c2-e25c-456a-8d77-2664380f4e13
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 500
+    - Name: 
+      Entry: 4
+      Data: 1235.251
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: NodeType
+      Entry: 3
+      Data: 4
+    - Name: NodeState
+      Entry: 3
+      Data: 0
+    - Name: className
+      Entry: 1
+      Data: SkillExcute
+    - Name: NodeName
+      Entry: 1
+      Data: SkillExcute
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: animationName
+      Entry: 6
+      Data: 
+    - Name: isSkill
+      Entry: 5
+      Data: true
+    - Name: elseTimer
+      Entry: 4
+      Data: -0.8
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 24|GotBack, Assembly-CSharp
+    - Name: nodeDes
+      Entry: 6
+      Data: 
+    - Name: Guid
+      Entry: 1
+      Data: 59cafd2b-f24f-48f2-8e7d-56b22abb84bd
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 700
+    - Name: 
+      Entry: 4
+      Data: 1065.251
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: NodeType
+      Entry: 3
+      Data: 4
+    - Name: NodeState
+      Entry: 3
+      Data: 0
+    - Name: className
+      Entry: 1
+      Data: GotBack
+    - Name: NodeName
+      Entry: 1
+      Data: GotBack
+    - Name: jumpHeight
+      Entry: 4
+      Data: 2
+    - Name: jumpDuration
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 25|JLBehaviourTree.BehaviourTree.Delay, Assembly-CSharp
+    - Name: nodeDes
+      Entry: 6
+      Data: 
+    - Name: Guid
+      Entry: 1
+      Data: 1610749a-85a3-4f3a-9dd1-cd71474a5a40
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 900
+    - Name: 
+      Entry: 4
+      Data: 1065.251
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: NodeType
+      Entry: 3
+      Data: 3
+    - Name: NodeState
+      Entry: 3
+      Data: 0
+    - Name: className
+      Entry: 1
+      Data: Delay
+    - Name: NodeName
+      Entry: 1
+      Data: Delay
+    - Name: ChildNode
+      Entry: 7
+      Data: 26|ActionEnd, Assembly-CSharp
+    - Name: nodeDes
+      Entry: 6
+      Data: 
+    - Name: Guid
+      Entry: 1
+      Data: d8105464-298d-4d86-86b4-454fb4266084
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 900
+    - Name: 
+      Entry: 4
+      Data: 1235.251
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: NodeType
+      Entry: 3
+      Data: 4
+    - Name: NodeState
+      Entry: 3
+      Data: 0
+    - Name: className
+      Entry: 1
+      Data: ActionEnd
+    - Name: NodeName
+      Entry: 1
+      Data: ActionEnd
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: timer
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _index
+      Entry: 3
+      Data: 0
+    - Name: desc
+      Entry: 1
+      Data: "\u987A\u5E8F\u8282\u70B9\uFF0C\u6309\u987A\u5E8F\u6267\u884C\u5B50\u8282\u70B9\uFF0C\u5168\u90E8\u6210\u529F\u8FD4\u56DE\u6210\u529F\uFF0C\u4EFB\u4E00\u5931\u8D25\u7ACB\u5373\u7EC8\u6B62\u3002"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 27|JLBehaviourTree.BehaviourTree.Delay, Assembly-CSharp
+    - Name: nodeDes
+      Entry: 6
+      Data: 
+    - Name: Guid
+      Entry: 1
+      Data: d4a8224a-e5b9-4333-ab89-18a8d3b06d52
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1100
+    - Name: 
+      Entry: 4
+      Data: 895.251
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: NodeType
+      Entry: 3
+      Data: 3
+    - Name: NodeState
+      Entry: 3
+      Data: 0
+    - Name: className
+      Entry: 1
+      Data: Delay
+    - Name: NodeName
+      Entry: 1
+      Data: Delay
+    - Name: ChildNode
+      Entry: 7
+      Data: 28|ActionEnd, Assembly-CSharp
+    - Name: nodeDes
+      Entry: 6
+      Data: 
+    - Name: Guid
+      Entry: 1
+      Data: 7b9b8208-a9e8-4103-90d7-3459165e367a
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1167.46606
+    - Name: 
+      Entry: 4
+      Data: 1055.50989
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: NodeType
+      Entry: 3
+      Data: 4
+    - Name: NodeState
+      Entry: 3
+      Data: 0
+    - Name: className
+      Entry: 1
+      Data: ActionEnd
+    - Name: NodeName
+      Entry: 1
+      Data: ActionEnd
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: timer
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _index
+      Entry: 3
+      Data: 0
+    - Name: desc
+      Entry: 1
+      Data: "\u9009\u62E9\u8282\u70B9\uFF0C\u6309\u987A\u5E8F\u6267\u884C\u5B50\u8282\u70B9\uFF0C\u76F4\u5230\u627E\u5230\u4E00\u4E2A\u6210\u529F\u7684\u5B50\u8282\u70B9\u540E\u505C\u6B62\u3002"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Key
+      Entry: 1
+      Data: inAction
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _index
+      Entry: 3
+      Data: 0
+    - Name: desc
+      Entry: 1
+      Data: "\u9009\u62E9\u8282\u70B9\uFF0C\u6309\u987A\u5E8F\u6267\u884C\u5B50\u8282\u70B9\uFF0C\u76F4\u5230\u627E\u5230\u4E00\u4E2A\u6210\u529F\u7684\u5B50\u8282\u70B9\u540E\u505C\u6B62\u3002"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _index
+      Entry: 3
+      Data: 0
+    - Name: desc
+      Entry: 1
+      Data: "\u987A\u5E8F\u8282\u70B9\uFF0C\u6309\u987A\u5E8F\u6267\u884C\u5B50\u8282\u70B9\uFF0C\u5168\u90E8\u6210\u529F\u8FD4\u56DE\u6210\u529F\uFF0C\u4EFB\u4E00\u5931\u8D25\u7ACB\u5373\u7EC8\u6B62\u3002"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: NodeData
+      Entry: 7
+      Data: 29|System.Collections.Generic.List`1[[JLBehaviourTree.BehaviourTree.BtNodeBase,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 23
+    - Name: 
+      Entry: 9
+      Data: 1
+    - Name: 
+      Entry: 9
+      Data: 17
+    - Name: 
+      Entry: 9
+      Data: 23
+    - Name: 
+      Entry: 9
+      Data: 19
+    - Name: 
+      Entry: 9
+      Data: 25
+    - Name: 
+      Entry: 9
+      Data: 26
+    - Name: 
+      Entry: 9
+      Data: 28
+    - Name: 
+      Entry: 9
+      Data: 27
+    - Name: 
+      Entry: 9
+      Data: 15
+    - Name: 
+      Entry: 9
+      Data: 12
+    - Name: 
+      Entry: 9
+      Data: 13
+    - Name: 
+      Entry: 9
+      Data: 3
+    - Name: 
+      Entry: 9
+      Data: 14
+    - Name: 
+      Entry: 9
+      Data: 5
+    - Name: 
+      Entry: 9
+      Data: 6
+    - Name: 
+      Entry: 9
+      Data: 10
+    - Name: 
+      Entry: 9
+      Data: 9
+    - Name: 
+      Entry: 9
+      Data: 7
+    - Name: 
+      Entry: 9
+      Data: 11
+    - Name: 
+      Entry: 9
+      Data: 16
+    - Name: 
+      Entry: 9
+      Data: 21
+    - Name: 
+      Entry: 9
+      Data: 24
+    - Name: 
+      Entry: 9
+      Data: 22
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: viewTransform
+      Entry: 7
+      Data: 30|JLBehaviourTree.BehaviourTree.SaveTransform, Assembly-CSharp
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 183
+    - Name: 
+      Entry: 4
+      Data: -107
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: rotation
+      Entry: 7
+      Data: UnityEngine.Quaternion, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: scale
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.571753263
+    - Name: 
+      Entry: 4
+      Data: 0.571753263
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: matrix
+      Entry: 7
+      Data: UnityEngine.Matrix4x4, UnityEngine.CoreModule
+    - Name: m00
+      Entry: 4
+      Data: 0
+    - Name: m10
+      Entry: 4
+      Data: 0
+    - Name: m20
+      Entry: 4
+      Data: 0
+    - Name: m30
+      Entry: 4
+      Data: 0
+    - Name: m01
+      Entry: 4
+      Data: 0
+    - Name: m11
+      Entry: 4
+      Data: 0
+    - Name: m21
+      Entry: 4
+      Data: 0
+    - Name: m31
+      Entry: 4
+      Data: 0
+    - Name: m02
+      Entry: 4
+      Data: 0
+    - Name: m12
+      Entry: 4
+      Data: 0
+    - Name: m22
+      Entry: 4
+      Data: 0
+    - Name: m32
+      Entry: 4
+      Data: 0
+    - Name: m03
+      Entry: 4
+      Data: 0
+    - Name: m13
+      Entry: 4
+      Data: 0
+    - Name: m23
+      Entry: 4
+      Data: 0
+    - Name: m33
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  statusBarTransform: {fileID: 809165457436548362}
+--- !u!136 &712842209120336149
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4771152712502093131}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 3
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.5, z: 0}
+--- !u!1001 &4588904558966148108
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8440479397295137853}
+    m_Modifications:
+    - target: {fileID: 9570659405435317, guid: 66be2fdc6e6244f4fbcd957da0f299c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -0.000012340075
+      objectReference: {fileID: 0}
+    - target: {fileID: 9570659405435317, guid: 66be2fdc6e6244f4fbcd957da0f299c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -0.000012340067
+      objectReference: {fileID: 0}
+    - target: {fileID: 9570659405435317, guid: 66be2fdc6e6244f4fbcd957da0f299c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 14130643250053871, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -0.7956118
+      objectReference: {fileID: 0}
+    - target: {fileID: 14130643250053871, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 2.6903489
+      objectReference: {fileID: 0}
+    - target: {fileID: 14130643250053871, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -11.058631
+      objectReference: {fileID: 0}
+    - target: {fileID: 680038119048655536, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -1.6676387
+      objectReference: {fileID: 0}
+    - target: {fileID: 680038119048655536, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 68.442444
+      objectReference: {fileID: 0}
+    - target: {fileID: 680038119048655536, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -1.4106879
+      objectReference: {fileID: 0}
+    - target: {fileID: 1773830085624299548, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1773830085624299548, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484044792361555845, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -0.03455639
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484044792361555845, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -89.99754
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484044792361555845, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -98.03509
+      objectReference: {fileID: 0}
+    - target: {fileID: 2813686519377350199, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2813686519377350199, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2813686519377350199, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2813686519377350199, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2813686519377350199, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2813686519377350199, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2813686519377350199, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2813686519377350199, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2813686519377350199, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2813686519377350199, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2976683273042541467, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -59.513706
+      objectReference: {fileID: 0}
+    - target: {fileID: 2976683273042541467, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -179.55972
+      objectReference: {fileID: 0}
+    - target: {fileID: 2976683273042541467, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 159.68602
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078738346094793783, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0.0000021951769
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078738346094793783, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0.0000031040674
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078738346094793783, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 19.492582
+      objectReference: {fileID: 0}
+    - target: {fileID: 3190774324637897869, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_Name
+      value: Nexus Robot
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275484956828200655, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -38.653034
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275484956828200655, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 169.26161
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275484956828200655, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -50.219902
+      objectReference: {fileID: 0}
+    - target: {fileID: 3832548538612439961, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 33.97756
+      objectReference: {fileID: 0}
+    - target: {fileID: 3832548538612439961, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -152.71347
+      objectReference: {fileID: 0}
+    - target: {fileID: 3832548538612439961, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -39.715942
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066527271316924664, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -0.0000008563085
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066527271316924664, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0.000056849272
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066527271316924664, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -22.422752
+      objectReference: {fileID: 0}
+    - target: {fileID: 4079612502230555789, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -59.6852
+      objectReference: {fileID: 0}
+    - target: {fileID: 4079612502230555789, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 169.12933
+      objectReference: {fileID: 0}
+    - target: {fileID: 4079612502230555789, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 162.16022
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232450722036822941, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0.4362344
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232450722036822941, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -3.5926142
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232450722036822941, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -20.890282
+      objectReference: {fileID: 0}
+    - target: {fileID: 5705976687525342569, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 62.798973
+      objectReference: {fileID: 0}
+    - target: {fileID: 5705976687525342569, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -176.07195
+      objectReference: {fileID: 0}
+    - target: {fileID: 5705976687525342569, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 168.2326
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233859619759006142, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 3.266982
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233859619759006142, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -70.1719
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233859619759006142, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 10.83754
+      objectReference: {fileID: 0}
+    - target: {fileID: 6449772454738329473, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 64.50575
+      objectReference: {fileID: 0}
+    - target: {fileID: 6449772454738329473, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -177.31165
+      objectReference: {fileID: 0}
+    - target: {fileID: 6449772454738329473, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 166.40169
+      objectReference: {fileID: 0}
+    - target: {fileID: 7351867570579866975, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 10.014566
+      objectReference: {fileID: 0}
+    - target: {fileID: 7351867570579866975, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 25.34137
+      objectReference: {fileID: 0}
+    - target: {fileID: 7351867570579866975, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -30.591803
+      objectReference: {fileID: 0}
+    - target: {fileID: 7548257357926122210, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -46.32773
+      objectReference: {fileID: 0}
+    - target: {fileID: 7548257357926122210, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -63.181454
+      objectReference: {fileID: 0}
+    - target: {fileID: 7548257357926122210, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -66.850266
+      objectReference: {fileID: 0}
+    - target: {fileID: 9141667266332518521, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 35.27953
+      objectReference: {fileID: 0}
+    - target: {fileID: 9141667266332518521, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 55.65873
+      objectReference: {fileID: 0}
+    - target: {fileID: 9141667266332518521, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -59.574127
+      objectReference: {fileID: 0}
+    - target: {fileID: 9198631997222976854, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -0.000016962122
+      objectReference: {fileID: 0}
+    - target: {fileID: 9198631997222976854, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0.000015221027
+      objectReference: {fileID: 0}
+    - target: {fileID: 9198631997222976854, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 151.91618
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 66be2fdc6e6244f4fbcd957da0f299c0, type: 3}
+--- !u!4 &1775307317748941371 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2813686519377350199, guid: 66be2fdc6e6244f4fbcd957da0f299c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 4588904558966148108}
+  m_PrefabAsset: {fileID: 0}

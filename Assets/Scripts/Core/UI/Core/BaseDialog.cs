@@ -18,6 +18,10 @@ public class BaseDialog : MonoBehaviour
     public Button closeBtn;
     [FoldoutGroup("BaseDialog"), Tooltip("是否渐显")]
     public bool isFadeIn = true;
+    [FoldoutGroup("BaseDialog"), Tooltip("有新界面时是否需要被隐藏")]
+    public bool needHide = true;
+    [FoldoutGroup("BaseDialog"), Tooltip("出现时是否需要隐藏上级窗口")]
+    public bool needHideOther = true;
     // [FoldoutGroup("BaseDialog"), Tooltip("是否渐隐")]
     // public bool isFadeOut = true;
 
@@ -114,7 +118,8 @@ public class BaseDialog : MonoBehaviour
     /// <summary>界面因为另一个界面的显示而需要隐藏时的处理,由windowmanager调用</summary>
     public virtual void OnBeHide()
     {
-        gameObject.SetActive(false);
+        if (needHide)
+            gameObject.SetActive(false);
     }
     /// <summary>界面回到最上级时由windowmanager调用</summary>
     public virtual void OnBackToTop()

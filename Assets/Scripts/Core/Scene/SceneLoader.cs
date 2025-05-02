@@ -5,6 +5,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class SceneLoader : Singleton<SceneLoader>
@@ -40,7 +41,7 @@ public class SceneLoader : Singleton<SceneLoader>
     private bool destroyAuto = true;  // 自动删除 loading 背景
 
     private GameObject loadingProgress = null;               // 加载进度显示对象
-
+    private GameObject slider = null;                     // 加载进度条
     private SceneController sceneController = null;  // 场景控制器
     public SceneController SceneController
     {
@@ -156,12 +157,15 @@ public class SceneLoader : Singleton<SceneLoader>
         if (null == loadingProgress)
         {
             loadingProgress = GameObject.Find("TextLoadProgress");
+            slider = GameObject.Find("Slider");
         }
         TextMeshProUGUI textLoadProgress = loadingProgress?.GetComponent<TextMeshProUGUI>();
+        Slider sliderComponent = slider?.GetComponent<Slider>();
         if (null == textLoadProgress)
         {
             return;
         }
         textLoadProgress.text = (progress * 100).ToString() + "%";
+        sliderComponent.value = progress;
     }
 }

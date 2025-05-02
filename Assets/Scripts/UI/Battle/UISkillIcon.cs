@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class UISkillIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public Image skillIcon = null;
+    public Image bg = null;
     public Image slientIcon = null;
     public TextMeshProUGUI coolDownText = null;
     public Button button = null;
@@ -44,11 +45,11 @@ public class UISkillIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             Debug.Log("选择技能：" + skillConfig.key);
             BattleData.Instance.Emit(BattleData.SkillSelect, skillConfig);
-            skillIcon.color = Color.red;
+            bg.color = Color.green;
         }
         else
         {
-            skillIcon.color = Color.white;
+            bg.color = Color.white;
         }
     }
     public void OnClick()
@@ -58,7 +59,7 @@ public class UISkillIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
     {
-        BattleData.Instance.Emit(BattleData.ShowDetail, skillConfig, transform.position + new Vector3(0, 100, 0));
+        BattleData.Instance.Emit(BattleData.ShowDetail, skillConfig, transform.position + new Vector3(220, -50, 0));
     }
 
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
