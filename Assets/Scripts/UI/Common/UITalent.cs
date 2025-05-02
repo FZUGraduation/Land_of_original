@@ -19,7 +19,7 @@ public class UITalent : BaseDialog
         base.Awake();
         SaveSlotEvent.Instance.On(SaveSlotEvent.TalentSelect, OnTalentSelect, this);
     }
-    void OnDestroy()
+    protected override void OnDestroy()
     {
         SaveSlotEvent.Instance.OffAll(this);
     }

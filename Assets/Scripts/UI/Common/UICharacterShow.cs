@@ -210,7 +210,7 @@ public class UICharacterShow : BaseDialog
         RefreshBagSlots();
     }
 
-    void OnDestroy()
+    protected override void OnDestroy()
     {
         RTTManager.Instance.DestroyRttObject(this);
     }

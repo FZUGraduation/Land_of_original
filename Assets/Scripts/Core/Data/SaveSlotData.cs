@@ -28,9 +28,11 @@ public class SaveSlotData : RuntimeData
 
     #region SaveData
     public string saveTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-    private readonly Dictionary<string, bool> storyProgress = new();//用来存储剧情进度
+    [JsonProperty]
+    private Dictionary<string, int> storyProgress = new();//用来存储剧情进度
     private int talentPoint = 0;
-    private readonly Dictionary<string, bool> unlockTalent = new();//用来存储解锁的天赋
+    [JsonProperty]
+    private Dictionary<string, bool> unlockTalent = new();//用来存储解锁的天赋
     public float bgmVolum = 1;
     public float seVolum = 1;
     public float voiceVolum = 1;
@@ -48,7 +50,7 @@ public class SaveSlotData : RuntimeData
         heroDatas.Add(new HeroRuntimeData(heroKey));
     }
     /// <summary> 标记游戏进度 </summary>
-    public void MarkStoryProgress(string storyId, bool isFinished = true)
+    public void MarkStoryProgress(string storyId, int isFinished = 1)
     {
         if (storyProgress.ContainsKey(storyId))
         {
@@ -65,7 +67,7 @@ public class SaveSlotData : RuntimeData
     {
         if (storyProgress.ContainsKey(storyId))
         {
-            return storyProgress[storyId];
+            return storyProgress[storyId] == 1;
         }
         return false;
     }

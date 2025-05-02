@@ -53,17 +53,26 @@ public class BaseDialog : MonoBehaviour
     {
         if (isFadeIn)
         {
-            var canvansGroup = GetComponent<CanvasGroup>();
-            if (!canvansGroup)
+            var canvasGroup = GetComponent<CanvasGroup>();
+            if (!canvasGroup)
             {
-                canvansGroup = gameObject.AddComponent<CanvasGroup>();
+                canvasGroup = gameObject.AddComponent<CanvasGroup>();
             }
-            canvansGroup.DOFade(1, 0.3f).From(0);
+            canvasGroup?.DOFade(1, 0.3f).From(0);
         }
     }
     protected virtual void Start()
     {
         PlayDialogAnimation(true);
+    }
+
+    protected virtual void OnDestroy()
+    {
+        var canvasGroup = GetComponent<CanvasGroup>();
+        if (canvasGroup != null)
+        {
+            DOTween.Kill(canvasGroup); // 停止与 CanvasGroup 相关的动画
+        }
     }
 
     public virtual void Init(params object[] data) { }
