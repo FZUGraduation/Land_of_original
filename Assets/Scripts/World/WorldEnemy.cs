@@ -24,10 +24,15 @@ public class WorldEnemy : MonoBehaviour
     private Animator animator; // 动画控制器
     private EnemyState currentState = EnemyState.RandomMove; // 当前状态
     private GameObject player; // 玩家对象
+
+    void Awake()
+    {
+        FrameEvent.Instance.On(FrameEvent.CreateWorldPlayer, OnCreateWorldPlayer, this);
+    }
+
     void Start()
     {
         // 获取玩家对象（假设玩家对象有一个标签为"Player"）
-        player = GameObject.FindGameObjectWithTag("Player");
         startPosition = transform.position;
         animator = GetComponentInChildren<Animator>();
         SetNewTargetPosition();
@@ -39,14 +44,14 @@ public class WorldEnemy : MonoBehaviour
         {
             RandomMove();
             // 检查与玩家的距离
-            if (Vector3.Distance(transform.position, player.transform.position) < hateRadius)
+            if (player && Vector3.Distance(transform.position, player.transform.position) < hateRadius)
             {
                 // 切换到仇恨状态
                 currentState = EnemyState.Hate;
                 animator?.Play("Walk"); // 播放攻击动画
             }
         }
-        else if (currentState == EnemyState.Hate)
+        else if (player && currentState == EnemyState.Hate)
         {
             GotoPlayer();
             // 检查与玩家的距离
@@ -60,6 +65,15 @@ public class WorldEnemy : MonoBehaviour
         }
     }
 
+    private void OnCreateWorldPlayer(object[] args)
+    {
+        player = args[0] as GameObject;
+        if (player == null)
+        {
+            Debug.LogError("WorldEnemy: Player object is null.");
+            return;
+        }
+    }
 
     private void RandomMove()
     {

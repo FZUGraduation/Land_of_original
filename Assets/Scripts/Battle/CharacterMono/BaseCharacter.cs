@@ -15,7 +15,7 @@ public class BaseCharacter : SerializedMonoBehaviour, ISelectable, IFocusable
     [Button("把当前物体设为脏数据")]
     public void SetDirty() => EditorUtility.SetDirty(this);
     public BehaviourTreeData GetBtData() => TreeData;
-    public Transform statusBarTransform;
+    protected Transform statusBarTransform;
     protected BlackBoard blackboard = null;
     protected BattleCharacterData characterData = null;
     // private Renderer[] selectRenderder = null;
@@ -158,6 +158,7 @@ public class BaseCharacter : SerializedMonoBehaviour, ISelectable, IFocusable
 
     private void OnSkillSelect(object[] objects)
     {
+        if (IsDeath()) return;
         var skillConfig = (SkillConfigData)objects[0];
         SkillTarget target = skillConfig.target;
         _enableFocus = false;

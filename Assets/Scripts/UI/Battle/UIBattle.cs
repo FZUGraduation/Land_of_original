@@ -125,6 +125,7 @@ public class UIBattle : MonoBehaviour
     private void OnActionStart(object[] args)
     {
         bool isHero = (bool)args[1];
+        int battleId = (int)args[0];
         if (isHero)
         {
             skillRoot.gameObject.SetActive(true);
@@ -135,6 +136,7 @@ public class UIBattle : MonoBehaviour
             }
             // InitHeroSkill(heroData);
         }
+        actionIconList.Find(a => a.battleID == battleId).SetAction();
     }
 
     private void InitHeroSkill(BattleHeroData heroData)

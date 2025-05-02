@@ -483,7 +483,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 38}
-  m_SizeDelta: {x: 1000, y: 600}
+  m_SizeDelta: {x: 1300, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &784123386723166424
 CanvasRenderer:
@@ -682,7 +682,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1100, y: 800}
+  m_SizeDelta: {x: 1300, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7985838700778157314
 CanvasRenderer:
@@ -739,6 +739,8 @@ MonoBehaviour:
   canMultiple: 0
   closeBtn: {fileID: 1590339760773522621}
   isFadeIn: 1
+  needHide: 1
+  needHideOther: 1
   heroItemRoot: {fileID: 851382274797943522}
   confirmButton: {fileID: 2759704047572908553}
 --- !u!114 &6785994521865427977

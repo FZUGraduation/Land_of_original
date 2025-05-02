@@ -18,7 +18,7 @@ public class EquipmentConfigData : ItemConfigData
     [BoxGroup(STATS_BOX, LabelText = "数值提升")]
     public List<StatChange> statChanges = new();
     [BoxGroup(STATS_BOX, LabelText = "装备路径")]
-    public string path;
+    public List<string> path;
 }
 
 public enum EquipmentType

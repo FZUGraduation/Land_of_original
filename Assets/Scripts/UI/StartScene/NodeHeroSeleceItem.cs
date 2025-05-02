@@ -14,13 +14,12 @@ public class NodeHeroSeleceItem : MonoBehaviour
     private Color defaultColor = Color.white;
     void Start()
     {
-
         GetComponent<Button>().onClick.AddListener(SelectHero);
     }
     public void Init(HeroConfigData data, Action<string> onSelect)
     {
         defaultColor = background.color;
-        heroIcon.sprite = data.icon;
+        heroIcon.sprite = data.bodyicon;
         heroName.text = data.name;
         heroKey = data.key;
         this.onSelect = onSelect;

@@ -272,7 +272,7 @@ MonoBehaviour:
   unlockTalent: {fileID: 0}
   effects:
   - {fileID: 1748040263752676371, guid: 9efc7c755a2170649b9b2f115f275ddf, type: 2}
-  coolDown: 1
+  coolDown: 0
   hasCondition: 0
   condition:
     isPercenage: 0

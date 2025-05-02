@@ -21,7 +21,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  icon: {fileID: 21300000, guid: 2b1e6d9b897aa524a855e44241d101d2, type: 3}
+  icon: {fileID: 21300000, guid: ab0f44b002279664fbd5843a09135f3b, type: 3}
   key: Hero2
   displayedName: Hero2
   prefab: {fileID: 9193012399868693732, guid: c9e2298451a85f0438b5b16a3e8f356d, type: 3}
@@ -29,6 +29,9 @@ MonoBehaviour:
   note: "\u540C\u4E00\u4E2A\u89D2\u8272\u7684skill\u7684\u540D\u5B57\u4E0D\u80FD\u4E00\u6837"
   modelPrefab: {fileID: 9193012399868693732, guid: 59da422a397e05147a7da12b34e7e00f,
     type: 3}
+  worldPrefab: {fileID: 4446982056716230318, guid: 7e00ed866790ef54ba00dcd08eb05a24,
+    type: 3}
+  bodyicon: {fileID: 21300000, guid: 8847fd221068b0148a818e25a4e687a4, type: 3}
   hp: 500
   mp: 1
   atk: 100
@@ -63,7 +66,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  icon: {fileID: 21300000, guid: 38733447088f00744805a7c95ebf9204, type: 3}
+  icon: {fileID: 21300000, guid: 8969733e2833b90428e343bbb4b4a6a0, type: 3}
   key: Hero1
   displayedName: Hero1
   prefab: {fileID: 9193012399868693732, guid: c9e2298451a85f0438b5b16a3e8f356d, type: 3}
@@ -71,6 +74,9 @@ MonoBehaviour:
   note: "\u540C\u4E00\u4E2A\u89D2\u8272\u7684skill\u7684\u540D\u5B57\u4E0D\u80FD\u4E00\u6837"
   modelPrefab: {fileID: 9193012399868693732, guid: 59da422a397e05147a7da12b34e7e00f,
     type: 3}
+  worldPrefab: {fileID: 4446982056716230318, guid: 7e00ed866790ef54ba00dcd08eb05a24,
+    type: 3}
+  bodyicon: {fileID: 21300000, guid: a30810970411be54686d85b865554af0, type: 3}
   hp: 500
   mp: 1
   atk: 100
@@ -139,7 +145,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  icon: {fileID: -562402834258348876, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+  icon: {fileID: 21300000, guid: 1d128c11f49890243b16968cc71c9279, type: 3}
   key: Hero3
   displayedName: Hero3
   prefab: {fileID: 9193012399868693732, guid: c9e2298451a85f0438b5b16a3e8f356d, type: 3}
@@ -147,6 +153,9 @@ MonoBehaviour:
   note: "\u540C\u4E00\u4E2A\u89D2\u8272\u7684skill\u7684\u540D\u5B57\u4E0D\u80FD\u4E00\u6837"
   modelPrefab: {fileID: 9193012399868693732, guid: e0bcaae5e6e4b3c41a3787aff54f989a,
     type: 3}
+  worldPrefab: {fileID: 4446982056716230318, guid: 7e00ed866790ef54ba00dcd08eb05a24,
+    type: 3}
+  bodyicon: {fileID: 21300000, guid: 2ea4d7c3ce657974b89e71c91b815f14, type: 3}
   hp: 500
   mp: 1
   atk: 100

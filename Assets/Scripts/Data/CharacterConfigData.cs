@@ -8,6 +8,10 @@ public class CharacterConfigData : ConfigData
     [VerticalGroup("TDSplit/LRSplit/Left/General Settings/Split/Right")]
     [LabelText("模型")]
     public GameObject modelPrefab;
+    [VerticalGroup("TDSplit/LRSplit/Left/General Settings/Split/Right")]
+    public GameObject worldPrefab;
+    [VerticalGroup("TDSplit/LRSplit/Left/General Settings/Split/Right")]
+    public Sprite bodyicon;
     [BoxGroup(STATS_BOX, LabelText = "数值属性"), MinValue(1f)]
     public float hp = 1;
     [BoxGroup(STATS_BOX), MinValue(0f)]

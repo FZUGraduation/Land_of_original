@@ -81,8 +81,7 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 4771152712502093131}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -108,7 +107,7 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 625
+      Data: 525
     - Name: 
       Entry: 4
       Data: 45.2509956
@@ -148,7 +147,7 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 625
+      Data: 525
     - Name: 
       Entry: 4
       Data: 215.250992
@@ -282,13 +281,13 @@ MonoBehaviour:
       Data: 3
     - Name: 
       Entry: 7
-      Data: 9|JLBehaviourTree.BehaviourTree.SetObjectActive, Assembly-CSharp
+      Data: 9|SetActiveSelf, Assembly-CSharp
     - Name: nodeDes
       Entry: 6
       Data: 
     - Name: Guid
       Entry: 1
-      Data: 1260cfb4-be32-4349-97c9-51295c8962f9
+      Data: 8ed31fc7-c9fb-4ae0-aa68-b5d3d5ddbcbe
     - Name: Position
       Entry: 7
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
@@ -309,16 +308,13 @@ MonoBehaviour:
       Data: 0
     - Name: className
       Entry: 1
-      Data: SetObjectActive
+      Data: SetActiveSelf
     - Name: NodeName
       Entry: 1
-      Data: SetActiveFalse
-    - Name: _isActive
+      Data: SetActiveSelf
+    - Name: isActive
       Entry: 5
       Data: false
-    - Name: _particle
-      Entry: 10
-      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -1016,10 +1012,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 1320.16724
+      Data: 1100
     - Name: 
       Entry: 4
-      Data: 733.000061
+      Data: 1065.251
     - Name: 
       Entry: 8
       Data: 
@@ -1155,9 +1151,6 @@ MonoBehaviour:
       Data: 10
     - Name: 
       Entry: 9
-      Data: 9
-    - Name: 
-      Entry: 9
       Data: 7
     - Name: 
       Entry: 9
@@ -1174,6 +1167,9 @@ MonoBehaviour:
     - Name: 
       Entry: 9
       Data: 22
+    - Name: 
+      Entry: 9
+      Data: 9
     - Name: 
       Entry: 13
       Data: 
@@ -1291,7 +1287,6 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  statusBarTransform: {fileID: 0}
 --- !u!136 &712842209120336149
 CapsuleCollider:
   m_ObjectHideFlags: 0

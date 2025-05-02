@@ -49,6 +49,7 @@ public class SaveSlotData : RuntimeData
         }
         heroDatas.Add(new HeroRuntimeData(heroKey));
     }
+
     /// <summary> 标记游戏进度 </summary>
     public void MarkStoryProgress(string storyId, int isFinished = 1)
     {

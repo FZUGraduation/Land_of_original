@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class UIActionIcon : MonoBehaviour
 {
     public Image icon;
+    public Image bg;
     [HideInInspector]
     public int battleID;
 
@@ -22,5 +23,10 @@ public class UIActionIcon : MonoBehaviour
                 break;
         }
         icon.sprite = iconSprite;
+    }
+
+    public void SetAction()
+    {
+        bg.color = Color.green;
     }
 }

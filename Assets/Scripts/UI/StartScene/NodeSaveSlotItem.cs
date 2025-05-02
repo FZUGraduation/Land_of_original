@@ -8,6 +8,7 @@ public class NodeSaveSlotItem : MonoBehaviour
 {
     public Text slotName;
     public Text slotInfo;
+    public Image slotIcon;
     public Button startButton;
     public Button deleteButton;
     private int index;
@@ -31,7 +32,6 @@ public class NodeSaveSlotItem : MonoBehaviour
         if (data != null)
         {
             slotInfo.text = "存档时间：" + data.saveTime;
-
         }
         else
         {

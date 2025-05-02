@@ -50,6 +50,7 @@ public class ActionEnd : BtActionNode
         return NodeState = BehaviourState.成功;
     }
 }
+
 [NodeLabel("Battle_So_Skill_判断技能,用于hero")]
 public class So_Skill : BtPrecondition
 {
@@ -327,5 +328,18 @@ public class GotBack : BtActionNode
         {
             return NodeState = BehaviourState.执行中;
         }
+    }
+}
+
+[NodeLabel("SetActiveSelf,设置激活状态")]
+public class SetActiveSelf : BtActionNode
+{
+    [LabelText("是否激活"), SerializeField, FoldoutGroup("@NodeName")]
+    private bool isActive = true;
+    public override BehaviourState Tick()
+    {
+        var character = blackboard.objectDir["owner"] as BaseCharacter;
+        character.gameObject.SetActive(isActive);
+        return NodeState = BehaviourState.成功;
     }
 }

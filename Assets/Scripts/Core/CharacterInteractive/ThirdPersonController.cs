@@ -130,6 +130,7 @@ namespace StarterAssets
             {
                 _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             }
+            _mainCamera.GetComponent<CameraController25>().SetTarget(transform.GetChild(0));
         }
 
         private void Start()

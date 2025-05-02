@@ -21,7 +21,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  icon: {fileID: 21300000, guid: 210552b9dac18be4597de021f79ee70b, type: 3}
+  icon: {fileID: 21300000, guid: 5edbaf1857e961244a4251210c1df0cc, type: 3}
   key: Enemy1
   displayedName: 
   prefab: {fileID: 4771152712502093131, guid: c93205f62c9e53745a03c2ed54214df9, type: 3}
@@ -62,7 +62,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  icon: {fileID: 21300006, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+  icon: {fileID: 21300000, guid: 8b3589ec04fa13c488925c33e9ed35c4, type: 3}
   key: Enemy2
   displayedName: 
   prefab: {fileID: 4771152712502093131, guid: 2ab809d422c70b24bb4fb81f6760c53e, type: 3}
