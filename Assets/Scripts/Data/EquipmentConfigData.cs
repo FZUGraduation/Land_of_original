@@ -17,13 +17,19 @@ public class EquipmentConfigData : ItemConfigData
     public EquipmentType equipmentType = EquipmentType.None;
     [BoxGroup(STATS_BOX, LabelText = "数值提升")]
     public List<StatChange> statChanges = new();
+    [BoxGroup(STATS_BOX, LabelText = "装备路径")]
+    public string path;
 }
 
 public enum EquipmentType
 {
     None = 0,
-    Weapon = 1,
-    Follower = 2,
+    Head,
+    Body,
+    Legs,
+    Back,//披风
+    Weapon,
+    Follower,
 }
 
 public class StatChange
