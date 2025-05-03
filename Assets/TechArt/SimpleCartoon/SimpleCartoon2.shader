@@ -124,12 +124,12 @@ Shader "URP/Cartoon/SimpleCartoon2"
                 return o;
             }
 
-            float CalculateDiffuseLightResult(float3 nDir, float3 lDir, float lightRadience, float shadow)
+            float CalculateDiffuseLightResult(float3 nDir, float3 lDir, float lightRadience)
             {
                 float nDotl = dot(nDir,lDir);
                 float lambert = max(0,nDotl);
                 float halfLambert = nDotl*0.5+0.5;
-                half3 result = halfLambert*shadow*lightRadience;
+                half3 result = halfLambert*lightRadience;
                 return result;
             }
             
@@ -148,9 +148,11 @@ Shader "URP/Cartoon/SimpleCartoon2"
 
                 half4 mainTex = SAMPLE_TEXTURE2D(_MainTex,sampler_MainTex,i.uv*_MainTex_ST.xy+_MainTex_ST.zw);
                 half4 albedo = _BaseColor*mainTex;
-                
+
+                float shadow = 1;
                 float mainLightRadiance = mainLight.distanceAttenuation;
-                float mainDiffuse = CalculateDiffuseLightResult(nDir,lDir,mainLightRadiance,mainLight.shadowAttenuation);
+                float mainDiffuse = CalculateDiffuseLightResult(nDir,lDir,mainLightRadiance);
+                shadow *= mainLight.shadowAttenuation;
 
                 uint lightCount = GetAdditionalLightsCount();
             	float additionalDiffuse = half3(0,0,0);
@@ -162,12 +164,13 @@ Shader "URP/Cartoon/SimpleCartoon2"
 					float3 additionalLightDir = additionalLight.direction;
 					// 光照衰减和阴影系数
                     float additionalLightRadiance =  additionalLight.distanceAttenuation;
-					float perDiffuse = CalculateDiffuseLightResult(nDir,additionalLightDir,additionalLightRadiance,additionalLight.shadowAttenuation);
+					float perDiffuse = CalculateDiffuseLightResult(nDir,additionalLightDir,additionalLightRadiance);
+				    shadow *= additionalLight.shadowAttenuation;
 				    additionalDiffuse += perDiffuse;
 				}
 
                 float diffuse = mainDiffuse+additionalDiffuse;
-                float mask1 = 1-smoothstep(0.2-_SmoothValue,0.2,diffuse);
+                float mask1 = saturate((1-smoothstep(0.2-_SmoothValue,0.2,diffuse))+1-shadow);
                 float mask2 = 1-smoothstep(0.41-_SmoothValue,0.41,diffuse);
                 float mask3 = 1-smoothstep(0.624-_SmoothValue,0.624,diffuse);
                 float mask4 = 1-smoothstep(0.823-_SmoothValue,0.823,diffuse);
@@ -202,7 +205,6 @@ Shader "URP/Cartoon/SimpleCartoon2"
                     FinalRGB += normalOutline;
                 #endif
                 
-                //return half4(i.nDirWS,1.0);
                 return half4(FinalRGB,1.0);
             }
             

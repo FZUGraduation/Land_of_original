@@ -33,11 +33,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaClip: 0
+    - _AlphaClip: 0.525
     - _BlendDst: 10
     - _BlendSrc: 5
     - _CullMode: 2
-    - _DownSampleValue: 0
+    - _DownSampleValue: 5
     - _EnableFrameTexture: 0
     - _FrameColumn: 5
     - _FrameNum: 24
