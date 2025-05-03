@@ -45,6 +45,8 @@ MonoBehaviour:
   - {fileID: -2493689293589992625, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
   - {fileID: -65826455168272949, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
   defaultSkillIndex: 0
+  defaultWeapon: {fileID: 486506809955208956, guid: a14711850a59975438e0bc7dfb586f5f,
+    type: 2}
 --- !u!114 &-3769399315172018368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,6 +92,8 @@ MonoBehaviour:
   - {fileID: -2493689293589992625, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
   - {fileID: -65826455168272949, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
   defaultSkillIndex: 0
+  defaultWeapon: {fileID: 486506809955208956, guid: a14711850a59975438e0bc7dfb586f5f,
+    type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,3 +173,5 @@ MonoBehaviour:
   - {fileID: -2493689293589992625, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
   - {fileID: -65826455168272949, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
   defaultSkillIndex: 0
+  defaultWeapon: {fileID: 486506809955208956, guid: a14711850a59975438e0bc7dfb586f5f,
+    type: 2}

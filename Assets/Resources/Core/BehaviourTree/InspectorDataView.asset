@@ -30,22 +30,55 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 7
-      Data: 1|SetActiveSelf, Assembly-CSharp
+      Data: 1|WaitAnimation, Assembly-CSharp
     - Name: nodeDes
       Entry: 6
       Data: 
     - Name: Guid
       Entry: 1
-      Data: 8ed31fc7-c9fb-4ae0-aa68-b5d3d5ddbcbe
+      Data: 82f4d754-4157-41c5-a3b2-0889f66b8cd3
     - Name: Position
       Entry: 7
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 400
     - Name: 
       Entry: 4
-      Data: 895.251
+      Data: 413.192
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: NodeType
+      Entry: 3
+      Data: 3
+    - Name: NodeState
+      Entry: 3
+      Data: 0
+    - Name: className
+      Entry: 1
+      Data: WaitAnimation
+    - Name: NodeName
+      Entry: 1
+      Data: HurtAnim
+    - Name: ChildNode
+      Entry: 7
+      Data: 2|JLBehaviourTree.BehaviourTree.Set_Blackboard, Assembly-CSharp
+    - Name: nodeDes
+      Entry: 6
+      Data: 
+    - Name: Guid
+      Entry: 1
+      Data: f2f09812-a74d-4422-a01e-9c255d71e1fa
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 400
+    - Name: 
+      Entry: 4
+      Data: 583.192
     - Name: 
       Entry: 8
       Data: 
@@ -57,13 +90,28 @@ MonoBehaviour:
       Data: 0
     - Name: className
       Entry: 1
-      Data: SetActiveSelf
+      Data: Set_Blackboard
     - Name: NodeName
       Entry: 1
-      Data: SetActiveSelf
-    - Name: isActive
+      Data: Set_Blackboard
+    - Name: _key
+      Entry: 1
+      Data: getHurt
+    - Name: _value
       Entry: 5
       Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: animationName
+      Entry: 1
+      Data: GetHurt
+    - Name: isSkill
+      Entry: 5
+      Data: false
+    - Name: elseTimer
+      Entry: 4
+      Data: 0.5
     - Name: 
       Entry: 8
       Data: 

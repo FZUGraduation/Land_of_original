@@ -47,6 +47,7 @@ public class UICharacterShow : BaseDialog
         InitEquipmentSlots();
         equipButton.onClick.AddListener(OnEquipButtonClick);
         unEquipButton.onClick.AddListener(OnUnEquipButtonClick);
+        unEquipButton.gameObject.SetActive(false);
     }
 
     private void OnCharacterSelected(int index, HeroRuntimeData data)
@@ -65,7 +66,11 @@ public class UICharacterShow : BaseDialog
             rawImage.texture = rttObject.renderTexture;
         }
         rotator.targetModel = rttObject.rttObjectRoot.transform;
-
+        var go = rttObject.rttObjectRoot.transform.GetChild(0);
+        if (go != null)
+        {
+            go.GetComponent<CharacterModelController>()?.SetWeapon(data.equipmentData[EquipmentType.Weapon]);
+        }
         Debug.Log($"OnCellSelected: {index}, {configData.key}");
     }
 
@@ -172,9 +177,9 @@ public class UICharacterShow : BaseDialog
         itemName.text = itemSlot.itemData.ConfigData.key;
         itemDesc.text = itemSlot.itemData.ConfigData.desc;
         bool showEquipButton = itemSlot.slotType == BagSlotType.Bag && itemSlot.itemData.ConfigData.category == ItemCategory.Equipment;
-        bool showUnEquipButton = itemSlot.slotType == BagSlotType.Equipment;
+        // bool showUnEquipButton = itemSlot.slotType == BagSlotType.Equipment;
         equipButton.gameObject.SetActive(showEquipButton);
-        unEquipButton.gameObject.SetActive(showUnEquipButton);
+        // unEquipButton.gameObject.SetActive(showUnEquipButton);
     }
 
     private void OnUnEquipButtonClick()

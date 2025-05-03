@@ -18,8 +18,6 @@ public class BaseCharacter : SerializedMonoBehaviour, ISelectable, IFocusable
     protected Transform statusBarTransform;
     protected BlackBoard blackboard = null;
     protected BattleCharacterData characterData = null;
-    // private Renderer[] selectRenderder = null;
-    private Color startColor = Color.white;
     public int BattleID
     {
         get => characterData.battleID;

@@ -38,6 +38,7 @@ public class SaveSlotData : RuntimeData
     public float voiceVolum = 1;
     public List<HeroRuntimeData> heroDatas = new();//用来存储解锁的英雄
     public InventoryRuntimeData bagData = new();
+    public List<string> passLevels = new();//用来存储通关的关卡
     #endregion
 
 

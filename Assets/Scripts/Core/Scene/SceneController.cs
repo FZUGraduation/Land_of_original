@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class SceneController : MonoBehaviour
 {
+    protected virtual void Awake()
+    {
+        GameManager.Instance.sceneController = this;
+    }
+
     [Button]
     public void SaveData()
     {

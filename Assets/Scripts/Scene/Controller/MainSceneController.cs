@@ -5,9 +5,10 @@ public class MainSceneController : SceneController
 {
     private static Vector3 lastPos = Vector3.zero;
     private GameObject character;
-
-    void Awake()
+    private CharacterModelController characterModelController;
+    protected override void Awake()
     {
+        base.Awake();
         FrameEvent.Instance.On(FrameEvent.BeforeSceneLoder, OnBeforeSceneLoder, this);
     }
 
@@ -16,6 +17,8 @@ public class MainSceneController : SceneController
         WindowManager.Instance.ShowDialog(UIDefine.UIMainScene);
         var prefab = SaveSlotData.Instance.heroDatas[0].ConfigData.worldPrefab;
         character = Instantiate(prefab, lastPos, Quaternion.identity);
+        // characterModelController = character.GetComponentInChildren<CharacterModelController>();
+        // characterModelController.SetWeapon(SaveSlotData.Instance.heroDatas[0].equipmentData[EquipmentType.Weapon]);
         FrameEvent.Instance.Emit(FrameEvent.CreateWorldPlayer, character);
     }
 

@@ -17310,6 +17310,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4937899183284480}
   - component: {fileID: 95058168009071288}
+  - component: {fileID: 7836369737534342547}
   m_Layer: 0
   m_Name: ModularCharacter_02
   m_TagString: Untagged
@@ -17355,6 +17356,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7836369737534342547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225583223337818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc22e0c539bf12c4abc75f41528aa712, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  root: {fileID: 0}
+  weaponRoot: {fileID: 9125149532555123683}
 --- !u!1 &1225586460317728
 GameObject:
   m_ObjectHideFlags: 0

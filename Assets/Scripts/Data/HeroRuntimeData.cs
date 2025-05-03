@@ -31,6 +31,8 @@ public class HeroRuntimeData : RuntimeData
     public HeroRuntimeData(string key)
     {
         ConfigKey = key;
+        //装备默认武器
+        equipmentData.Add(EquipmentType.Weapon, ConfigData.defaultWeapon.key);
     }
 
     private List<OutSideGrowthConfigData> outSideGrowth = null;

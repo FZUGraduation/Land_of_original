@@ -7,8 +7,9 @@ public class BattleSceneController : SceneController
     public List<BattlePos> heroPosList = new();
     private List<BattlePos> activeEnemyPos = new();
     private List<BattlePos> activeHeroPos = new();
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         BattleData.Instance.On(BattleData.ExitBattle, ExitBattle, this);
         InitBattle();
     }

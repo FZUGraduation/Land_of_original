@@ -1,5 +1,61 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8757384243595456338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54e5865336a4dca49a314f8e896c496b, type: 3}
+  m_Name: "\u7EC6\u5251"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: statChanges
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[StatChange, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|StatChange, Assembly-CSharp
+    - Name: statType
+      Entry: 3
+      Data: 0
+    - Name: value
+      Entry: 4
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  icon: {fileID: 21300000, guid: a742f25a15917eb4dac0d383b95cedea, type: 3}
+  key: "\u7EC6\u5251"
+  displayedName: 
+  prefab: {fileID: 1693058865961630, guid: 1a66284f93ee5da4faa156902261b154, type: 3}
+  desc: 
+  note: "\u4E00\u4E2A\u9524\u5B50"
+  category: 4
+  feature: 0
+  modelPrefab: {fileID: 0}
+  equipmentType: 5
+  path: []
 --- !u!114 &-5154243341285368982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,6 +111,7 @@ MonoBehaviour:
   feature: 0
   modelPrefab: {fileID: 0}
   equipmentType: 3
+  path: []
 --- !u!114 &-2916291707928533658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,6 +167,7 @@ MonoBehaviour:
   feature: 0
   modelPrefab: {fileID: 0}
   equipmentType: 3
+  path: []
 --- !u!114 &-1707367904328115512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,6 +223,7 @@ MonoBehaviour:
   feature: 0
   modelPrefab: {fileID: 0}
   equipmentType: 1
+  path: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,9 +256,16 @@ MonoBehaviour:
       Data: 
   datas:
   - {fileID: -1707367904328115512}
-  - {fileID: -2916291707928533658}
-  - {fileID: -5154243341285368982}
+  - {fileID: 8236659655601167524}
+  - {fileID: 962081764135274109}
   - {fileID: 245395504059651302}
+  - {fileID: 7289130157436217173}
+  - {fileID: 5968360739642045055}
+  - {fileID: -5154243341285368982}
+  - {fileID: 7741670674689523325}
+  - {fileID: -8757384243595456338}
+  - {fileID: 486506809955208956}
+  - {fileID: -2916291707928533658}
 --- !u!114 &245395504059651302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,7 +276,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54e5865336a4dca49a314f8e896c496b, type: 3}
-  m_Name: "\u9524\u5B50"
+  m_Name: "\u65A7\u5B50"
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -245,13 +311,350 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  icon: {fileID: 21300000, guid: 4f27d4cd48bb668429b1cfedebaf1d0a, type: 3}
-  key: "\u9524\u5B50"
+  icon: {fileID: 21300000, guid: 117841f0fcb8977438f88b151db029ac, type: 3}
+  key: "\u65A7\u5B50"
   displayedName: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 1586301124448702, guid: 181c5c49a962f96468635ea191e01184, type: 3}
   desc: 
-  note: 
+  note: "\u4E00\u4E2A\u9524\u5B50"
   category: 4
   feature: 0
   modelPrefab: {fileID: 0}
   equipmentType: 5
+  path: []
+--- !u!114 &486506809955208956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54e5865336a4dca49a314f8e896c496b, type: 3}
+  m_Name: "\u5927\u5251"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: statChanges
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[StatChange, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|StatChange, Assembly-CSharp
+    - Name: statType
+      Entry: 3
+      Data: 0
+    - Name: value
+      Entry: 4
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  icon: {fileID: 21300000, guid: bdebd8c40e50a8e428a952eb030b6a10, type: 3}
+  key: "\u5927\u5251"
+  displayedName: 
+  prefab: {fileID: 1631607032641582, guid: 0c14f3ea30af4174ba288b3c2042f665, type: 3}
+  desc: 
+  note: "\u4E00\u4E2A\u9524\u5B50"
+  category: 4
+  feature: 0
+  modelPrefab: {fileID: 0}
+  equipmentType: 5
+  path: []
+--- !u!114 &962081764135274109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54e5865336a4dca49a314f8e896c496b, type: 3}
+  m_Name: "\u624B\u91CC\u5251"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: statChanges
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[StatChange, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|StatChange, Assembly-CSharp
+    - Name: statType
+      Entry: 3
+      Data: 0
+    - Name: value
+      Entry: 4
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  icon: {fileID: 21300000, guid: ace988002aa1e3f478fdd3c4629d0868, type: 3}
+  key: "\u624B\u91CC\u5251"
+  displayedName: 
+  prefab: {fileID: 1318938564733376, guid: 5d518eb9a65a45d4b846a7cf120d62c8, type: 3}
+  desc: 
+  note: "\u4E00\u4E2A\u9524\u5B50"
+  category: 4
+  feature: 0
+  modelPrefab: {fileID: 0}
+  equipmentType: 5
+  path: []
+--- !u!114 &5968360739642045055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54e5865336a4dca49a314f8e896c496b, type: 3}
+  m_Name: "\u6CD5\u6756"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: statChanges
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[StatChange, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|StatChange, Assembly-CSharp
+    - Name: statType
+      Entry: 3
+      Data: 0
+    - Name: value
+      Entry: 4
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  icon: {fileID: 21300000, guid: 070510a38635b5948bf0ec8455992c86, type: 3}
+  key: "\u6CD5\u6756"
+  displayedName: 
+  prefab: {fileID: 1367188017501208, guid: 7618bf1eceed7fd4786bae1d1976ef37, type: 3}
+  desc: 
+  note: "\u4E00\u4E2A\u9524\u5B50"
+  category: 4
+  feature: 0
+  modelPrefab: {fileID: 0}
+  equipmentType: 5
+  path: []
+--- !u!114 &7289130157436217173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54e5865336a4dca49a314f8e896c496b, type: 3}
+  m_Name: "\u6728\u5236\u6CD5\u6756"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: statChanges
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[StatChange, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|StatChange, Assembly-CSharp
+    - Name: statType
+      Entry: 3
+      Data: 0
+    - Name: value
+      Entry: 4
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  icon: {fileID: 21300000, guid: bcbd22fb6bb817a4bb93cddc2a1d0a78, type: 3}
+  key: "\u6728\u5236\u6CD5\u6756"
+  displayedName: 
+  prefab: {fileID: 1069959841205446, guid: d9197eec8ecc7714cbb8825a1467ae11, type: 3}
+  desc: 
+  note: "\u4E00\u4E2A\u9524\u5B50"
+  category: 4
+  feature: 0
+  modelPrefab: {fileID: 0}
+  equipmentType: 5
+  path: []
+--- !u!114 &7741670674689523325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54e5865336a4dca49a314f8e896c496b, type: 3}
+  m_Name: "\u780D\u5200"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: statChanges
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[StatChange, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|StatChange, Assembly-CSharp
+    - Name: statType
+      Entry: 3
+      Data: 0
+    - Name: value
+      Entry: 4
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  icon: {fileID: 21300000, guid: 7d7f473ae5ad8e14ea16586ad8363189, type: 3}
+  key: "\u780D\u5200"
+  displayedName: 
+  prefab: {fileID: 1440115863494796, guid: 892122ee87fc15149bc82d7f9d2cdb9f, type: 3}
+  desc: 
+  note: "\u4E00\u4E2A\u9524\u5B50"
+  category: 4
+  feature: 0
+  modelPrefab: {fileID: 0}
+  equipmentType: 5
+  path: []
+--- !u!114 &8236659655601167524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54e5865336a4dca49a314f8e896c496b, type: 3}
+  m_Name: "\u5C0F\u5200"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: statChanges
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[StatChange, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|StatChange, Assembly-CSharp
+    - Name: statType
+      Entry: 3
+      Data: 0
+    - Name: value
+      Entry: 4
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  icon: {fileID: 21300000, guid: 4636a42a364327d49a2a528ef86ff377, type: 3}
+  key: "\u5C0F\u5200"
+  displayedName: 
+  prefab: {fileID: 1348259950162714, guid: 0a5d9b51542336948b7d2a699f71cd8c, type: 3}
+  desc: 
+  note: "\u4E00\u4E2A\u9524\u5B50"
+  category: 4
+  feature: 0
+  modelPrefab: {fileID: 0}
+  equipmentType: 5
+  path: []

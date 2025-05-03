@@ -6,5 +6,5 @@ using UnityEngine;
 [System.Serializable]
 public class HeroConfigData : CharacterConfigData
 {
-
+    public EquipmentConfigData defaultWeapon;
 }

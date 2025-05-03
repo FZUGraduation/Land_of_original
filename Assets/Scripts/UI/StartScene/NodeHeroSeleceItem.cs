@@ -19,7 +19,7 @@ public class NodeHeroSeleceItem : MonoBehaviour
     public void Init(HeroConfigData data, Action<string> onSelect)
     {
         defaultColor = background.color;
-        heroIcon.sprite = data.bodyicon;
+        heroIcon.sprite = data.icon;
         heroName.text = data.name;
         heroKey = data.key;
         this.onSelect = onSelect;

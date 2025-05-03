@@ -17,6 +17,10 @@ public class UIBattleOver : BaseDialog
         if (isWin)
         {
             txtResult.text = "Victory";
+            if (SaveSlotData.Instance.passLevels.Find(e => e == BattleData.Instance.battleLevel) == null)
+            {
+                SaveSlotData.Instance.passLevels.Add(BattleData.Instance.battleLevel);
+            }
         }
         else
         {

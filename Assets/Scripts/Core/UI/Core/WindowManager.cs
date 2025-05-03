@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 using UnityEngine.UI;
+using DG.Tweening;
+using TMPro;
+using System.Threading.Tasks;
 
 public enum UIIndex
 {
@@ -214,5 +217,23 @@ public class WindowManager : Singleton<WindowManager>
     {
         // uiDialogues.Remove(dialog);
         PopDialogue(dialog);
+    }
+
+    public void ShowTost(string msg, float time = 2f)
+    {
+        _ = ShowTostAsync(msg, time);
+    }
+    public async UniTask ShowTostAsync(string msg, float time = 2f, bool isWait = false)
+    {
+        var prefab = Resources.Load<GameObject>(UIDefine.UIToast.GetDialogPath());
+        var toast = GameObject.Instantiate(prefab, GetDlgParent().transform);
+        var text = toast.GetComponentInChildren<TextMeshProUGUI>();
+        text.text = msg;
+        var canvansGroup = toast.GetComponent<CanvasGroup>();
+        canvansGroup.alpha = 0;
+        canvansGroup.DOFade(1, 0.1f).SetEase(Ease.OutSine);
+        await UniTask.Delay((int)(time * 1000));
+        await canvansGroup.DOFade(0, 0.1f).SetEase(Ease.InSine).AsyncWaitForCompletion();
+        GameObject.Destroy(toast);
     }
 }

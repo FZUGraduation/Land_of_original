@@ -2,11 +2,13 @@ using System;
 using System.IO;
 using Cysharp.Threading.Tasks;
 using Newtonsoft.Json;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class GameManager : SingletonMono<GameManager>
 {
     static public GameManager instance = null;
+    public SceneController sceneController = null;
     private int currSaveSlotIndex = 0;
 
     public string SaveFilePath

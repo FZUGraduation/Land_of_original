@@ -13,9 +13,6 @@ public class StartSceneController : SceneController
     [Button]
     public void ShowConfirmBox()
     {
-        WindowManager.Instance.ShowDialog(UIDefine.UIConfirmBox, UIIndex.STACK, "确认要退出游戏吗？", new System.Action(() =>
-        {
-            Debug.Log("OnClickShowConfirmBox");
-        }));
+        WindowManager.Instance.ShowTost("111");
     }
 }

@@ -14,7 +14,7 @@ namespace JLBehaviourTree.BehaviourTree
     public class Sequence : BtComposite
     {
         [LabelText("运行字节点"), FoldoutGroup("@NodeName"), ReadOnly]
-        public int _index;
+        public int _index = 0;
         [FoldoutGroup("@NodeName"), ReadOnly, TextArea]
         public string desc = "顺序节点，按顺序执行子节点，全部成功返回成功，任一失败立即终止。";
 
@@ -25,7 +25,10 @@ namespace JLBehaviourTree.BehaviourTree
                 NodeState = BehaviourState.失败;
                 return BehaviourState.失败;
             }
-
+            if (_index >= ChildNodes.Count)
+            {
+                _index = 0;
+            }
 
             var state = ChildNodes[_index].Tick();
             NodeState = state;

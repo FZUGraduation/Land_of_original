@@ -27,8 +27,8 @@ public class RTTObject : MonoBehaviour
 
     public void InitRtt(GameObject prefab, int width = 1024, int height = 1024)
     {
-        GameObject obj = Instantiate(prefab, rttObjectRoot.transform);
-        ReplaceRttPrefab(obj);
+        // GameObject obj = Instantiate(prefab, rttObjectRoot.transform);
+        ReplaceRttPrefab(prefab);
         renderTexture = new RenderTexture(width, height, 24);
         rttCamera.targetTexture = renderTexture;
     }

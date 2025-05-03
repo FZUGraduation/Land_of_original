@@ -16,6 +16,7 @@ public enum UIDefine
     UIEnemyDetail,
 
     UIConfirmBox,
+    UIToast,
 }
 public static class UIDefineExtensions
 {
@@ -35,6 +36,7 @@ public static class UIDefineExtensions
         { UIDefine.UIEnemyDetail, "Prefabs/UI/Battle/UIEnemyDetail" },
 
         { UIDefine.UIConfirmBox, "Prefabs/UI/Common/UIConfirmBox" },
+        { UIDefine.UIToast, "Prefabs/UI/Common/UIToast" },
         // 其他枚举值对应的字符串
     };
 

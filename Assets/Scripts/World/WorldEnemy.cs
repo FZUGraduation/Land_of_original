@@ -32,6 +32,11 @@ public class WorldEnemy : MonoBehaviour
 
     void Start()
     {
+        if (SaveSlotData.Instance.passLevels.Find(e => e == levelName) != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
         // 获取玩家对象（假设玩家对象有一个标签为"Player"）
         startPosition = transform.position;
         animator = GetComponentInChildren<Animator>();
