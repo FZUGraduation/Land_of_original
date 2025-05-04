@@ -27,14 +27,6 @@ public class BattleEnemyData : BattleCharacterData
     {
         return enemyConfig.skills.Find(s => s.key == skillName);
     }
-    public override SkillConfigData GetSkillConfig(int skillIndex)
-    {
-        if (skillIndex < 0 || skillIndex >= enemyConfig.skills.Count)
-        {
-            return null;
-        }
-        return enemyConfig.skills[skillIndex];
-    }
 
     public override void BeforeAction()
     {

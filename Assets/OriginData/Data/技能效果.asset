@@ -299,7 +299,7 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 2392802615079106282, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+    - {fileID: 21300000, guid: fdf9f357b72b48c4ea4f6efdf52a6349, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -514,7 +514,7 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 21300012, guid: ebe5b98ea55ec8a4eba82fb1577ddbaa, type: 3}
+    - {fileID: 21300000, guid: e63d6e6e8d5ee3148b4ea84658e33fa2, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []

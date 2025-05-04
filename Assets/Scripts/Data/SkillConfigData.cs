@@ -30,7 +30,7 @@ public class SkillConfigData : ConfigData
     public string animationName = ""; // 技能动画名称
     public float elseAnimTime = 0; // 需要额外等的时间
     public bool needGotoTargetPos = true; // 是否需要移动到目标位置
-    public HeroSkillType heroKkillType = HeroSkillType.Sowrd; // 技能类型
+    public HeroSkillType heroskillType = HeroSkillType.Sowrd; // 技能类型
     [Tooltip("判断技能释放条件"), BoxGroup(EXT_BOX_LEFT)]
     public bool CheckCondition(BattleCharacterData character, bool checkCondition = true)
     {
@@ -69,6 +69,7 @@ public class SkillEffectViewData
     public EffectViewType effectViewType; // 技能特效类型
     public bool destoryOnEnd = true; // 是否在技能结束后销毁特效
     public bool isLoop = false; // 是否循环播放
+    public Vector3 offset = Vector3.zero; // 特效偏移量
 }
 
 public enum EffectViewType

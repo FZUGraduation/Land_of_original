@@ -33,7 +33,7 @@ public class UISkillIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         this.skillConfig = skillConfig;
         skillName = skillConfig.key;
         this.onClick = onClick;
-        skillIcon.sprite = heroData.heroConfig.skills.Find(s => s.key == skillName).icon;
+        skillIcon.sprite = skillConfig.icon;
         //如果mp不够，则按钮不可点击
         button.interactable = skillConfig.mpCost <= BattleData.Instance.MP && !isInCoolDown;
         //如果被沉默，且不是普攻，则显示沉默图标

@@ -399,7 +399,12 @@ public class BattleData : BaseEventCenter
             string path = "Prefabs/Battle/EffectView";
             ResourceManager.Instance.LoadAsync<GameObject>(path, (obj) =>
             {
-                var effectView = GameObject.Instantiate(obj, target.characterMono.transform);
+                var bornPos = target.characterMono.transform;
+                if (skillConfig.effectView.effectViewType == EffectViewType.Bullet)
+                {
+                    bornPos = attacker.characterMono.transform;
+                }
+                var effectView = GameObject.Instantiate(obj, bornPos);
                 effectView.transform.localPosition = Vector3.zero;
                 effectView.transform.localScale = Vector3.one;
                 effectView.transform.localRotation = Quaternion.identity;

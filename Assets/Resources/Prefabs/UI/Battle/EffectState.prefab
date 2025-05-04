@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1387e01c69f60ca488110298deb93621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 9058955007423934746}
+  icon: {fileID: 3824600430308551929}
   stayCountText: {fileID: 7612181256962519322}
 --- !u!1 &7811623696945632830
 GameObject:

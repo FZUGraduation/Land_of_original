@@ -25,7 +25,7 @@ MonoBehaviour:
   key: Hero1Skill_2
   displayedName: Hero1Skill_2
   prefab: {fileID: 0}
-  desc: 
+  desc: "\u964D\u4F4E\u901F\u5EA6"
   note: 
   isBasicAttack: 0
   target: 2
@@ -47,9 +47,11 @@ MonoBehaviour:
     effectViewType: 0
     destoryOnEnd: 1
     isLoop: 0
+    offset: {x: 0, y: 0, z: 0}
   animationName: 
   elseAnimTime: 0
   needGotoTargetPos: 1
+  heroskillType: 0
 --- !u!114 &-65826455168272949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,9 +99,11 @@ MonoBehaviour:
     effectViewType: 0
     destoryOnEnd: 1
     isLoop: 0
+    offset: {x: 0, y: 0, z: 0}
   animationName: 
   elseAnimTime: 0
   needGotoTargetPos: 1
+  heroskillType: 2
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,9 +188,11 @@ MonoBehaviour:
     effectViewType: 1
     destoryOnEnd: 1
     isLoop: 0
+    offset: {x: 0, y: 0, z: 0}
   animationName: Attack1
   elseAnimTime: 0
   needGotoTargetPos: 0
+  heroskillType: 0
 --- !u!114 &7791752213047137225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,9 +240,11 @@ MonoBehaviour:
     effectViewType: 0
     destoryOnEnd: 1
     isLoop: 0
+    offset: {x: 0, y: 0, z: 0}
   animationName: Attack1
   elseAnimTime: 0
   needGotoTargetPos: 0
+  heroskillType: 0
 --- !u!114 &9218938522647048434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +270,7 @@ MonoBehaviour:
   key: Hero1Skill_1
   displayedName: Hero1Skill_1
   prefab: {fileID: 0}
-  desc: 
+  desc: "\u666E\u666E\u901A\u901A\u7684\u653B\u51FB"
   note: 
   isBasicAttack: 1
   target: 2
@@ -280,11 +288,13 @@ MonoBehaviour:
     MaxValue: 0
     statType: 0
   effectView:
-    effectViewPrefab: {fileID: 2605454101640574360, guid: e7818958d35d54146a511c2f8e3ce6a8,
+    effectViewPrefab: {fileID: 3993863678438815163, guid: f1a93679d8eafb747b3f968ed8c9639e,
       type: 3}
-    effectViewType: 1
+    effectViewType: 2
     destoryOnEnd: 1
     isLoop: 0
-  animationName: 
-  elseAnimTime: 0
+    offset: {x: 0, y: 1, z: 0}
+  animationName: 2Hand-Sword-Attack1
+  elseAnimTime: -0.8
   needGotoTargetPos: 1
+  heroskillType: 0

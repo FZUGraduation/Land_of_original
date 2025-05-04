@@ -143,7 +143,7 @@ public class UIBattle : MonoBehaviour
     {
         skillIconDic.Clear();
         var heroConfig = heroData.heroConfig;
-        var skills = heroConfig.skills;
+        var skills = heroData.heroRuntime.GetSkillList();
 
         int childCount = skillRoot.childCount;
         for (int i = 0; i < childCount; i++)

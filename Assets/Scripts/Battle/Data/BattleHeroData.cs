@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class BattleHeroData : BattleCharacterData
 {
     public HeroConfigData heroConfig;
+    public HeroRuntimeData heroRuntime;
 
     public BattleHeroData(HeroRuntimeData heroData, int battleID) : base(battleID)
     {
@@ -18,19 +19,11 @@ public class BattleHeroData : BattleCharacterData
         critDamage.InitValue(heroData.GetFinalValue(StatType.CRITDAMAGE));
         hitRate.InitValue(heroData.GetFinalValue(StatType.HITRATE));
         heroConfig = heroData.ConfigData;
+        heroRuntime = heroData;
     }
 
     public override SkillConfigData GetSkillConfig(string skillName)
     {
         return heroConfig.skills.Find(s => s.key == skillName);
-    }
-
-    public override SkillConfigData GetSkillConfig(int skillIndex)
-    {
-        if (skillIndex < 0 || skillIndex >= heroConfig.skills.Count)
-        {
-            return null;
-        }
-        return heroConfig.skills[skillIndex];
     }
 }

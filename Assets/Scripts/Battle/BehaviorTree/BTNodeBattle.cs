@@ -51,36 +51,6 @@ public class ActionEnd : BtActionNode
     }
 }
 
-[NodeLabel("Battle_So_Skill_判断技能,用于hero")]
-public class So_Skill : BtPrecondition
-{
-    [FoldoutGroup("@NodeName"), LabelText("技能index"), Range(0, 3)]
-    public int skillIndex = 0;
-    private SkillConfigData skillConfig = null;
-    private bool isInit = false;
-    public override BehaviourState Tick()
-    {
-        if (isInit && skillConfig == null) return NodeState = BehaviourState.失败;
-        var character = blackboard.objectDir["owner"] as BaseCharacter;
-        if (!isInit)
-        {
-            isInit = true;
-
-            skillConfig = BattleData.Instance.GetCharacterData(character.BattleID).GetSkillConfig(skillIndex);
-            if (skillConfig == null) return NodeState = BehaviourState.失败;
-        }
-        if (character is BaseHero hero)
-        {
-            //如果这个节点是对应技能的节点，则执行
-            if (hero.GetCurrSkillName() == skillConfig.key)
-            {
-                NodeState = ChildNode.Tick();
-                return NodeState;
-            }
-        }
-        return NodeState = BehaviourState.失败;
-    }
-}
 
 [NodeLabel("Battle_SkillExcute_执行技能")]
 public class SkillExcute : BtActionNode

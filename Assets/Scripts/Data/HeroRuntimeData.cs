@@ -32,7 +32,10 @@ public class HeroRuntimeData : RuntimeData
     {
         ConfigKey = key;
         //装备默认武器
-        equipmentData.Add(EquipmentType.Weapon, ConfigData.defaultWeapon.key);
+        if (!string.IsNullOrEmpty(ConfigData.defaultWeapon.key))
+        {
+            equipmentData.Add(EquipmentType.Weapon, ConfigData.defaultWeapon.key);
+        }
     }
 
     private List<OutSideGrowthConfigData> outSideGrowth = null;
@@ -129,5 +132,12 @@ public class HeroRuntimeData : RuntimeData
                 return ConfigData.hitRate;
         }
         return 0f;
+    }
+
+    public List<SkillConfigData> GetSkillList()
+    {
+        string weaponKey = equipmentData[EquipmentType.Weapon];
+        HeroSkillType skillType = Datalib.Instance.GetData<EquipmentConfigData>(weaponKey).heroskillType;
+        return ConfigData.skills.FindAll(s => s.heroskillType == skillType);
     }
 }

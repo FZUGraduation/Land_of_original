@@ -19,6 +19,8 @@ public class EquipmentConfigData : ItemConfigData
     public List<StatChange> statChanges = new();
     [BoxGroup(STATS_BOX, LabelText = "装备路径")]
     public List<string> path;
+    [BoxGroup(STATS_BOX, LabelText = "装备技能类型")]
+    public HeroSkillType heroskillType = HeroSkillType.Sowrd; // 技能类型
 }
 
 public enum EquipmentType

@@ -112,7 +112,7 @@ public class BattleCharacterData
     }
 
     public virtual SkillConfigData GetSkillConfig(string skillName) { return null; }
-    public virtual SkillConfigData GetSkillConfig(int skillIndex) { return null; }
+
     public void OnUseSkill(string skillName)
     {
         var skillConfig = GetSkillConfig(skillName);

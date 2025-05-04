@@ -446,10 +446,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 407.999969
+      Data: 400
     - Name: 
       Entry: 4
-      Data: 251.000031
+      Data: 243.191986
     - Name: 
       Entry: 8
       Data: 
@@ -666,13 +666,13 @@ MonoBehaviour:
       Data: InSkill
     - Name: ChildNode
       Entry: 7
-      Data: 19|JLBehaviourTree.BehaviourTree.Selector, Assembly-CSharp
+      Data: 19|JLBehaviourTree.BehaviourTree.Sequence, Assembly-CSharp
     - Name: nodeDes
-      Entry: 1
-      Data: "\u9009\u62E9\u4E00\u4E2A\u6280\u80FD\u6267\u884C"
+      Entry: 6
+      Data: 
     - Name: Guid
       Entry: 1
-      Data: fa055463-4365-4998-b97e-642020957984
+      Data: 648c56ac-9a72-4339-8563-a17bc1572b87
     - Name: Position
       Entry: 7
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
@@ -693,32 +693,32 @@ MonoBehaviour:
       Data: 0
     - Name: className
       Entry: 1
-      Data: Selector
+      Data: Sequence
     - Name: NodeName
       Entry: 1
-      Data: Selector
+      Data: Sequence
     - Name: ChildNodes
       Entry: 7
       Data: 20|System.Collections.Generic.List`1[[JLBehaviourTree.BehaviourTree.BtNodeBase,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 3
+      Data: 2
     - Name: 
       Entry: 7
-      Data: 21|So_Skill, Assembly-CSharp
+      Data: 21|WaitAnimation, Assembly-CSharp
     - Name: nodeDes
       Entry: 6
       Data: 
     - Name: Guid
       Entry: 1
-      Data: f90a0342-6c74-4ae2-973b-b78292699b56
+      Data: 01987025-014d-486e-bcf6-330d369da5ea
     - Name: Position
       Entry: 7
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 200
+      Data: 500
     - Name: 
       Entry: 4
       Data: 923.192
@@ -733,86 +733,13 @@ MonoBehaviour:
       Data: 0
     - Name: className
       Entry: 1
-      Data: So_Skill
-    - Name: NodeName
-      Entry: 1
-      Data: Skill_0
-    - Name: ChildNode
-      Entry: 7
-      Data: 22|JLBehaviourTree.BehaviourTree.Sequence, Assembly-CSharp
-    - Name: nodeDes
-      Entry: 6
-      Data: 
-    - Name: Guid
-      Entry: 1
-      Data: 20bcb994-7adf-4e28-b36f-c6cb9248ff56
-    - Name: Position
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 200
-    - Name: 
-      Entry: 4
-      Data: 1093.192
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: NodeType
-      Entry: 3
-      Data: 2
-    - Name: NodeState
-      Entry: 3
-      Data: 0
-    - Name: className
-      Entry: 1
-      Data: Sequence
-    - Name: NodeName
-      Entry: 1
-      Data: Sequence
-    - Name: ChildNodes
-      Entry: 7
-      Data: 23|System.Collections.Generic.List`1[[JLBehaviourTree.BehaviourTree.BtNodeBase,
-        Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 7
-      Data: 24|WaitAnimation, Assembly-CSharp
-    - Name: nodeDes
-      Entry: 6
-      Data: 
-    - Name: Guid
-      Entry: 1
-      Data: 01987025-014d-486e-bcf6-330d369da5ea
-    - Name: Position
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 100
-    - Name: 
-      Entry: 4
-      Data: 1263.192
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: NodeType
-      Entry: 3
-      Data: 3
-    - Name: NodeState
-      Entry: 3
-      Data: 0
-    - Name: className
-      Entry: 1
       Data: WaitAnimation
     - Name: NodeName
       Entry: 1
       Data: WaitAnimation
     - Name: ChildNode
       Entry: 7
-      Data: 25|SkillExcute, Assembly-CSharp
+      Data: 22|SkillExcute, Assembly-CSharp
     - Name: nodeDes
       Entry: 6
       Data: 
@@ -824,10 +751,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 100
+      Data: 500
     - Name: 
       Entry: 4
-      Data: 1433.192
+      Data: 1093.192
     - Name: 
       Entry: 8
       Data: 
@@ -851,7 +778,7 @@ MonoBehaviour:
       Data: Run
     - Name: isSkill
       Entry: 5
-      Data: false
+      Data: true
     - Name: elseTimer
       Entry: 4
       Data: -0.1
@@ -860,7 +787,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 26|JLBehaviourTree.BehaviourTree.Delay, Assembly-CSharp
+      Data: 23|JLBehaviourTree.BehaviourTree.Delay, Assembly-CSharp
     - Name: nodeDes
       Entry: 6
       Data: 
@@ -872,10 +799,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 300
+      Data: 700
     - Name: 
       Entry: 4
-      Data: 1263.192
+      Data: 923.192
     - Name: 
       Entry: 8
       Data: 
@@ -893,7 +820,7 @@ MonoBehaviour:
       Data: Delay
     - Name: ChildNode
       Entry: 7
-      Data: 27|ActionEnd, Assembly-CSharp
+      Data: 24|ActionEnd, Assembly-CSharp
     - Name: nodeDes
       Entry: 6
       Data: 
@@ -905,103 +832,7 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 300
-    - Name: 
-      Entry: 4
-      Data: 1433.192
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: NodeType
-      Entry: 3
-      Data: 4
-    - Name: NodeState
-      Entry: 3
-      Data: 0
-    - Name: className
-      Entry: 1
-      Data: ActionEnd
-    - Name: NodeName
-      Entry: 1
-      Data: ActionEnd
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: timer
-      Entry: 4
-      Data: 0.5
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: _index
-      Entry: 3
-      Data: 0
-    - Name: desc
-      Entry: 1
-      Data: "\u987A\u5E8F\u8282\u70B9\uFF0C\u6309\u987A\u5E8F\u6267\u884C\u5B50\u8282\u70B9\uFF0C\u5168\u90E8\u6210\u529F\u8FD4\u56DE\u6210\u529F\uFF0C\u4EFB\u4E00\u5931\u8D25\u7ACB\u5373\u7EC8\u6B62\u3002"
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: skillIndex
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 28|So_Skill, Assembly-CSharp
-    - Name: nodeDes
-      Entry: 6
-      Data: 
-    - Name: Guid
-      Entry: 1
-      Data: dcda4196-f978-4b36-b383-527e8a3a3570
-    - Name: Position
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 600
-    - Name: 
-      Entry: 4
-      Data: 923.192
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: NodeType
-      Entry: 3
-      Data: 3
-    - Name: NodeState
-      Entry: 3
-      Data: 0
-    - Name: className
-      Entry: 1
-      Data: So_Skill
-    - Name: NodeName
-      Entry: 1
-      Data: Skill_1
-    - Name: ChildNode
-      Entry: 7
-      Data: 29|JLBehaviourTree.BehaviourTree.Sequence, Assembly-CSharp
-    - Name: nodeDes
-      Entry: 6
-      Data: 
-    - Name: Guid
-      Entry: 1
-      Data: 3caa843e-4767-42ff-a17e-a8c63c8753f3
-    - Name: Position
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 600
+      Data: 700
     - Name: 
       Entry: 4
       Data: 1093.192
@@ -1010,115 +841,6 @@ MonoBehaviour:
       Data: 
     - Name: NodeType
       Entry: 3
-      Data: 2
-    - Name: NodeState
-      Entry: 3
-      Data: 0
-    - Name: className
-      Entry: 1
-      Data: Sequence
-    - Name: NodeName
-      Entry: 1
-      Data: Sequence
-    - Name: ChildNodes
-      Entry: 7
-      Data: 30|System.Collections.Generic.List`1[[JLBehaviourTree.BehaviourTree.BtNodeBase,
-        Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 7
-      Data: 31|SkillExcute, Assembly-CSharp
-    - Name: nodeDes
-      Entry: 6
-      Data: 
-    - Name: Guid
-      Entry: 1
-      Data: 61071385-041c-44c8-968c-eb7b02438e18
-    - Name: Position
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 500
-    - Name: 
-      Entry: 4
-      Data: 1263.192
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: NodeType
-      Entry: 3
-      Data: 4
-    - Name: NodeState
-      Entry: 3
-      Data: 0
-    - Name: className
-      Entry: 1
-      Data: SkillExcute
-    - Name: NodeName
-      Entry: 1
-      Data: SkillExcute
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 32|JLBehaviourTree.BehaviourTree.Delay, Assembly-CSharp
-    - Name: nodeDes
-      Entry: 6
-      Data: 
-    - Name: Guid
-      Entry: 1
-      Data: c798f5a4-dc69-4a14-aaaa-b9cf0c721363
-    - Name: Position
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 700
-    - Name: 
-      Entry: 4
-      Data: 1263.192
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: NodeType
-      Entry: 3
-      Data: 3
-    - Name: NodeState
-      Entry: 3
-      Data: 0
-    - Name: className
-      Entry: 1
-      Data: Delay
-    - Name: NodeName
-      Entry: 1
-      Data: Delay
-    - Name: ChildNode
-      Entry: 7
-      Data: 33|ActionEnd, Assembly-CSharp
-    - Name: nodeDes
-      Entry: 6
-      Data: 
-    - Name: Guid
-      Entry: 1
-      Data: 35143521-a4d8-4cde-8658-d85ad5b6a4a2
-    - Name: Position
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 700
-    - Name: 
-      Entry: 4
-      Data: 1433.192
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: NodeType
-      Entry: 3
       Data: 4
     - Name: NodeState
       Entry: 3
@@ -1150,232 +872,6 @@ MonoBehaviour:
     - Name: desc
       Entry: 1
       Data: "\u987A\u5E8F\u8282\u70B9\uFF0C\u6309\u987A\u5E8F\u6267\u884C\u5B50\u8282\u70B9\uFF0C\u5168\u90E8\u6210\u529F\u8FD4\u56DE\u6210\u529F\uFF0C\u4EFB\u4E00\u5931\u8D25\u7ACB\u5373\u7EC8\u6B62\u3002"
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: skillIndex
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 34|So_Skill, Assembly-CSharp
-    - Name: nodeDes
-      Entry: 6
-      Data: 
-    - Name: Guid
-      Entry: 1
-      Data: 3c63c334-e745-4bd4-9ec1-c99ad4b96d36
-    - Name: Position
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 1000
-    - Name: 
-      Entry: 4
-      Data: 923.192
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: NodeType
-      Entry: 3
-      Data: 3
-    - Name: NodeState
-      Entry: 3
-      Data: 0
-    - Name: className
-      Entry: 1
-      Data: So_Skill
-    - Name: NodeName
-      Entry: 1
-      Data: Skill_2
-    - Name: ChildNode
-      Entry: 7
-      Data: 35|JLBehaviourTree.BehaviourTree.Sequence, Assembly-CSharp
-    - Name: nodeDes
-      Entry: 6
-      Data: 
-    - Name: Guid
-      Entry: 1
-      Data: dbb5362d-bf67-4c73-8329-2c4bedd72589
-    - Name: Position
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 1000
-    - Name: 
-      Entry: 4
-      Data: 1093.192
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: NodeType
-      Entry: 3
-      Data: 2
-    - Name: NodeState
-      Entry: 3
-      Data: 0
-    - Name: className
-      Entry: 1
-      Data: Sequence
-    - Name: NodeName
-      Entry: 1
-      Data: Sequence
-    - Name: ChildNodes
-      Entry: 7
-      Data: 36|System.Collections.Generic.List`1[[JLBehaviourTree.BehaviourTree.BtNodeBase,
-        Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 7
-      Data: 37|SkillExcute, Assembly-CSharp
-    - Name: nodeDes
-      Entry: 6
-      Data: 
-    - Name: Guid
-      Entry: 1
-      Data: d31a428a-f90b-48df-bb5a-7541e0ea4e99
-    - Name: Position
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 900
-    - Name: 
-      Entry: 4
-      Data: 1263.192
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: NodeType
-      Entry: 3
-      Data: 4
-    - Name: NodeState
-      Entry: 3
-      Data: 0
-    - Name: className
-      Entry: 1
-      Data: SkillExcute
-    - Name: NodeName
-      Entry: 1
-      Data: SkillExcute
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 38|JLBehaviourTree.BehaviourTree.Delay, Assembly-CSharp
-    - Name: nodeDes
-      Entry: 6
-      Data: 
-    - Name: Guid
-      Entry: 1
-      Data: 8cf8dbc4-673b-45f8-a283-00ea7b31ff11
-    - Name: Position
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 1100
-    - Name: 
-      Entry: 4
-      Data: 1263.192
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: NodeType
-      Entry: 3
-      Data: 3
-    - Name: NodeState
-      Entry: 3
-      Data: 0
-    - Name: className
-      Entry: 1
-      Data: Delay
-    - Name: NodeName
-      Entry: 1
-      Data: Delay
-    - Name: ChildNode
-      Entry: 7
-      Data: 39|ActionEnd, Assembly-CSharp
-    - Name: nodeDes
-      Entry: 6
-      Data: 
-    - Name: Guid
-      Entry: 1
-      Data: 01aef692-f29e-4058-9da6-b6f6c5902233
-    - Name: Position
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 1100
-    - Name: 
-      Entry: 4
-      Data: 1433.192
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: NodeType
-      Entry: 3
-      Data: 4
-    - Name: NodeState
-      Entry: 3
-      Data: 0
-    - Name: className
-      Entry: 1
-      Data: ActionEnd
-    - Name: NodeName
-      Entry: 1
-      Data: ActionEnd
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: timer
-      Entry: 4
-      Data: 0.5
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: _index
-      Entry: 3
-      Data: 0
-    - Name: desc
-      Entry: 1
-      Data: "\u987A\u5E8F\u8282\u70B9\uFF0C\u6309\u987A\u5E8F\u6267\u884C\u5B50\u8282\u70B9\uFF0C\u5168\u90E8\u6210\u529F\u8FD4\u56DE\u6210\u529F\uFF0C\u4EFB\u4E00\u5931\u8D25\u7ACB\u5373\u7EC8\u6B62\u3002"
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: skillIndex
-      Entry: 3
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: _index
-      Entry: 3
-      Data: 0
-    - Name: desc
-      Entry: 1
-      Data: "\u9009\u62E9\u8282\u70B9\uFF0C\u6309\u987A\u5E8F\u6267\u884C\u5B50\u8282\u70B9\uFF0C\u76F4\u5230\u627E\u5230\u4E00\u4E2A\u6210\u529F\u7684\u5B50\u8282\u70B9\u540E\u505C\u6B62\u3002"
     - Name: 
       Entry: 8
       Data: 
@@ -1438,56 +934,26 @@ MonoBehaviour:
       Data: 
     - Name: NodeData
       Entry: 7
-      Data: 40|System.Collections.Generic.List`1[[JLBehaviourTree.BehaviourTree.BtNodeBase,
+      Data: 25|System.Collections.Generic.List`1[[JLBehaviourTree.BehaviourTree.BtNodeBase,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 31
+      Data: 19
     - Name: 
       Entry: 9
       Data: 1
     - Name: 
       Entry: 9
+      Data: 23
+    - Name: 
+      Entry: 9
       Data: 22
     - Name: 
       Entry: 9
-      Data: 26
-    - Name: 
-      Entry: 9
-      Data: 19
-    - Name: 
-      Entry: 9
-      Data: 35
-    - Name: 
-      Entry: 9
-      Data: 38
-    - Name: 
-      Entry: 9
-      Data: 25
-    - Name: 
-      Entry: 9
-      Data: 27
-    - Name: 
-      Entry: 9
-      Data: 37
-    - Name: 
-      Entry: 9
-      Data: 39
-    - Name: 
-      Entry: 9
-      Data: 29
-    - Name: 
-      Entry: 9
-      Data: 32
-    - Name: 
-      Entry: 9
-      Data: 31
-    - Name: 
-      Entry: 9
-      Data: 33
-    - Name: 
-      Entry: 9
       Data: 24
+    - Name: 
+      Entry: 9
+      Data: 21
     - Name: 
       Entry: 9
       Data: 16
@@ -1497,15 +963,6 @@ MonoBehaviour:
     - Name: 
       Entry: 9
       Data: 18
-    - Name: 
-      Entry: 9
-      Data: 21
-    - Name: 
-      Entry: 9
-      Data: 34
-    - Name: 
-      Entry: 9
-      Data: 28
     - Name: 
       Entry: 9
       Data: 5
@@ -1537,6 +994,9 @@ MonoBehaviour:
       Entry: 9
       Data: 3
     - Name: 
+      Entry: 9
+      Data: 19
+    - Name: 
       Entry: 13
       Data: 
     - Name: 
@@ -1544,16 +1004,16 @@ MonoBehaviour:
       Data: 
     - Name: viewTransform
       Entry: 7
-      Data: 41|JLBehaviourTree.BehaviourTree.SaveTransform, Assembly-CSharp
+      Data: 26|JLBehaviourTree.BehaviourTree.SaveTransform, Assembly-CSharp
     - Name: position
       Entry: 7
       Data: UnityEngine.Vector3, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: -14
+      Data: 64
     - Name: 
       Entry: 4
-      Data: 83
+      Data: -43
     - Name: 
       Entry: 4
       Data: 0
@@ -1583,10 +1043,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector3, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0.657516241
+      Data: 0.571753263
     - Name: 
       Entry: 4
-      Data: 0.657516241
+      Data: 0.571753263
     - Name: 
       Entry: 4
       Data: 1

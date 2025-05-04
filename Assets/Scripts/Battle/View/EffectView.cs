@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class EffectView : MonoBehaviour
 {
     public SkillEffectViewData info; // 技能特效预设体
-    public Vector3 targetPosition; // 目标位置
+    private Vector3 targetPosition; // 目标位置
     void Start()
     {
         if (info == null)
@@ -14,6 +15,7 @@ public class EffectView : MonoBehaviour
             return;
         }
         GameObject effectInstance = Instantiate(info.effectViewPrefab, transform);
+        effectInstance.transform.position += info.offset; // 设置特效位置偏移
         if (info.effectViewType == EffectViewType.Particle)
         {
             transform.position = targetPosition;
@@ -33,21 +35,16 @@ public class EffectView : MonoBehaviour
         }
         else if (info.effectViewType == EffectViewType.Bullet)
         {
+            // 使用 DOTween 实现子弹移动逻辑
+            transform.DOMove(targetPosition, Vector3.Distance(transform.position, targetPosition) / 20f)
+                .SetEase(Ease.InQuad)
+                .OnComplete(() =>
+                {
+                    Destroy(gameObject); // 移动完成后销毁对象
+                });
+        }
+    }
 
-        }
-    }
-    void Update()
-    {
-        if (info.effectViewType == EffectViewType.Bullet)
-        {
-            // 这里可以添加子弹的移动逻辑
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * 5f);
-            if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
-            {
-                Destroy(gameObject);
-            }
-        }
-    }
     public void SetInfo(SkillEffectViewData info, Vector3 position)
     {
         this.info = info;
