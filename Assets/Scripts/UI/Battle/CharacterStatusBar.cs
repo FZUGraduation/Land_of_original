@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class CharacterStatusBar : MonoBehaviour
     public Transform effectRoot;
     public GameObject effectPrefab;
     public Slider hpSlider;
+    public TextMeshProUGUI hpText;
     private List<(BaseEffect, NodeEffectIem)> effectItems = new();
 
     private Transform targetTrs;
@@ -35,6 +37,7 @@ public class CharacterStatusBar : MonoBehaviour
     public void SetHp(float hp, float maxHp)
     {
         hpSlider.value = hp / maxHp;
+        hpText.text = $"{(int)hp}/{(int)maxHp}";
     }
     public void AddEffect(BaseEffect effect)
     {

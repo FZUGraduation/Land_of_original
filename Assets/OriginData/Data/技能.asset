@@ -273,7 +273,7 @@ MonoBehaviour:
   desc: "\u666E\u666E\u901A\u901A\u7684\u653B\u51FB"
   note: 
   isBasicAttack: 1
-  target: 2
+  target: 4
   mpCost: 0
   autoTargetSelectType: 0
   needUnlock: 0

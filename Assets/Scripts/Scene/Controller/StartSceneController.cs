@@ -2,6 +2,7 @@
 
 using UnityEngine;
 using Sirenix.OdinInspector;
+using UnityEngine.InputSystem;
 
 public class StartSceneController : SceneController
 {

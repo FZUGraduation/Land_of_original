@@ -33,6 +33,8 @@ public class SaveSlotData : RuntimeData
     private int talentPoint = 0;
     [JsonProperty]
     private Dictionary<string, bool> unlockTalent = new();//用来存储解锁的天赋
+    [JsonProperty]
+    public Dictionary<string, bool> unlockTreasure = new();//已经获得的宝箱
     public float bgmVolum = 1;
     public float seVolum = 1;
     public float voiceVolum = 1;

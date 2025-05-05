@@ -127,8 +127,8 @@ public class UITalk : BaseDialog
         // Dialog类型处理
         if (talkData.type == TalkType.Dialogue)
         {
-            UpdateText(talkData.talker.key, talkData.content, talkData.isLeft);
-            UpdateImage(talkData.talker.icon, talkData.isLeft);
+            UpdateText(talkData.talker.GetTalkName(), talkData.content, talkData.isLeft);
+            UpdateImage(talkData.talker.GetTalkIcon(), talkData.isLeft);
             btn_Continue.SetActive(true);
             dialogIndex++;
         }

@@ -11,8 +11,6 @@ public class TalkConfigData : ConfigData
     [BoxGroup(STATS_BOX), LabelText("优先级")]
     public int priority;
     public List<SingleTalkData> talkDataList;
-
-
 }
 
 [Serializable]

@@ -290,10 +290,12 @@ public class UIBattle : MonoBehaviour
         // status.transform.position = pos;
         var statusCom = status.GetComponent<CharacterStatusBar>();
         statusCom.Init(targetTransform);
-        character.GetStat(StatType.HP).OnValueModified += (value) =>
+        var hpStatus = character.GetStat(StatType.HP);
+        hpStatus.OnValueModified += (value) =>
         {
             statusCom?.SetHp(value.BaseValue, value.MaxValue);//监听血量的变化
         };
+        statusCom?.SetHp(hpStatus.BaseValue, hpStatus.MaxValue);//监听血量的变化
         statusBarDic.Add(character.battleID, statusCom);
     }
     protected void OnAddEffect(object[] args)
