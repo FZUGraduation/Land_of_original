@@ -58,11 +58,11 @@ public class UICharacterShow : BaseDialog
         var rttObject = RTTManager.Instance.GetRttObject(this);
         if (rttObject != null)
         {
-            rttObject.ReplaceRttPrefab(configData.modelPrefab);
+            rttObject.ReplaceRttPrefab(data.GetModlePrefab());
         }
         else
         {
-            rttObject = RTTManager.Instance.CreateRttObject(this, configData.modelPrefab, 512, 1024);
+            rttObject = RTTManager.Instance.CreateRttObject(this, data.GetModlePrefab(), 512, 1024);
             rawImage.texture = rttObject.renderTexture;
         }
         rotator.targetModel = rttObject.rttObjectRoot.transform;
@@ -210,6 +210,15 @@ public class UICharacterShow : BaseDialog
         if (!string.IsNullOrEmpty(oldEquipKey))
         {
             bagData.AddItem(oldEquipKey, 1);
+        }
+        if (equipCfg.equipmentType == EquipmentType.Body)
+        {
+            FrameEvent.Instance.Emit(FrameEvent.ResetHeroBody);
+            var rttObject = RTTManager.Instance.GetRttObject(this);
+            if (rttObject != null)
+            {
+                rttObject.ReplaceRttPrefab(selectedHeroData.GetModlePrefab());
+            }
         }
         InitEquipmentSlots();
         RefreshBagSlots();

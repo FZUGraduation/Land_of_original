@@ -13,6 +13,8 @@ public class EquipmentConfigData : ItemConfigData
     [VerticalGroup("TDSplit/LRSplit/Left/General Settings/Split/Right")]
     [LabelText("模型")]
     public GameObject modelPrefab;
+    [VerticalGroup("TDSplit/LRSplit/Left/General Settings/Split/Right")]
+    public GameObject worldPrefab;
     [BoxGroup(STATS_BOX, LabelText = "装备类型")]
     public EquipmentType equipmentType = EquipmentType.None;
     [BoxGroup(STATS_BOX, LabelText = "数值提升")]

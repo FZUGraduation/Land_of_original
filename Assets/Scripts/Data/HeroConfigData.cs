@@ -7,4 +7,5 @@ using UnityEngine;
 public class HeroConfigData : CharacterConfigData
 {
     public EquipmentConfigData defaultWeapon;
+    public EquipmentConfigData defaultBody;
 }

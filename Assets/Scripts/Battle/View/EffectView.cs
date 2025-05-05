@@ -35,9 +35,10 @@ public class EffectView : MonoBehaviour
         }
         else if (info.effectViewType == EffectViewType.Bullet)
         {
+            transform.position = transform.position + (targetPosition - transform.position) / 3; // 设置子弹位置为起始位置和目标位置的中点
             // 使用 DOTween 实现子弹移动逻辑
-            transform.DOMove(targetPosition, Vector3.Distance(transform.position, targetPosition) / 20f)
-                .SetEase(Ease.InQuad)
+            transform.DOMove(targetPosition, Vector3.Distance(transform.position, targetPosition) / 15f)
+                .SetEase(Ease.InOutSine)//
                 .OnComplete(() =>
                 {
                     Destroy(gameObject); // 移动完成后销毁对象

@@ -27,7 +27,7 @@ public class BattlePos : MonoBehaviour
     }
     public void InitHero(BattleHeroData heroData)
     {
-        var prefab = heroData.heroConfig.prefab;
+        var prefab = heroData.heroRuntime.GetBattlePrefab();
         characterGo = Instantiate(prefab, transform);
         var baseHero = characterGo.GetComponent<BaseHero>();
         baseHero.Init(heroData);

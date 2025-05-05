@@ -1,5 +1,69 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5636642991367229498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28776e426366c4d419b40f559844bc2b, type: 3}
+  m_Name: DEF+10%
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  icon: {fileID: 0}
+  key: DEF+10%
+  displayedName: 
+  prefab: {fileID: 0}
+  desc: 
+  note: 
+  statCalculatetype: 1
+  excuteStat: 3
+  value: 0.1
+  talentConfigData:
+  - {fileID: 7604463465776363985, guid: a88ec62fad2757b428723438e3448603, type: 2}
+--- !u!114 &-3927890339534602745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28776e426366c4d419b40f559844bc2b, type: 3}
+  m_Name: CRIT+10%
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  icon: {fileID: 0}
+  key: CRIT+10%
+  displayedName: 
+  prefab: {fileID: 0}
+  desc: 
+  note: 
+  statCalculatetype: 1
+  excuteStat: 5
+  value: 0.1
+  talentConfigData:
+  - {fileID: 1400290224794341222, guid: a88ec62fad2757b428723438e3448603, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32,6 +96,10 @@ MonoBehaviour:
       Data: 
   datas:
   - {fileID: 173619102147687950}
+  - {fileID: -5636642991367229498}
+  - {fileID: 2123673269702631505}
+  - {fileID: 7436695607390210753}
+  - {fileID: -3927890339534602745}
 --- !u!114 &173619102147687950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,6 +129,70 @@ MonoBehaviour:
   note: 
   statCalculatetype: 1
   excuteStat: 2
+  value: 0.1
+  talentConfigData:
+  - {fileID: 1457896684954142326, guid: a88ec62fad2757b428723438e3448603, type: 2}
+--- !u!114 &2123673269702631505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28776e426366c4d419b40f559844bc2b, type: 3}
+  m_Name: HP+10%
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  icon: {fileID: 0}
+  key: HP+10%
+  displayedName: 
+  prefab: {fileID: 0}
+  desc: 
+  note: 
+  statCalculatetype: 1
+  excuteStat: 0
+  value: 0.1
+  talentConfigData:
+  - {fileID: -1717651683333211803, guid: a88ec62fad2757b428723438e3448603, type: 2}
+--- !u!114 &7436695607390210753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28776e426366c4d419b40f559844bc2b, type: 3}
+  m_Name: SPEED+10%
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  icon: {fileID: 0}
+  key: SPEED+10%
+  displayedName: 
+  prefab: {fileID: 0}
+  desc: 
+  note: 
+  statCalculatetype: 1
+  excuteStat: 4
   value: 0.1
   talentConfigData:
   - {fileID: 6907849050467208971, guid: a88ec62fad2757b428723438e3448603, type: 2}

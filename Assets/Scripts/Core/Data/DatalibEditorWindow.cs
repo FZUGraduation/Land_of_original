@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using System.Linq;
-using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector.Editor;
 using Sirenix.Utilities;
 using Sirenix.Utilities.Editor;
@@ -75,8 +73,6 @@ public class DatalibEditorWindow : OdinMenuEditorWindow
             }
 
         }
-
-        // Draw your OdinMenuTree here
     }
     protected override OdinMenuTree BuildMenuTree()
     {
@@ -91,14 +87,9 @@ public class DatalibEditorWindow : OdinMenuEditorWindow
         //等待loadData完成
         datalib.LoadData(forceReload);
         forceReload = false;
-        // var sortedKeys = datalib.dataDict.Keys.ToList();
-        // sortedKeys.Sort(CompareTypeOrder);
-
         tree.AddRange(datalib.creatorList, (v) =>
         {
-            //Debug.Log(v.type.ToString());
             var path = Datalib.configTypeOrder.Find(item => item.type == v.type).path;
-            //Debug.Log(path);
             return path;
         });
         var configDataType = typeof(ConfigData);
@@ -119,18 +110,7 @@ public class DatalibEditorWindow : OdinMenuEditorWindow
                     }
                 }
             }
-            // else
-            // {
-            //     if (i.type == typeof(GlobalDB))
-            //     {
-            //         tree.Add(i.path, datalib.globalDB);
-            //     }
-            // }
-
-
         }
-
-
 
         tree.EnumerateTree().ForEach((item) =>
         {
@@ -138,10 +118,6 @@ public class DatalibEditorWindow : OdinMenuEditorWindow
             {
                 item.Name = "$";
             }
-            // var newName = (item.Value as ConfigData)?.key;
-            // if(newName != null){
-            //     item.Name = "$";//newName;
-            // }
         });
         tree.EnumerateTree().AddIcons<ConfigData>(x => x.icon);
         tree.EnumerateTree().Where(x => x.Value as ConfigData).ForEach(AddDragHandles);
@@ -171,19 +147,12 @@ public class DatalibEditorWindow : OdinMenuEditorWindow
                         var newInstance = Instantiate(source);
                         newInstance.name = source.name;
                         datalib.AddData(newInstance);
-                        // AssetDatabase.AddObjectToAsset(newInstance, datalib);
-                        // AssetDatabase.SaveAssetIfDirty(datalib);
                         TrySelectMenuItemWithObject(newInstance);
-                        //AssetDatabase.Refresh();
                     }
                     if (GUILayout.Button("Delete"))
                     {
                         var source = selected.Value as ConfigData;
                         datalib.RemoveData(source);
-                        // AssetDatabase.RemoveObjectFromAsset(source);
-                        // EditorUtility.SetDirty(datalib);
-                        // AssetDatabase.SaveAssetIfDirty(datalib);
-                        // AssetDatabase.Refresh();
                         DestroyImmediate(source, true);
                     }
                 }

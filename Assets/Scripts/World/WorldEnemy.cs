@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public enum EnemyState
@@ -145,9 +144,9 @@ public class WorldEnemy : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        // 在 Scene 视图中绘制巡逻范围
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(startPosition, patrolRadius);
+        // // 在 Scene 视图中绘制巡逻范围
+        // Gizmos.color = Color.green;
+        // Gizmos.DrawWireSphere(startPosition, patrolRadius);
     }
     void OnCollisionEnter(Collision collision)
     {

@@ -17,6 +17,7 @@ public class CameraController25 : MonoBehaviour
             return;
         }
         Instance = this;
+        FrameEvent.Instance.On(FrameEvent.CreateWorldPlayer, OnCreateWorldPlayer, this);
     }
     void Start()
     {
@@ -56,5 +57,16 @@ public class CameraController25 : MonoBehaviour
     public void SetTarget(Transform target)
     {
         this.target = target;
+    }
+
+    public void OnCreateWorldPlayer(object[] args)
+    {
+        var player = args[0] as GameObject;
+        if (player == null)
+        {
+            Debug.LogError("WorldEnemy: Player object is null.");
+            return;
+        }
+        target = player.transform;
     }
 }

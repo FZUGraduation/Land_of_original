@@ -36,6 +36,11 @@ public class HeroRuntimeData : RuntimeData
         {
             equipmentData.Add(EquipmentType.Weapon, ConfigData.defaultWeapon.key);
         }
+        //装备默认装扮
+        if (!string.IsNullOrEmpty(ConfigData.defaultBody.key))
+        {
+            equipmentData.Add(EquipmentType.Body, ConfigData.defaultBody.key);
+        }
     }
 
     private List<OutSideGrowthConfigData> outSideGrowth = null;
@@ -139,5 +144,47 @@ public class HeroRuntimeData : RuntimeData
         string weaponKey = equipmentData[EquipmentType.Weapon];
         HeroSkillType skillType = Datalib.Instance.GetData<EquipmentConfigData>(weaponKey).heroskillType;
         return ConfigData.skills.FindAll(s => s.heroskillType == skillType);
+    }
+
+    public GameObject GetBattlePrefab()
+    {
+        string weaponKey = equipmentData[EquipmentType.Body];
+        if (!string.IsNullOrEmpty(weaponKey))
+        {
+            var data = Datalib.Instance.GetData<EquipmentConfigData>(weaponKey);
+            if (data != null && data.prefab != null)
+            {
+                return data.prefab;
+            }
+        }
+        return ConfigData.prefab;
+    }
+
+    public GameObject GetWorldPrefab()
+    {
+        string weaponKey = equipmentData[EquipmentType.Body];
+        if (!string.IsNullOrEmpty(weaponKey))
+        {
+            var data = Datalib.Instance.GetData<EquipmentConfigData>(weaponKey);
+            if (data != null && data.worldPrefab != null)
+            {
+                return data.worldPrefab;
+            }
+        }
+        return ConfigData.worldPrefab;
+    }
+
+    public GameObject GetModlePrefab()
+    {
+        string weaponKey = equipmentData[EquipmentType.Body];
+        if (!string.IsNullOrEmpty(weaponKey))
+        {
+            var data = Datalib.Instance.GetData<EquipmentConfigData>(weaponKey);
+            if (data != null && data.modelPrefab != null)
+            {
+                return data.modelPrefab;
+            }
+        }
+        return ConfigData.modelPrefab;
     }
 }

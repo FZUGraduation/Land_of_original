@@ -21,6 +21,7 @@ public class NodeEnemyDetail : TableCell
             nameText.text = enemyConfigData.key;
             // descText.text = enemyConfigData.desc;
             skillTableView.Init(enemyConfigData.skills, null);
+            icon.sprite = enemyConfigData.icon;
         }
     }
 }

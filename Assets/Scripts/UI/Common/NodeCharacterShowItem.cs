@@ -9,10 +9,11 @@ public class NodeCharacterShowItem : TableCell
     public Image bgImage;
     public override void OnInit()
     {
-        HeroConfigData heroConfigData = Data as HeroConfigData;
-        if (heroConfigData != null)
+        var heroRuntimeData = Data as HeroRuntimeData;
+        if (heroRuntimeData != null)
         {
             // 设置单元格的显示内容
+            icon.sprite = heroRuntimeData.ConfigData.icon;
         }
     }
     public override void SetSelected(bool isSelected)

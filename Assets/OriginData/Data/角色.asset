@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7fe5391939646d4e8a87c43a1cd6554, type: 3}
-  m_Name: Hero2
+  m_Name: "\u5B88\u536B"
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -22,7 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   icon: {fileID: 21300000, guid: ab0f44b002279664fbd5843a09135f3b, type: 3}
-  key: Hero2
+  key: "\u5B88\u536B"
   displayedName: Hero2
   prefab: {fileID: 9193012399868693732, guid: c9e2298451a85f0438b5b16a3e8f356d, type: 3}
   desc: 
@@ -47,6 +47,8 @@ MonoBehaviour:
   defaultSkillIndex: 0
   defaultWeapon: {fileID: 486506809955208956, guid: a14711850a59975438e0bc7dfb586f5f,
     type: 2}
+  defaultBody: {fileID: 526529437118073200, guid: a14711850a59975438e0bc7dfb586f5f,
+    type: 2}
 --- !u!114 &-3769399315172018368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,7 +59,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7fe5391939646d4e8a87c43a1cd6554, type: 3}
-  m_Name: Hero1
+  m_Name: "\u52C7\u8005"
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -69,7 +71,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   icon: {fileID: 21300000, guid: 8969733e2833b90428e343bbb4b4a6a0, type: 3}
-  key: Hero1
+  key: "\u52C7\u8005"
   displayedName: Hero1
   prefab: {fileID: 9193012399868693732, guid: c9e2298451a85f0438b5b16a3e8f356d, type: 3}
   desc: 
@@ -93,6 +95,8 @@ MonoBehaviour:
   - {fileID: -65826455168272949, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
   defaultSkillIndex: 0
   defaultWeapon: {fileID: 486506809955208956, guid: a14711850a59975438e0bc7dfb586f5f,
+    type: 2}
+  defaultBody: {fileID: -2916291707928533658, guid: a14711850a59975438e0bc7dfb586f5f,
     type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -138,7 +142,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7fe5391939646d4e8a87c43a1cd6554, type: 3}
-  m_Name: Hero3
+  m_Name: "\u86EE\u4EBA"
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -150,7 +154,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   icon: {fileID: 21300000, guid: 1d128c11f49890243b16968cc71c9279, type: 3}
-  key: Hero3
+  key: "\u86EE\u4EBA"
   displayedName: Hero3
   prefab: {fileID: 9193012399868693732, guid: c9e2298451a85f0438b5b16a3e8f356d, type: 3}
   desc: 
@@ -174,4 +178,6 @@ MonoBehaviour:
   - {fileID: -65826455168272949, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
   defaultSkillIndex: 0
   defaultWeapon: {fileID: 486506809955208956, guid: a14711850a59975438e0bc7dfb586f5f,
+    type: 2}
+  defaultBody: {fileID: 3455839817439954613, guid: a14711850a59975438e0bc7dfb586f5f,
     type: 2}
