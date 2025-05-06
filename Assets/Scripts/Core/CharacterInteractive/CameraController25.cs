@@ -52,7 +52,7 @@ public class CameraController25 : MonoBehaviour
         transform.position = smoothedPosition;
 
         // 保持相机朝向主角
-        transform.LookAt(target);
+        // transform.LookAt(target);
     }
     public void SetTarget(Transform target)
     {
