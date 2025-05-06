@@ -37,7 +37,7 @@ Material:
     - _BlendDst: 10
     - _BlendSrc: 5
     - _CullMode: 0
-    - _DownSampleValue: 7
+    - _DownSampleValue: 6
     - _EnableFrameTexture: 0
     - _FrameColumn: 2
     - _FrameNum: 4

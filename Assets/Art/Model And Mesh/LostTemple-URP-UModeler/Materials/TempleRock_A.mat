@@ -39,12 +39,7 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _EnableNormalInline
-  - _EnableNormalOutline
-  - _NORMALMAP
-  m_InvalidKeywords:
-  - _EnableShadow
-  - _METALLICSPECGLOSSMAP
-  - _OCCLUSIONMAP
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -81,7 +76,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 25e45224700014e47aeb2e4a3774f725, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _CoatMaskMap:
@@ -141,7 +136,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 4f9630a1e6b55e342a4ce8164292f79b, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
@@ -153,7 +148,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: 4f9630a1e6b55e342a4ce8164292f79b, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
@@ -258,7 +253,7 @@ Material:
     - _DistortionVectorScale: 2
     - _DoubleSidedEnable: 0
     - _DoubleSidedNormalMode: 1
-    - _DownSampleValue: 0
+    - _DownSampleValue: 4
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EMISSION: 0
@@ -271,14 +266,14 @@ Material:
     - _EnableGeometricSpecularAA: 0
     - _EnableInline: 0
     - _EnableNormalInline: 1
-    - _EnableNormalOutline: 1
+    - _EnableNormalOutline: 0
     - _EnableObjectCenterPoint: 0
     - _EnableShadow: 1
     - _EnergyConservingSpecularColor: 1
     - _EnvironmentReflections: 1
-    - _GlossMapScale: 0.5
-    - _Glossiness: 0.5
-    - _GlossyReflections: 1
+    - _GlossMapScale: 0
+    - _Glossiness: 0
+    - _GlossyReflections: 0
     - _HeightAmplitude: 0.02
     - _HeightCenter: 0.5
     - _HeightMapParametrization: 0
@@ -308,14 +303,14 @@ Material:
     - _PPDMinSamples: 5
     - _PPDPrimitiveLength: 1
     - _PPDPrimitiveWidth: 1
-    - _Parallax: 0.02
+    - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _ReceivesSSR: 1
     - _RefractionModel: 0
     - _SSRefractionProjectionModel: 0
     - _Shades: 6
-    - _SmoothValue: 0
+    - _SmoothValue: 0.1
     - _Smoothness: 0.5
     - _SmoothnessRemapMax: 0.5836947
     - _SmoothnessRemapMin: 0
@@ -364,20 +359,20 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.9568628, g: 0.9333334, b: 0.8431373, a: 1}
+    - _BaseColor: {r: 0.794, g: 0.7754369, b: 0.704278, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0.40784308, g: 0.38039207, b: 0.317647, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
-    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
     - _InlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
-    - _NormalInlineColor: {r: 0.7686275, g: 0.7568628, b: 0.65882355, a: 0.3254902}
-    - _NormalOutlineColor: {r: 0.8509805, g: 0.83921576, b: 0.7294118, a: 0.50980395}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _NormalInlineColor: {r: 0.49803925, g: 0.49019605, b: 0.4352941, a: 0.6313726}
+    - _NormalOutlineColor: {r: 1, g: 1, b: 1, a: 0.43137255}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}

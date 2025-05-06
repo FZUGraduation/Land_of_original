@@ -82,7 +82,7 @@ Material:
     - _FoamDissolve: 0
     - _FoamFrequency: 5
     - _FoamRange: 0.38
-    - _FoamSpeed: -5
+    - _FoamSpeed: 5
     - _FomaBend: 0.2
     - _FresnelPow: 20
     - _Metallic: 1
