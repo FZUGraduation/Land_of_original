@@ -40,6 +40,14 @@ public class AudioManager : SingletonMono<AudioManager>
     protected override void Awake()
     {
         base.Awake();
+
+        FrameEvent.Instance.On(FrameEvent.SlotSelect, () =>
+        {
+            SetVolumeBGM(SaveSlotData.Instance.bgmVolum);
+            SetVolumeSE(SaveSlotData.Instance.seVolum);
+            SetVolumeVoice(SaveSlotData.Instance.voiceVolum);
+        }, this);
+
         mixer = Resources.Load<AudioMixer>("Audio/Mixer");
         masterGroup = mixer.FindMatchingGroups("Master");
         for (int i = 0; i < BGMSource.Length; ++i)
@@ -65,7 +73,9 @@ public class AudioManager : SingletonMono<AudioManager>
         VoiceSource.loop = false;
         VoiceSource.outputAudioMixerGroup = masterGroup[3];
 
-        // PlayBGM("Time");
+        PlayBGM("Time");
+        // SetVolumeBGM(0.5f);
+        // SetVolumeSE(0.5f);
     }
     //public float GetPlayingBGMLength() {
     //    if (!(BGMSource[activeBgmIndex].clip == null || BGMSource == null))
@@ -274,18 +284,18 @@ public class AudioManager : SingletonMono<AudioManager>
 
     public void SetVolumeBGM(float vol)
     {
-        GlobalRuntimeData.Instance.bgmVolum = vol;
+        SaveSlotData.Instance.bgmVolum = vol;
         masterGroup[1].audioMixer.SetFloat("BGMVolume", Mathf.Log10(vol) * 20);
     }
     public void SetVolumeSE(float vol)
     {
-        GlobalRuntimeData.Instance.seVolum = vol;
+        SaveSlotData.Instance.seVolum = vol;
         masterGroup[2].audioMixer.SetFloat("SEVolume", Mathf.Log10(vol) * 20);
     }
 
     public void SetVolumeVoice(float vol)
     {
-        GlobalRuntimeData.Instance.voiceVolum = vol;
+        SaveSlotData.Instance.voiceVolum = vol;
         masterGroup[3].audioMixer.SetFloat("VoiceVolume", Mathf.Log10(vol) * 20);
     }
     public float GetBusAnalyserPeak()
@@ -356,7 +366,6 @@ public class AudioManager : SingletonMono<AudioManager>
         if (type == AudioType.BGM)
         {
             abName = "Audio/BGM";
-
         }
         else if (type == AudioType.SE)
         {

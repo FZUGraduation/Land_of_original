@@ -429,6 +429,9 @@ MonoBehaviour:
     - Name: Key
       Entry: 1
       Data: dieAnim
+    - Name: target
+      Entry: 5
+      Data: true
     - Name: 
       Entry: 8
       Data: 
@@ -555,6 +558,9 @@ MonoBehaviour:
     - Name: Key
       Entry: 1
       Data: getHurt
+    - Name: target
+      Entry: 5
+      Data: true
     - Name: 
       Entry: 8
       Data: 
@@ -878,6 +884,9 @@ MonoBehaviour:
     - Name: Key
       Entry: 1
       Data: inSkill
+    - Name: target
+      Entry: 5
+      Data: true
     - Name: 
       Entry: 8
       Data: 
@@ -899,6 +908,9 @@ MonoBehaviour:
     - Name: Key
       Entry: 1
       Data: inAction
+    - Name: target
+      Entry: 5
+      Data: true
     - Name: 
       Entry: 8
       Data: 

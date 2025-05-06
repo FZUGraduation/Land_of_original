@@ -24,9 +24,13 @@ public class NodeBagItem : MonoBehaviour
     public ItemRuntimeData itemData;
     private Action<NodeBagItem> callback;
 
+    private bool canSelect = true;
     void Awake()
     {
-        button.onClick.AddListener(OnSelect);
+        if (canSelect)
+        {
+            button.onClick.AddListener(OnSelect);
+        }
     }
     void OnDestroy()
     {
@@ -60,6 +64,26 @@ public class NodeBagItem : MonoBehaviour
         }
         this.callback = callback;
     }
+
+    public void InitWithConfig(ItemConfigData configData, int num)
+    {
+        if (configData != null)
+        {
+            icon.sprite = configData.icon;
+            if (num > 1)
+                amountText.text = num.ToString();
+            else
+                amountText.text = "";
+            icon.gameObject.SetActive(true);
+        }
+        else
+        {
+            icon.gameObject.SetActive(false);
+            amountText.text = "";
+        }
+        canSelect = false;
+    }
+
     public void OnSelect()
     {
         Debug.Log("OnSelect Item: " + itemData?.ConfigKey);

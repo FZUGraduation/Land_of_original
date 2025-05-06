@@ -14,11 +14,6 @@ public class SceneController : MonoBehaviour
         Debug.Log("SaveSlotData");
         GameManager.Instance.SaveSlotData();
     }
-    [Button]
-    public void GetTalentPoint(int num = 1)
-    {
-        SaveSlotData.Instance.AddTalentPoint(num);
-    }
 
     [Button]
     public void GoToBattle(string level = "Level1")

@@ -28,6 +28,7 @@ public class UISlotSelect : BaseDialog
         {
             SceneLoader.Instance.LoadScene(SceneLoader.mainScene);
         }
+        FrameEvent.Instance.Emit(FrameEvent.SlotSelect);
         Close();
     }
 }

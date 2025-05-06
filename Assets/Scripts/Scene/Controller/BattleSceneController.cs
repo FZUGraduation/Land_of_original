@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using UnityEngine.InputSystem;
 
 public class BattleSceneController : SceneController
 {
@@ -7,23 +8,27 @@ public class BattleSceneController : SceneController
     public List<BattlePos> heroPosList = new();
     private List<BattlePos> activeEnemyPos = new();
     private List<BattlePos> activeHeroPos = new();
+    private InputAction interactAction; // 定义一个 InputAction
     protected override void Awake()
     {
         base.Awake();
         BattleData.Instance.On(BattleData.ExitBattle, ExitBattle, this);
         InitBattle();
+        // 初始化 InputAction，绑定到 "ESC" 键
+        interactAction = new InputAction(type: InputActionType.Button, binding: "<Keyboard>/escape");
+        interactAction.Enable(); // 启用 InputAction
     }
 
-    public void InitDataLib()
+    void Update()
     {
-        var saveRuntime = new SaveSlotData();
-        saveRuntime.AddHero("Hero1");
-        SaveSlotData.ReplaceInstance(saveRuntime);
+        if (interactAction.WasPressedThisFrame())
+        {
+            WindowManager.Instance.ShowDialog(UIDefine.UIPause);
+        }
     }
-    public void InitBattle(string level = "Level1")
-    {
-        // BattleData.Init(level);
 
+    public void InitBattle()
+    {
         var enemys = BattleData.Instance.Enemys;
         var heros = BattleData.Instance.Heros;
         for (int i = 0; i < enemys.Count; i++)
@@ -37,12 +42,6 @@ public class BattleSceneController : SceneController
             heroPosList[i].Init(heros[i]);
             activeHeroPos.Add(heroPosList[i]);
         }
-    }
-    [Button("开始战斗")]
-    public void StartBattle()
-    {
-        BattleData.Instance.Emit(BattleData.BattleStart);
-        BattleData.Instance.Emit(BattleData.ActionNext);
     }
 
     [Button]

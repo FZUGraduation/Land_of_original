@@ -72,6 +72,7 @@ public class SceneLoader : Singleton<SceneLoader>
     /// <summary> 加载场景 </summary>
     public void LoadScene(string sceneName)
     {
+        GameManager.Instance.SaveSlotData();
         Instance.LoadLevel(sceneName, null);
     }
     /// <summary> 加载场景+回调 </summary>

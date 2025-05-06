@@ -67,6 +67,10 @@ MonoBehaviour:
   desc: 
   note: 
   battleType: 0
+  itemReward:
+  - configData: {fileID: 7201032753890965791, guid: b5f0d8d41da55c24cb77812ec87d2668,
+      type: 2}
+    amount: 30
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,3 +158,4 @@ MonoBehaviour:
   desc: 
   note: 
   battleType: 0
+  itemReward: []

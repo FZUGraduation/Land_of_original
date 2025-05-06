@@ -92,10 +92,10 @@ MonoBehaviour:
       Entry: 8
       Data: 
   datas:
+  - {fileID: 1457896684954142326}
   - {fileID: 7604463465776363985}
   - {fileID: 6907849050467208971}
   - {fileID: -1717651683333211803}
-  - {fileID: 1457896684954142326}
   - {fileID: 1400290224794341222}
   - {fileID: -3405040946529050232}
 --- !u!114 &1400290224794341222
@@ -157,9 +157,7 @@ MonoBehaviour:
   desc: "\u653B\u51FB\u63D0\u534710%"
   note: 
   needPoint: 1
-  preTalents:
-  - {fileID: 6907849050467208971}
-  - {fileID: 7604463465776363985}
+  preTalents: []
 --- !u!114 &6907849050467208971
 MonoBehaviour:
   m_ObjectHideFlags: 0

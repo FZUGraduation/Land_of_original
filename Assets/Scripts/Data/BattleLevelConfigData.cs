@@ -17,4 +17,5 @@ public class BattleLevelConfigData : ConfigData
 {
     public List<BattleEnemyConfigData> enemyDatas = new();
     public LevelBattleType battleType;
+    public List<ItemCost> itemReward = new();
 }

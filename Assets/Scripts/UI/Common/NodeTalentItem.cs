@@ -9,8 +9,10 @@ public class NodeTalentItem : MonoBehaviour
     public Button button;
     public Image bg;
     public GameObject lockObj;
+    private Color normalColor = Color.white;
     void Awake()
     {
+        normalColor = bg.color;
         SaveSlotEvent.Instance.On(SaveSlotEvent.UnlockTalent, OnUnlockTalent, this);
         // SaveSlotEvent.Instance.On(SaveSlotEvent.TalentSelect, OnTalentSelect, this);
         SaveSlotEvent.Instance.On(SaveSlotEvent.ResetAllTalent, RefreshTalentShow, this);
@@ -51,6 +53,6 @@ public class NodeTalentItem : MonoBehaviour
     }
     public void OnDeselectTalent()
     {
-        bg.color = Color.white;
+        bg.color = normalColor;
     }
 }

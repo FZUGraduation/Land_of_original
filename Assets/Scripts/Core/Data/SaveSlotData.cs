@@ -30,14 +30,13 @@ public class SaveSlotData : RuntimeData
     public string saveTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
     [JsonProperty]
     private Dictionary<string, int> storyProgress = new();//用来存储剧情进度
-    private int talentPoint = 0;
     [JsonProperty]
     private Dictionary<string, bool> unlockTalent = new();//用来存储解锁的天赋
     [JsonProperty]
     public Dictionary<string, bool> unlockTreasure = new();//已经获得的宝箱
-    public float bgmVolum = 1;
-    public float seVolum = 1;
-    public float voiceVolum = 1;
+    public float bgmVolum = 0.5f;
+    public float seVolum = 0.5f;
+    public float voiceVolum = 0.5f;
     public List<HeroRuntimeData> heroDatas = new();//用来存储解锁的英雄
     public InventoryRuntimeData bagData = new();
     public List<string> passLevels = new();//用来存储通关的关卡
@@ -77,11 +76,8 @@ public class SaveSlotData : RuntimeData
     }
 
     #region 天赋
-    public int GetTalentPoint() => talentPoint;
-    public void AddTalentPoint(int point)
-    {
-        talentPoint += point;
-    }
+    public int GetTalentPoint() => bagData.GetListContainerAmount("金币");
+
     /// <summary> 解锁天赋 </summary>
     public void UnlockTalent(string talentkey)
     {
@@ -91,7 +87,7 @@ public class SaveSlotData : RuntimeData
         }
         var config = datalib.GetData<TalentConfigData>(talentkey);
         unlockTalent.Add(talentkey, true);
-        talentPoint -= config.needPoint;
+        bagData.UseItem("金币", config.needPoint);
         SaveSlotEvent.Instance.Emit(SaveSlotEvent.UnlockTalent, talentkey);
     }
 
@@ -110,7 +106,7 @@ public class SaveSlotData : RuntimeData
                 return false;
             }
         }
-        if (config.needPoint > talentPoint)
+        if (config.needPoint > GetTalentPoint())
         {
             return false;
         }
@@ -135,7 +131,7 @@ public class SaveSlotData : RuntimeData
             var config = datalib.GetData<TalentConfigData>(item.Key);
             point += config.needPoint;
         }
-        talentPoint += point;
+        bagData.AddItem("金币", point);
         unlockTalent.Clear();
         SaveSlotEvent.Instance.Emit(SaveSlotEvent.ResetAllTalent);
     }

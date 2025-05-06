@@ -236,9 +236,10 @@ namespace JLBehaviourTree.BehaviourTree
     {
         [LabelText("执行条件"), FoldoutGroup("@NodeName")]
         public string Key;
+        public bool target = true;
         public override BehaviourState Tick()
         {
-            if (blackboard.boolDir.ContainsKey(Key) && blackboard.boolDir[Key])
+            if (blackboard.boolDir.ContainsKey(Key) && blackboard.boolDir[Key] == target)
             {
                 NodeState = ChildNode.Tick();
                 return NodeState;

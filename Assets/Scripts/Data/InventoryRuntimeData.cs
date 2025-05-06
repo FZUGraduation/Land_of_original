@@ -67,4 +67,10 @@ public class InventoryRuntimeData : RuntimeData
         }
         return result;
     }
+    public int GetListContainerAmount(string key)
+    {
+        ItemConfigData configData = Datalib.Instance.GetData<ItemConfigData>(key);
+        return GetListContainerAmount(configData);
+    }
+
 }

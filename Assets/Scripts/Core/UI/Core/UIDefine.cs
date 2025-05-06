@@ -17,6 +17,7 @@ public enum UIDefine
 
     UIConfirmBox,
     UIToast,
+    UIPause,
 }
 public static class UIDefineExtensions
 {
@@ -37,6 +38,7 @@ public static class UIDefineExtensions
 
         { UIDefine.UIConfirmBox, "Prefabs/UI/Common/UIConfirmBox" },
         { UIDefine.UIToast, "Prefabs/UI/Common/UIToast" },
+        { UIDefine.UIPause, "Prefabs/UI/Common/UIPause" },
         // 其他枚举值对应的字符串
     };
 

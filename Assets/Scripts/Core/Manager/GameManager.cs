@@ -2,7 +2,6 @@ using System;
 using System.IO;
 using Cysharp.Threading.Tasks;
 using Newtonsoft.Json;
-using UnityEditor.SearchService;
 using UnityEngine;
 
 public class GameManager : SingletonMono<GameManager>

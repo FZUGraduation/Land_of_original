@@ -50,6 +50,7 @@ public class BaseCharacter : SerializedMonoBehaviour, ISelectable, IFocusable
         BattleData.Instance.On(BattleData.SkillTargetSelect, OnSkillTargetSelect, this);
         BattleData.Instance.On(BattleData.CharacterDeath, OnCharacterDeath, this);
         BattleData.Instance.On(BattleData.ActionEnd, OnActionEnd, this);
+        BattleData.Instance.On(BattleData.BattleEnd, OnBattleEnd, this);
     }
     protected virtual void OnDisable()
     {
@@ -67,6 +68,7 @@ public class BaseCharacter : SerializedMonoBehaviour, ISelectable, IFocusable
         blackboard.boolDir["inSkill"] = false;
         blackboard.boolDir["actionStartNode"] = false;
         blackboard.boolDir["inHero"] = characterData.IsHero;
+        blackboard.boolDir["battleEnd"] = false;
         BattleData.Instance.Emit(BattleData.GenerateCharacter, characterData, statusBarTransform);
         // 生成行动标志
         string path = characterData.IsHero ? "Prefabs/Battle/SignBlue" : "Prefabs/Battle/SignRed";
@@ -213,6 +215,12 @@ public class BaseCharacter : SerializedMonoBehaviour, ISelectable, IFocusable
         // {
         //     blackboard.boolDir["getHeal"] = true;
         // }
+    }
+
+    private void OnBattleEnd(object[] args)
+    {
+        bool isWin = (bool)args[0];
+        blackboard.boolDir["battleEnd"] = true;
     }
 
     #region 交互
