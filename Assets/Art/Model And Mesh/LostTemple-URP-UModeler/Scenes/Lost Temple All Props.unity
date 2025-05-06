@@ -598,7 +598,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: TempleStoneStatue_A
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7980973254497309573, guid: 76f468bbc1206a4408808ea59c59dc7a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1595,7 +1596,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3640749425652139327, guid: 35caaaf483c4d25459b721dcbf4140c2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1832,7 +1834,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: TempleStatue_B
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2802624775535809811, guid: 71c89a2d025a5234281ac489a6373c4c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1990,7 +1993,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: TempleStatue_C
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7333756163228260097, guid: e9c70514aa8270741968341c5d4f1b8e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
