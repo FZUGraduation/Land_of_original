@@ -59,6 +59,15 @@ public class NormalLineRenderFeature : ScriptableRendererFeature
         //执行传递。这是自定义渲染发生的地方
         public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
         {
+            if (renderingData.cameraData.cameraType == CameraType.Game)
+            {
+                if (renderingData.cameraData.baseCamera!=Camera.current)
+                {
+                    return;
+                }
+            }
+            
+            
             CommandBuffer cmd = CommandBufferPool.Get(ProfilerTag);//获得一个为ProfilerTag的CommandBuffer
             
             var stack = VolumeManager.instance.stack;//获取Volume的栈

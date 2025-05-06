@@ -37,7 +37,7 @@ Shader "URP/PostProcessing/PixelizeBackground"
             SAMPLER(sampler_MainTex);
             TEXTURE2D(_m_CameraNormalsTexture);
             TEXTURE2D(_m_CameraDepthTexture);
-            TEXTURE2D(_PixelizeBackgroundMask);
+            TEXTURE2D(_PixelizeObjectMask);
             
             //----------贴图声明结束-----------
             
@@ -59,7 +59,7 @@ Shader "URP/PostProcessing/PixelizeBackground"
                     float4 worldOriginToScreenPos1= ComputeScreenPos(TransformWorldToHClip(originPoint));
                     float2 worldOriginToScreenPos2= worldOriginToScreenPos1.xy/worldOriginToScreenPos1.w;
                     float2 realSampleUV = (floor((screenPos-worldOriginToScreenPos2)*size)+0.5+bias[i])/size+worldOriginToScreenPos2;
-                    float sampleResult = SAMPLE_TEXTURE2D(_PixelizeBackgroundMask, sampler_PointClamp, realSampleUV).r;
+                    float sampleResult = SAMPLE_TEXTURE2D(_PixelizeObjectMask, sampler_PointClamp, realSampleUV).r;
                     if (sampleResult<0.5)
                     {
                         return 1;
@@ -81,9 +81,9 @@ Shader "URP/PostProcessing/PixelizeBackground"
                 float4 worldOriginToScreenPos1= ComputeScreenPos(TransformWorldToHClip(originPoint));
                 float2 worldOriginToScreenPos2= worldOriginToScreenPos1.xy/worldOriginToScreenPos1.w;
                 float2 realSampleUV = (floor((input.texcoord-worldOriginToScreenPos2)*size)+0.5)/size+worldOriginToScreenPos2;
-                
                 half4 albedo =  SAMPLE_TEXTURE2D(_BlitTexture, sampler_PointClamp, realSampleUV);
-                return albedo*_BaseColor;
+                half4 result = albedo*_BaseColor;
+                return result;
             }
             
             ENDHLSL

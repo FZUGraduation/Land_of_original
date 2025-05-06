@@ -707,7 +707,7 @@ Shader "URP/Cartoon/PixelizeObject3"
         {
 	        Name "PixelizeObjectPass"
 	        ZWrite On
-        	Tags{"LightMode" = "UniversalForward"}
+        	Tags{"LightMode" = "PixelizeObjectPass"}
 	        
             HLSLPROGRAM
             

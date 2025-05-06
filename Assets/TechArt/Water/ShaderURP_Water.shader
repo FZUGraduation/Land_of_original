@@ -7,7 +7,6 @@ Shader "URP/ShaderURP_Water"
         _Blur("BlurIntensity",float) = 0
     	
     	[Header(Interactive)]
-    	_WaterRipple("Water Ripple",2D) = "black"{}
     	_RippleInt("Ripple Intensity(Vertex)",Range(0,1)) = 0.1
         
         [Header(Water Normal)]
@@ -94,7 +93,6 @@ Shader "URP/ShaderURP_Water"
             TEXTURE2D(_NormalMap);
             SAMPLER(sampler_NormalMap);
     		TEXTURE2D(_WaterRipple);
-            SAMPLER(sampler_WaterRipple);
             TEXTURE2D(_CausiticsTex);
             SAMPLER(sampler_CausiticsTex);
     	
@@ -257,20 +255,21 @@ Shader "URP/ShaderURP_Water"
             	float3 posOS = v.vertex.xyz;
                 vertexOutput o;
             	o.posWS = TransformObjectToWorld(v.vertex);
+
+            	float4 originalPosCS = TransformObjectToHClip(posOS);
+            	o.screenPos = ComputeScreenPos(originalPosCS);
             	
             	//Interactive Water
-            	float rippleHeight  = SAMPLE_TEXTURE2D_LOD(_WaterRipple,sampler_WaterRipple,v.uv,0).x;
+            	float rippleHeight  = SAMPLE_TEXTURE2D_LOD(_WaterRipple,sampler_PointClamp,o.screenPos.xy/o.screenPos.w,0).x;
             	o.posWS.y+=rippleHeight*_RippleInt*0.1f;
             	v.vertex.xyz = TransformWorldToObject(o.posWS);
             	
                 float4 posCS = TransformObjectToHClip(v.vertex.xyz);
-            	float4 originalPosCS = TransformObjectToHClip(posOS);
                 o.pos = posCS;
                 o.nDirWS = TransformObjectToWorldNormal(v.normal);
             	o.tDirWS = normalize(TransformObjectToWorld(v.tangent));
             	o.bDirWS = normalize(mul(o.nDirWS,o.tDirWS)*v.tangent.w);
                 o.uv = v.uv;
-                o.screenPos = ComputeScreenPos(originalPosCS);
             	o.shadowCoord = TransformWorldToShadowCoord(o.posWS);
                 return o;
             }
@@ -299,7 +298,8 @@ Shader "URP/ShaderURP_Water"
                 float3 var_NormalMap2 = UnpackScaleNormal(NormalMap2,_NormalIntensity);
                 float3 waterNormal = NormalBlendReoriented(var_NormalMap1,var_NormalMap2);
             	//InteractiveNormal
-            	float3 rippleNormal= SAMPLE_TEXTURE2D(_WaterRipple,sampler_WaterRipple,i.uv);
+            	float3 rippleNormal= SAMPLE_TEXTURE2D(_WaterRipple,sampler_PointClamp,i.screenPos);
+            	
             	//BlendNormal
             	waterNormal = waterNormal+rippleNormal;
             	waterNormal = mul(TBN,waterNormal);
@@ -365,7 +365,7 @@ Shader "URP/ShaderURP_Water"
                 float nDoth = dot(nDir,hDir);
             	float halfLambert = saturate(dot(nDir,lDir)*0.5+0.5);
             	float halfLambert_Modified = remap(halfLambert,0,1,0.5,1);
-            	float3 SpecLight = CalculateSpecularResultColor(waterCol,nDir,lDir,vDir,_Smothness,_Metallic, _SpecCol)*_SpecInt;
+            	float3 SpecLight = CalculateSpecularResultColor(waterCol,nDir,lDir,vDir,_Smothness,_Metallic, _SpecCol)*_SpecInt+rippleNormal.r*0.01*_SpecCol;
             	waterCol.rgb = lerp(waterCol,waterCol*0.5f+_ShallowColor*0.5f,saturate(exp(-distance(i.posWS.xyz,_WorldSpaceCameraPos.xyz))));
             	waterCol.rgb = lerp(refCol*saturate(waterCol+0.3),waterCol,1-_RefIntensity)*halfLambert_Modified;
             	

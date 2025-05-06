@@ -10,7 +10,6 @@ public class PixelizeBackgroundRenderFeature : ScriptableRendererFeature
      public class Settings
     {
         public RenderPassEvent renderPassEvent = RenderPassEvent.BeforeRenderingPostProcessing;
-        public LayerMask layerMask = -1;
     }
      
     class PixelizeBackgroundRenderPass : ScriptableRenderPass
@@ -58,6 +57,11 @@ public class PixelizeBackgroundRenderFeature : ScriptableRendererFeature
         {
             
             if (renderingData.cameraData.cameraType != CameraType.Game)
+            {
+                return;
+            }
+
+            if (renderingData.cameraData.baseCamera!=Camera.current)
             {
                 return;
             }

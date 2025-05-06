@@ -87,10 +87,11 @@ MonoBehaviour:
   - {fileID: -1878332245247344467}
   - {fileID: 2596652447135834874}
   - {fileID: 8638798513119794423}
-  - {fileID: -3969750811786523101}
   - {fileID: 6391605734686519363}
+  - {fileID: -3969750811786523101}
   - {fileID: -2892500506307103261}
-  m_RendererFeatureMap: adc0de57c6d2eee5fa22ae9ca4290924f794ad347a2de377234ea558ab9ce8c843f056308d8bb358e375ed581dc6dbd7
+  - {fileID: 1519850369081802172}
+  m_RendererFeatureMap: adc0de57c6d2eee5fa22ae9ca4290924f794ad347a2de37743f056308d8bb358234ea558ab9ce8c8e375ed581dc6dbd7bcfdddb0db971715
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -133,6 +134,23 @@ MonoBehaviour:
   m_CopyDepthMode: 0
   m_AccurateGbufferNormals: 0
   m_IntermediateTextureMode: 1
+--- !u!114 &1519850369081802172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c7510a59a3543d438c9d936a5165cd1, type: 3}
+  m_Name: WaterRippleRF
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 128
 --- !u!114 &2596652447135834874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,9 +184,6 @@ MonoBehaviour:
   m_Active: 1
   settings:
     renderPassEvent: 400
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 4294967295
 --- !u!114 &8638798513119794423
 MonoBehaviour:
   m_ObjectHideFlags: 0

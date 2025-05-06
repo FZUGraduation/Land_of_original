@@ -26,7 +26,7 @@ Shader "URP/WaterRipple_ParticleNormal"
         
         pass
         {
-            Tags{"LightMode"="UniversalForward"}
+            Tags{"LightMode"="WaterRipple"}
             
             Blend One OneMinusSrcAlpha
             Zwrite Off

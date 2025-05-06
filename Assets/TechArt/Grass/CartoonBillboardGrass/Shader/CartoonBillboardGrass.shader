@@ -3,6 +3,8 @@ Shader "URP/Cartoon/BillboardGrass"
     Properties
     {
         _BaseColor("Base Color",Color) = (1.0,1.0,1.0,1.0)
+        [Toggle(_EnableCustomShadowColor)]_EnableCustomShadowColor("Enable Custom Shadow Color",float) = 0
+        _CustomShadowColor("Custom Shadow Color",Color) = (0.2,0.2,0.2,1.0)
         _MainTex("MainTex",2D) = "white"{}
         
         [Space(20)]
@@ -54,6 +56,7 @@ Shader "URP/Cartoon/BillboardGrass"
             #pragma shader_feature _EnableFrameTexture
             #pragma shader_feature _EnableMultipleMeshMode
             #pragma shader_feature _EnableHoudiniDecodeMode
+            #pragma shader_feature _EnableCustomShadowColor
             
             //开启GPU Instance
             #pragma multi_compile_instancing
@@ -80,6 +83,7 @@ Shader "URP/Cartoon/BillboardGrass"
             UNITY_INSTANCING_BUFFER_START(UnityPerMaterial)
                 UNITY_DEFINE_INSTANCED_PROP(half4, _BaseColor)
                 UNITY_DEFINE_INSTANCED_PROP(float4,_MainTex_ST)
+                UNITY_DEFINE_INSTANCED_PROP(half4, _CustomShadowColor)
             
                 UNITY_DEFINE_INSTANCED_PROP(float, _WindStrength)
                 UNITY_DEFINE_INSTANCED_PROP(float, _U_Speed)
@@ -199,6 +203,7 @@ Shader "URP/Cartoon/BillboardGrass"
                 UNITY_SETUP_INSTANCE_ID(i);
                 //Instance变量
                 half3 baseColor = UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _BaseColor);
+                half3 customShadowColor = UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _CustomShadowColor);
                 int frameNum = UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _FrameNum);
                 float frameRow = UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _FrameRow);
                 float frameColumn = UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial,_FrameColumn);
@@ -237,7 +242,14 @@ Shader "URP/Cartoon/BillboardGrass"
                 half4 albedo = mainTex;
                 
                 half3 finalRGB = albedo*baseColor;
-                finalRGB = lerp(finalRGB*shadowValue,finalRGB,shadow);
+                
+
+                #ifdef _EnableCustomShadowColor
+                    finalRGB = lerp(_CustomShadowColor,finalRGB,shadow);
+                #else
+                    finalRGB = lerp(finalRGB*shadowValue,finalRGB,shadow);
+                #endif
+                
 
                 clip(albedo.a-0.1);
                 half4 result = half4(finalRGB,albedo.a);
