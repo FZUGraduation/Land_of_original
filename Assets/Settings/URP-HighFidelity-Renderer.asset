@@ -32,6 +32,21 @@ MonoBehaviour:
   m_Active: 1
   settings:
     renderPassEvent: 550
+--- !u!114 &-2623940579936093264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20019e63ee850eb4ea73b41b83a9b183, type: 3}
+  m_Name: GodRayRenderFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    renderPassEvent: 550
 --- !u!114 &-1878332245247344467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,7 +106,8 @@ MonoBehaviour:
   - {fileID: -3969750811786523101}
   - {fileID: -2892500506307103261}
   - {fileID: 1519850369081802172}
-  m_RendererFeatureMap: adc0de57c6d2eee5fa22ae9ca4290924f794ad347a2de37743f056308d8bb358234ea558ab9ce8c8e375ed581dc6dbd7bcfdddb0db971715
+  - {fileID: -2623940579936093264}
+  m_RendererFeatureMap: adc0de57c6d2eee5fa22ae9ca4290924f794ad347a2de37743f056308d8bb358234ea558ab9ce8c8e375ed581dc6dbd7bcfdddb0db971715b03b2dddf1e395db
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}

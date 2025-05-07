@@ -27,14 +27,13 @@ Shader "URP/PostProcessing/GodRay"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
             #include  "Packages/com.unity.render-pipelines.core/Runtime/Utilities/Blit.hlsl"
 
-            #define MAX_RAY_LENGTH 50
+            #define MAX_RAY_LENGTH 500
             #define random(seed) sin(seed * 641.5467987313875 + 1.943856175)
             
             //----------贴图声明开始-----------
             TEXTURE2D(_CameraOpaqueTexture);//获取到摄像机渲染画面的Texture
             SAMPLER(sampler_CameraOpaqueTexture);
-            TEXTURE2D(_CameraDepthTexture);
-            SAMPLER(sampler_CameraDepthTexture);
+            TEXTURE2D(_m_CameraDepthTexture);
             //----------贴图声明结束-----------
             
             CBUFFER_START(UnityPerMaterial)
@@ -93,13 +92,24 @@ Shader "URP/PostProcessing/GodRay"
             
             half4 frag_GodRayRange (Varyings i) : SV_TARGET
             {
-                float rawDepth = SAMPLE_TEXTURE2D(_CameraDepthTexture,sampler_CameraDepthTexture,i.texcoord).r;
+                float rawDepth = SAMPLE_TEXTURE2D(_m_CameraDepthTexture,sampler_PointClamp,i.texcoord).r;
                 float3 posWS_frag = ReconstructWorldPositionFromDepth(i.texcoord, rawDepth);
                 
-                float3 startPos = _WorldSpaceCameraPos; //摄像机上的世界坐标
+                float3 startPos;
+                if (unity_OrthoParams.w)
+                {
+                    float2 ndcPos = i.texcoord*2-1;//map[0,1] -> [-1,1]
+                    float3 viewPos = float3(unity_OrthoParams.xy * ndcPos.xy, 0);
+                    startPos = mul(UNITY_MATRIX_I_V, float4(viewPos, 1)).xyz;
+                }
+                else
+                {
+                    startPos = _WorldSpaceCameraPos; //摄像机上的世界坐标
+                }
+                
                 float3 vDir = normalize(posWS_frag - startPos); //视线方向
                 
-                float3 lDir = _MainLightPosition.xyz; //视线方向
+                float3 lDir = _MainLightPosition.xyz; //光线方向
                 float rayLength = length(posWS_frag - startPos); //视线长度
                 rayLength = min(rayLength, MAX_RAY_LENGTH); //限制最大步进长度，MAX_RAY_LENGTH这里设置为20
 
@@ -113,7 +123,7 @@ Shader "URP/PostProcessing/GodRay"
                 {
                     seed = random(seed);
                     float3 currentPosition = lerp(startPos, final, i + seed * step.y); //当前世界坐标
-                    float atten = GetLightAttenuation(currentPosition);//阴影采样，intensity为强度因子
+                    float atten = 1-GetLightAttenuation(currentPosition);//阴影采样，intensity为强度因子
                     float3 light = atten*ComputeScattering(dot(lDir,vDir),_Scattering); 
                     sumIntensity += light; 
                 }
@@ -168,8 +178,9 @@ Shader "URP/PostProcessing/GodRay"
             {
                 half4 albedo = SAMPLE_TEXTURE2D(_BlitTexture,sampler_PointClamp,i.texcoord);
                 half3 godRayRange = SAMPLE_TEXTURE2D(_GodRayRangeTexture,sampler_GodRayRangeTexture,i.texcoord);
-                float intensity = _Intensity*20;
-                half3 finalRGB = godRayRange*albedo*intensity*_BaseColor+albedo;
+                float intensity = 1-_Intensity;
+                godRayRange = 1-saturate(lerp(0,100,godRayRange));
+                half3 finalRGB = lerp(albedo*intensity,albedo,godRayRange);//godRayRange*albedo*intensity*_BaseColor+albedo;
                 half4 result = half4(finalRGB,1.0);
                 return result;
             }

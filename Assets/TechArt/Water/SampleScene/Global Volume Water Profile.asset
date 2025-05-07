@@ -65,6 +65,44 @@ MonoBehaviour:
   components:
   - {fileID: -1597893765548415535}
   - {fileID: -6367424004658213922}
+  - {fileID: 2431328629252800785}
+--- !u!114 &2431328629252800785
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91ab3351c6d48543b57d5dec439971c, type: 3}
+  m_Name: GodRayVolume
+  m_EditorClassIdentifier: 
+  active: 1
+  EnableEffect:
+    m_OverrideState: 1
+    m_Value: 1
+  ColorChange:
+    m_OverrideState: 1
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+  Intensity:
+    m_OverrideState: 1
+    m_Value: 0.5
+  Scattering:
+    m_OverrideState: 1
+    m_Value: 0
+  StepTime:
+    m_OverrideState: 1
+    m_Value: 32
+  RandomNumber:
+    m_OverrideState: 1
+    m_Value: 10
+  DownSample:
+    m_OverrideState: 1
+    m_Value: 3
+  BlurRange:
+    m_OverrideState: 1
+    m_Value: 3
 --- !u!114 &5363497732543142071
 MonoBehaviour:
   m_ObjectHideFlags: 3

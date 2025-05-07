@@ -44,8 +44,10 @@ Shader "URP/Cartoon/BillboardLeaf"
         }
     	
     	
-        //UsePass "Universal Render Pipeline/Lit/DepthOnly"
+       // UsePass "Universal Render Pipeline/Lit/DepthOnly"
         //UsePass "Universal Render Pipeline/Lit/DepthNormals"
+        
+        UsePass "Universal Render Pipeline/Lit/SHADOWCASTER"
 
         pass
         {
@@ -203,7 +205,7 @@ Shader "URP/Cartoon/BillboardLeaf"
                 float nDotl = dot(nDir,lDir);
                 float lambert = max(0,nDotl);
                 float halfLambert = nDotl*0.5+0.5;
-                half3 result = halfLambert*shadow*lightRadience;
+                half3 result = halfLambert*lightRadience;
                 return result;
             }
 
@@ -305,5 +307,225 @@ Shader "URP/Cartoon/BillboardLeaf"
             
             ENDHLSL
         }
+
+        //DepthOnly Pass
+        Pass
+        {
+            Name "DepthOnly"
+            Tags
+            {
+                "LightMode" = "DepthOnly"
+            }
+
+            Cull Off
+            // -------------------------------------
+            // Render State Commands
+            ZWrite On
+            ColorMask R
+
+            HLSLPROGRAM
+            #pragma target 2.0
+
+            // -------------------------------------
+            // Shader Stages
+            #pragma vertex DepthOnlyVertex
+            #pragma fragment DepthOnlyFragment
+
+            // -------------------------------------
+            // Material Keywords
+            #pragma shader_feature_local _ALPHATEST_ON
+            #pragma shader_feature_local_fragment _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+
+            // -------------------------------------
+            // Unity defined keywords
+            #pragma multi_compile_fragment _ LOD_FADE_CROSSFADE
+
+            //--------------------------------------
+            // GPU Instancing
+            #pragma multi_compile_instancing
+            
+            #pragma shader_feature _EnableFrameTexture
+            #pragma shader_feature _EnableMultipleMeshMode
+            #pragma shader_feature _EnableHoudiniDecodeMode
+            #include_with_pragmas "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DOTS.hlsl"
+
+            #if defined(LOD_FADE_CROSSFADE)
+			    #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/LODCrossFade.hlsl"
+			#endif
+
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/SpaceTransforms.hlsl"
+
+            //----------贴图声明开始-----------
+            TEXTURE2D(_MainTex);//定义贴图
+            SAMPLER(sampler_MainTex);//定义采样器
+            TEXTURE2D(_WindDistortionMap);
+            SAMPLER(sampler_WindDistortionMap);
+            TEXTURE2D(_FrameTex);
+            SAMPLER(sampler_FrameTex);
+            //----------贴图声明结束-----------
+
+            UNITY_INSTANCING_BUFFER_START(UnityPerMaterial)
+                UNITY_DEFINE_INSTANCED_PROP(half4, _BaseColor)
+                UNITY_DEFINE_INSTANCED_PROP(float4,_MainTex_ST)
+                UNITY_DEFINE_INSTANCED_PROP(float,_SmoothValue)
+            
+                UNITY_DEFINE_INSTANCED_PROP(float3,_normal)
+            
+                UNITY_DEFINE_INSTANCED_PROP(float, _WindStrength)
+                UNITY_DEFINE_INSTANCED_PROP(float, _U_Speed)
+                UNITY_DEFINE_INSTANCED_PROP(float, _V_Speed)
+                UNITY_DEFINE_INSTANCED_PROP(float4,_WindDistortionMap_ST)
+                UNITY_DEFINE_INSTANCED_PROP(float,_Bias)
+            
+                UNITY_DEFINE_INSTANCED_PROP(float4,_FrameTex_ST)
+                UNITY_DEFINE_INSTANCED_PROP(int,_FrameNum)
+                UNITY_DEFINE_INSTANCED_PROP(float,_FrameRow)
+                UNITY_DEFINE_INSTANCED_PROP(float,_FrameColumn)
+                UNITY_DEFINE_INSTANCED_PROP(float,_FrameSpeed)
+
+                UNITY_DEFINE_INSTANCED_PROP(float,_DecodeValue)
+            UNITY_INSTANCING_BUFFER_END(UnityPerMaterial)
+
+            //AngleAxis3x3()接收一个角度（弧度制）并返回一个围绕提供轴旋转的矩阵
+            float3x3 AngleAxis3x3(float angle, float3 axis)
+            {
+              float c, s;
+              sincos(angle, s, c);
+
+              float t = 1 - c;
+              float x = axis.x;
+              float y = axis.y;
+              float z = axis.z;
+
+              return float3x3(
+	             t * x * x + c, t * x * y - s * z, t * x * z + s * y,
+	             t * x * y + s * z, t * y * y + c, t * y * z - s * x,
+	             t * x * z - s * y, t * y * z + s * x, t * z * z + c
+	             );
+            }
+
+			struct Attributes
+			{
+			    float4 position     : POSITION;
+			    float2 uv1             : TEXCOORD0;
+            	float2 uv2              : TEXCOORD1;
+                float2 uv3              : TEXCOORD2;
+         		float3 color           : COLOR;
+			    UNITY_VERTEX_INPUT_INSTANCE_ID
+			};
+
+			struct Varyings
+			{
+				float2 uv       : TEXCOORD0;
+			    float4 positionCS   : SV_POSITION;
+				float3 color             : TEXCOORD1;
+				float4 screenPos     : TEXCOORD2;
+			    UNITY_VERTEX_INPUT_INSTANCE_ID
+			    UNITY_VERTEX_OUTPUT_STEREO
+			};
+
+			Varyings DepthOnlyVertex(Attributes input)
+			{
+			    Varyings output = (Varyings)0;
+			    UNITY_SETUP_INSTANCE_ID(input);
+			    UNITY_TRANSFER_INSTANCE_ID(input, output);
+			    UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
+				
+				output.uv = input.uv1;
+
+				//Instance变量
+                float windStrength = UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial,_WindStrength);
+                float2 windDistorationMap_FlowSpeed = float2(UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial,_U_Speed),UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial,_V_Speed));
+                float4 windDistortionMap_ST = UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial,_WindDistortionMap_ST);
+                float bias = UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial,_Bias);
+                
+                 float3 centerOffset = float3(0, 0, 0);
+                
+                #ifdef _EnableMultipleMeshMode
+                    centerOffset = input.color;
+                #endif
+
+                #ifdef _EnableHoudiniDecodeMode
+                    centerOffset = (float4(input.uv2,input.uv3)*2.0-1.0)*UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial,_DecodeValue);
+                #endif
+                input.position.xyz -= centerOffset;
+                    
+                //Billboard
+                float3 camPosOS = TransformWorldToObject(_WorldSpaceCameraPos);//将摄像机的坐标转换到物体模型空间
+                float3 newForwardDir = normalize(camPosOS - centerOffset); //计算新的forward轴
+                float3 newRightDir = normalize(cross(float3(0, 1, 0), newForwardDir)); //计算新的right轴
+                float3 newUpDir = normalize(cross(newForwardDir,newRightDir)); //计算新的up轴
+                input.position.xyz = newRightDir * input.position.x + newUpDir * input.position.y + newForwardDir*input.position.z; //将原本的xyz坐标以在新轴上计算，相当于一个线性变换【原模型空间】->【新模型空间】
+                
+                //Wind
+                float3 positionWS_0 = TransformObjectToWorld(float3(0,0,0)+centerOffset);
+                windStrength = max(0.0001f,windStrength);
+                float2 windUV = positionWS_0.xz*windDistortionMap_ST.xy + windDistortionMap_ST.zw + windDistorationMap_FlowSpeed*_Time.z;
+                float2 windSample = ((SAMPLE_TEXTURE2D_LOD(_WindDistortionMap,sampler_WindDistortionMap, windUV,0).xy * 2 - 1)+bias) * windStrength;
+                float3 wind = normalize(float3(windSample.x,0,windSample.y));
+	            float3x3 windRotation = AngleAxis3x3(PI * windSample.x, newForwardDir);
+                input.position.xyz = mul(windRotation,input.position.xyz);
+                
+                input.position.xyz += centerOffset;
+				
+			    output.positionCS = TransformObjectToHClip(input.position.xyz);
+				output.screenPos = ComputeScreenPos(output.positionCS);
+			    return output;
+			}
+
+			half DepthOnlyFragment(Varyings input) : SV_TARGET
+			{
+			    UNITY_SETUP_INSTANCE_ID(input);
+			    UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
+
+				float vertexRawDepth = input.positionCS.z;
+
+			    #if defined(_ALPHATEST_ON)
+			        Alpha(SampleAlbedoAlpha(input.uv, TEXTURE2D_ARGS(_BaseMap, sampler_BaseMap)).a, _BaseColor, _Cutoff);
+			    #endif
+
+			    #if defined(LOD_FADE_CROSSFADE)
+			        LODFadeCrossFade(input.positionCS);
+			    #endif
+				
+                //Instance变量
+                half3 baseColor = UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _BaseColor);
+                int frameNum = UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _FrameNum);
+                float frameRow = UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _FrameRow);
+                float frameColumn = UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial,_FrameColumn);
+                float frameSpeed = UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial,_FrameSpeed);
+                float4 frameTex_ST = UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial,_FrameTex_ST);
+				
+                float2 mainTexUV;
+                half4 mainTex;
+                #ifdef _EnableFrameTexture
+                    mainTexUV = input.uv * frameTex_ST.xy + frameTex_ST.zw;
+                    float perX = 1.0f /frameRow;
+                    float perY = 1.0f /frameColumn;
+                    float currentIndex = fmod(_Time.z*frameSpeed,frameNum);
+                    int rowIndex = currentIndex/frameRow;
+                    int columnIndex = fmod(currentIndex,frameColumn);
+                    float2 realMainTexUV = mainTexUV*float2(perX,perY)+float2(perX*columnIndex,perY*rowIndex);
+                    mainTex =   SAMPLE_TEXTURE2D(_FrameTex, sampler_FrameTex, realMainTexUV);
+                    
+                #else
+                    float4 mainTex_ST = UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _MainTex_ST);
+                    mainTexUV = input.uv*mainTex_ST.xy+mainTex_ST.zw;
+                    mainTex = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, mainTexUV);
+                #endif
+
+			    if (mainTex.a<0.5)
+			    {
+				    discard;
+			    }
+
+			    return input.positionCS.z;
+			}
+            ENDHLSL
+        }
+        
+
     }
 }

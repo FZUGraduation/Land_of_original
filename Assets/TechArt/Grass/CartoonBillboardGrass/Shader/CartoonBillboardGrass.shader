@@ -245,7 +245,7 @@ Shader "URP/Cartoon/BillboardGrass"
                 
 
                 #ifdef _EnableCustomShadowColor
-                    finalRGB = lerp(_CustomShadowColor,finalRGB,shadow);
+                    finalRGB = lerp(customShadowColor,finalRGB,shadow);
                 #else
                     finalRGB = lerp(finalRGB*shadowValue,finalRGB,shadow);
                 #endif
