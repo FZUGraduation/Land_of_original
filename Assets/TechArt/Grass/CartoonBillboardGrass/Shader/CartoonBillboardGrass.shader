@@ -170,9 +170,23 @@ Shader "URP/Cartoon/BillboardGrass"
                     centerOffset = (float4(v.uv2,v.uv3)*2.0-1.0)*UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial,_DecodeValue);
                 #endif
                 v.vertex.xyz -= centerOffset;
+
+                float4 originalPosCS = TransformObjectToHClip(float3(0,0,0)+centerOffset);
+                float3 cameraPos;
+                if (unity_OrthoParams.w>0.5)
+                {
+                    float4 screenPos = ComputeScreenPos(originalPosCS);
+                    float2 ndcPos = screenPos.xy/screenPos.w*2-1;//map[0,1] -> [-1,1]
+                    float3 viewPos = float3(unity_OrthoParams.xy * ndcPos.xy, 0);
+                    cameraPos = mul(UNITY_MATRIX_I_V, float4(viewPos, 1)).xyz;
+                }
+                else
+                {
+                    cameraPos = _WorldSpaceCameraPos; //摄像机上的世界坐标
+                }
                     
                 //Billboard
-                float3 camPosOS = TransformWorldToObject(_WorldSpaceCameraPos);//将摄像机的坐标转换到物体模型空间
+                float3 camPosOS = TransformWorldToObject(cameraPos);//将摄像机的坐标转换到物体模型空间
                 float3 newForwardDir = normalize(camPosOS - centerOffset); //计算新的forward轴
                 float3 newRightDir = normalize(cross(float3(0, 1, 0), newForwardDir)); //计算新的right轴
                 float3 newUpDir = normalize(cross(newForwardDir,newRightDir)); //计算新的up轴

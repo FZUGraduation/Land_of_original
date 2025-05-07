@@ -4,6 +4,8 @@ Shader "URP/Cartoon/SimpleCartoon2"
     {
         [Header(Tint)]
         _BaseColor("Base Color",Color) = (1.0,1.0,1.0,1.0)
+        [Toggle(_EnableCustomShadowColor)]_EnableCustomShadowColor("Enable Custom Shadow Color",float) = 0
+        _CustomShadowColor("Custom Shadow Color",Color) = (0.2,0.2,0.2,1.0)
         
         _MainTex("MainTex",2D) = "white"{}
         
@@ -40,6 +42,7 @@ Shader "URP/Cartoon/SimpleCartoon2"
          CBUFFER_START(UnityPerMaterial)
             //----------变量声明开始-----------
             half4 _BaseColor;
+            half4 _CustomShadowColor;
             float _SmoothValue;
             float _MatCapLerp;
             float4 _MainTex_ST;
@@ -69,6 +72,7 @@ Shader "URP/Cartoon/SimpleCartoon2"
 
             #pragma shader_feature _EnableNormalInline
             #pragma shader_feature _EnableNormalOutline
+            #pragma shader_feature _EnableCustomShadowColor
             
             // 主光源和阴影
             #pragma multi_compile _ _MAIN_LIGHT_SHADOWS
@@ -176,10 +180,10 @@ Shader "URP/Cartoon/SimpleCartoon2"
                 float mask4 = 1-smoothstep(0.823-_SmoothValue,0.823,diffuse);
                 float mask5 = 1-smoothstep(0.965-_SmoothValue,0.965,diffuse);
                 float mask6 = 1 - mask5;
-                mask2 = mask2 -mask1;
-                mask3 = mask3 -mask2-mask1;
-                mask4 = mask4 -mask3 - mask2 -mask1;
-                mask5 = mask5 - mask4 -mask3 - mask2 -mask1;
+                mask2 = saturate(mask2 -mask1);
+                mask3 = saturate(mask3 -mask2-mask1);
+                mask4 = saturate(mask4 -mask3 - mask2 -mask1);
+                mask5 = saturate(mask5 - mask4 -mask3 - mask2 -mask1);
                 
                 
                 half3 diffuseColor1 = _BaseColor*albedo*mask1*half3(0.2829f,0.2976f,0.3584f);
@@ -188,6 +192,13 @@ Shader "URP/Cartoon/SimpleCartoon2"
                 half3 diffuseColor4 = _BaseColor*albedo*mask4*half3(0.6031f,0.6451f,0.7641f);
                 half3 diffuseColor5 = _BaseColor*albedo*mask5*half3(0.6776f,0.7272f,0.8584f);
                 half3 diffuseColor6 = _BaseColor*albedo*mask6;
+
+                #ifdef _EnableCustomShadowColor
+                    mask1 = step(0.5,mask1);
+                    diffuseColor1 = mask1*_CustomShadowColor;
+                #endif
+                
+                
                 half3 Diffuse = diffuseColor1+diffuseColor2+diffuseColor3+diffuseColor4+diffuseColor5+diffuseColor6;
 
                 
