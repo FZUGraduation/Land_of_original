@@ -32,6 +32,7 @@ public class CameraController25 : MonoBehaviour
         if (Instance == this)
         {
             Instance = null;
+            FrameEvent.Instance.OffAll(this);
         }
     }
     private void LateUpdate()

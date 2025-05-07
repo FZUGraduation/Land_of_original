@@ -10,9 +10,9 @@ public class WaterRipple : MonoBehaviour
     public GameObject Ripple;
     public float WaitTime = 1f;
     private float timelock = 0;
-    private void Start()
+    void Awake()
     {
-        //WaterPosition = gameObject.GetComponentInParent<Transform>().position;
+        FrameEvent.Instance.On(FrameEvent.CreateWorldPlayer, OnCreateWorldPlayer, this);
     }
 
     private void Update()
@@ -36,5 +36,14 @@ public class WaterRipple : MonoBehaviour
             }
         }
 
+    }
+    private void OnCreateWorldPlayer(object[] args)
+    {
+        Player = args[0] as GameObject;
+        if (Player == null)
+        {
+            Debug.LogError("WorldEnemy: Player object is null.");
+            return;
+        }
     }
 }

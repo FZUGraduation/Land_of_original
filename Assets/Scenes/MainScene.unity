@@ -3632,7 +3632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   treasureKey: treasure1
-  talkRadius: 1
+  talkRadius: 2
   talkSign: {fileID: 998952971}
 --- !u!1001 &848480018
 PrefabInstance:
@@ -5867,7 +5867,7 @@ PrefabInstance:
     - target: {fileID: 8440479397295137853, guid: d25100ec2880ea24faa7ba20d1bc2073,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.36
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 8440479397295137853, guid: d25100ec2880ea24faa7ba20d1bc2073,
         type: 3}
@@ -5877,7 +5877,7 @@ PrefabInstance:
     - target: {fileID: 8440479397295137853, guid: d25100ec2880ea24faa7ba20d1bc2073,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.68
+      value: 5.2
       objectReference: {fileID: 0}
     - target: {fileID: 8440479397295137853, guid: d25100ec2880ea24faa7ba20d1bc2073,
         type: 3}

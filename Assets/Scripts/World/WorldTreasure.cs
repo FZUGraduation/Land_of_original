@@ -24,7 +24,7 @@ public class WorldTreasure : MonoBehaviour
             Destroy(gameObject); // 销毁宝箱对象
             return;
         }
-
+        talkSign.SetActive(false); // 隐藏交互提示
         FrameEvent.Instance.On(FrameEvent.CreateWorldPlayer, OnCreateWorldPlayer, this);
         // 初始化 InputAction，绑定到 "E" 键
         interactAction = new InputAction(type: InputActionType.Button, binding: "<Keyboard>/e");
