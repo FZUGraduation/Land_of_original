@@ -43,6 +43,7 @@ public class WorldNPC : MonoBehaviour
             canTalk = true; // 可以交互
             interactAction.Enable(); // 启用交互
             talkSign.SetActive(true); // 显示交互提示
+            WindowManager.Instance.ShowTost("按E键交互"); // 显示提示信息
         }
         else if (canTalk && distance >= talkRadius)
         {
