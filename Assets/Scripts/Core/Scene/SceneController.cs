@@ -16,15 +16,9 @@ public class SceneController : MonoBehaviour
     }
 
     [Button]
-    public void GoToBattle(string level = "Level1")
+    public void AddHero(string key = "无名守卫")
     {
-        var saveRuntime = new SaveSlotData();
-        saveRuntime.AddHero("Hero1");
-        saveRuntime.AddHero("Hero2");
-        SaveSlotData.ReplaceInstance(saveRuntime);
-
-        BattleData.Init(level);
-        SceneLoader.Instance.LoadScene(SceneLoader.battleScene);
+        SaveSlotData.Instance.AddHero(key);
     }
 
     [Button]

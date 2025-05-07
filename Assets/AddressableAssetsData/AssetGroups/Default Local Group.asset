@@ -89,6 +89,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - ConfigData
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 24e0cbfba7c6b69469430b77f5ce705f
+    m_Address: "Assets/OriginData/Data/\u5B9D\u7BB1.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ConfigData
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 30a58112c19947e4280db9e59e695f64, type: 2}
   m_SchemaSet:

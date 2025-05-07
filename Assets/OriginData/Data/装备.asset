@@ -420,7 +420,7 @@ MonoBehaviour:
       Data: 0|System.Collections.Generic.List`1[[StatChange, Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 7
       Data: 1|StatChange, Assembly-CSharp
@@ -434,6 +434,18 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
+      Entry: 7
+      Data: 2|StatChange, Assembly-CSharp
+    - Name: statType
+      Entry: 3
+      Data: 4
+    - Name: value
+      Entry: 4
+      Data: 50
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
       Entry: 13
       Data: 
     - Name: 
@@ -442,7 +454,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 8847fd221068b0148a818e25a4e687a4, type: 3}
   key: "\u5B88\u536B\u5957\u88C5"
   displayedName: 
-  prefab: {fileID: 9193012399868693732, guid: c9e2298451a85f0438b5b16a3e8f356d, type: 3}
+  prefab: {fileID: 9193012399868693732, guid: 3274296cba572634483e4bc4f11283f4, type: 3}
   desc: 
   note: 
   category: 4
@@ -560,7 +572,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 2ea4d7c3ce657974b89e71c91b815f14, type: 3}
   key: "\u86EE\u4EBA\u5957\u88C5"
   displayedName: 
-  prefab: {fileID: 9193012399868693732, guid: c9e2298451a85f0438b5b16a3e8f356d, type: 3}
+  prefab: {fileID: 9193012399868693732, guid: 6c1f7b9e372589743b40920e5fbd5f3e, type: 3}
   desc: 
   note: 
   category: 4

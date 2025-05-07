@@ -19,6 +19,10 @@ public class UIBattleOver : BaseDialog
     }
     public override void Init(params object[] data)
     {
+        for (int i = 0; i < contentTransform.childCount; i++)
+        {
+            Destroy(contentTransform.GetChild(i).gameObject);
+        }
         bool isWin = (bool)data[0];
         if (isWin)
         {
@@ -28,10 +32,7 @@ public class UIBattleOver : BaseDialog
             {
                 var battleLevelData = Datalib.Instance.GetData<BattleLevelConfigData>(BattleData.Instance.battleLevel);
                 SaveSlotData.Instance.passLevels.Add(BattleData.Instance.battleLevel);
-                for (int i = 0; i < contentTransform.childCount; i++)
-                {
-                    Destroy(contentTransform.GetChild(i).gameObject);
-                }
+
                 foreach (var item in battleLevelData.itemReward)
                 {
                     var itemShow = Instantiate(itemPrefab, contentTransform);

@@ -34,6 +34,7 @@ public class SaveSlotData : RuntimeData
     private Dictionary<string, bool> unlockTalent = new();//用来存储解锁的天赋
     [JsonProperty]
     public Dictionary<string, bool> unlockTreasure = new();//已经获得的宝箱
+    public List<string> talkedKey = new();//用来存储已经对话
     public float bgmVolum = 0.5f;
     public float seVolum = 0.5f;
     public float voiceVolum = 0.5f;
@@ -109,6 +110,23 @@ public class SaveSlotData : RuntimeData
         if (config.needPoint > GetTalentPoint())
         {
             return false;
+        }
+        return true;
+    }
+
+    public bool IsUnlockPreTalent(string talentkey)
+    {
+        var config = datalib.GetData<TalentConfigData>(talentkey);
+        if (config == null)
+        {
+            return false;
+        }
+        foreach (var item in config.preTalents)
+        {
+            if (!CheckTalent(item.key))
+            {
+                return false;
+            }
         }
         return true;
     }

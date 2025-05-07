@@ -88,6 +88,7 @@ public class WorldEnemy : MonoBehaviour
 
             // 调整朝向
             Vector3 direction = targetPosition - transform.position;
+            direction.y = 0; // 确保只在水平面上旋转
             if (direction.magnitude > 0.1f) // 避免零向量
             {
                 Quaternion targetRotation = Quaternion.LookRotation(direction);
@@ -140,13 +141,14 @@ public class WorldEnemy : MonoBehaviour
         // 在巡逻范围内随机生成一个目标位置
         Vector2 randomPoint = Random.insideUnitCircle * patrolRadius;
         targetPosition = startPosition + new Vector3(randomPoint.x, 0, randomPoint.y);
+        targetPosition.y = transform.position.y; // 保持高度一致
     }
 
     private void OnDrawGizmosSelected()
     {
         // // 在 Scene 视图中绘制巡逻范围
-        // Gizmos.color = Color.green;
-        // Gizmos.DrawWireSphere(startPosition, patrolRadius);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(startPosition, patrolRadius);
     }
     void OnCollisionEnter(Collision collision)
     {

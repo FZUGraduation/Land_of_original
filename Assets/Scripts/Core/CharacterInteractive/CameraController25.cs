@@ -68,5 +68,7 @@ public class CameraController25 : MonoBehaviour
             return;
         }
         target = player.transform;
+        transform.position = target.position + offset;
+        transform.LookAt(target);
     }
 }

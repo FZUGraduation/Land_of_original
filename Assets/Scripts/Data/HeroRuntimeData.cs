@@ -32,12 +32,12 @@ public class HeroRuntimeData : RuntimeData
     {
         ConfigKey = key;
         //装备默认武器
-        if (!string.IsNullOrEmpty(ConfigData.defaultWeapon.key))
+        if (ConfigData.defaultWeapon && !string.IsNullOrEmpty(ConfigData.defaultWeapon.key))
         {
             equipmentData.Add(EquipmentType.Weapon, ConfigData.defaultWeapon.key);
         }
         //装备默认装扮
-        if (!string.IsNullOrEmpty(ConfigData.defaultBody.key))
+        if (ConfigData.defaultBody && !string.IsNullOrEmpty(ConfigData.defaultBody.key))
         {
             equipmentData.Add(EquipmentType.Body, ConfigData.defaultBody.key);
         }
@@ -81,7 +81,7 @@ public class HeroRuntimeData : RuntimeData
                                 flatValue += growth.value;
                                 break;
                             case BasicModifierType.Percent:
-                                percentValue *= growth.value;
+                                percentValue += growth.value;
                                 break;
                         }
                     }
@@ -148,6 +148,10 @@ public class HeroRuntimeData : RuntimeData
 
     public GameObject GetBattlePrefab()
     {
+        if (ConfigData.isPlayer == false)
+        {
+            return ConfigData.prefab;
+        }
         string weaponKey = equipmentData[EquipmentType.Body];
         if (!string.IsNullOrEmpty(weaponKey))
         {
@@ -176,6 +180,10 @@ public class HeroRuntimeData : RuntimeData
 
     public GameObject GetModlePrefab()
     {
+        if (ConfigData.isPlayer == false)
+        {
+            return ConfigData.modelPrefab;
+        }
         string weaponKey = equipmentData[EquipmentType.Body];
         if (!string.IsNullOrEmpty(weaponKey))
         {

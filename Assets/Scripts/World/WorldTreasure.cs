@@ -1,4 +1,5 @@
 
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,12 +17,14 @@ public class WorldTreasure : MonoBehaviour
     void Awake()
     {
         animator = GetComponent<Animator>();
-        if (SaveSlotData.Instance.unlockTreasure[treasureKey])
+        if (SaveSlotData.Instance.unlockTreasure.ContainsKey(treasureKey) && SaveSlotData.Instance.unlockTreasure[treasureKey])
         {
-            animator.Play("Open"); // 播放开宝箱动画
-            isOpen = true; // 宝箱已打开
+            // animator.Play("Open"); // 播放开宝箱动画
+            // isOpen = true; // 宝箱已打开
+            Destroy(gameObject); // 销毁宝箱对象
             return;
         }
+
         FrameEvent.Instance.On(FrameEvent.CreateWorldPlayer, OnCreateWorldPlayer, this);
         // 初始化 InputAction，绑定到 "E" 键
         interactAction = new InputAction(type: InputActionType.Button, binding: "<Keyboard>/e");
@@ -33,13 +36,14 @@ public class WorldTreasure : MonoBehaviour
         if (isOpen) return; // 如果宝箱已打开，则不进行交互检查
 
         // 检查与玩家的距离
-        if (player && Vector3.Distance(transform.position, player.transform.position) < talkRadius)
+        float distance = Vector3.Distance(transform.position, player.transform.position);
+        if (player && !canOpen && distance < talkRadius)
         {
             canOpen = true; // 可以交互
             interactAction.Enable(); // 启用交互
             talkSign.SetActive(true); // 显示交互提示
         }
-        else
+        else if (canOpen && distance >= talkRadius)
         {
             canOpen = false; // 不能交互
             talkSign.SetActive(false); // 隐藏交互提示
@@ -48,9 +52,14 @@ public class WorldTreasure : MonoBehaviour
         if (canOpen && interactAction.WasPressedThisFrame())
         {
             // 触发交互事件
-            animator.Play("Open"); // 播放开宝箱动画
-            talkSign.SetActive(false); // 隐藏交互提示
-            interactAction.Disable();
+            // animator.Play("Open"); // 播放开宝箱动画
+            // talkSign.SetActive(false); // 隐藏交互提示
+            // interactAction.Disable();
+            isOpen = true; // 宝箱已打开
+            SaveSlotData.Instance.unlockTreasure.Add(treasureKey, true); // 更新宝箱状态
+            var itemCosts = Datalib.Instance.GetData<TreasureConfigData>(treasureKey).itemCosts;
+            WindowManager.Instance.ShowDialog(UIDefine.UIGetItem, UIIndex.STACK, itemCosts);
+            Destroy(gameObject); // 销毁宝箱对象
         }
     }
 

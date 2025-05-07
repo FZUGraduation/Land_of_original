@@ -71,6 +71,183 @@ MonoBehaviour:
   desc: 
   note: 
   effectType: 2
+--- !u!114 &-5872654430614427623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b03cda9de31fca43a273cb607bc24e3, type: 3}
+  m_Name: speed +50%
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 21300000, guid: fdf9f357b72b48c4ea4f6efdf52a6349, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: statModifier
+      Entry: 7
+      Data: 0|StatModifierEffect, Assembly-CSharp
+    - Name: icon
+      Entry: 10
+      Data: 0
+    - Name: effectName
+      Entry: 1
+      Data: "\u901F\u5EA6\u63D0\u5347"
+    - Name: description
+      Entry: 1
+      Data: "\u901F\u5EA6\u63D0\u5347"
+    - Name: stayCount
+      Entry: 3
+      Data: 2
+    - Name: needCaculateHitrate
+      Entry: 5
+      Data: false
+    - Name: baseHitRate
+      Entry: 4
+      Data: 0
+    - Name: OnStayCountChange
+      Entry: 6
+      Data: 
+    - Name: statCalculatetype
+      Entry: 3
+      Data: 1
+    - Name: executeTime
+      Entry: 3
+      Data: 5
+    - Name: sourceObject
+      Entry: 3
+      Data: 1
+    - Name: baseStat
+      Entry: 3
+      Data: 4
+    - Name: excuteStat
+      Entry: 3
+      Data: 4
+    - Name: value
+      Entry: 4
+      Data: 0.5
+    - Name: canCrit
+      Entry: 5
+      Data: false
+    - Name: canDef
+      Entry: 5
+      Data: false
+    - Name: canMulti
+      Entry: 5
+      Data: false
+    - Name: sourceData
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: specialEffect
+      Entry: 6
+      Data: 
+  icon: {fileID: 0}
+  key: speed +50%
+  displayedName: 
+  prefab: {fileID: 0}
+  desc: 
+  note: 
+  effectType: 1
+--- !u!114 &-5832328661229938473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b03cda9de31fca43a273cb607bc24e3, type: 3}
+  m_Name: "\u9020\u6210\u653B\u51FB200%\u4F24\u5BB3"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: statModifier
+      Entry: 7
+      Data: 0|StatModifierEffect, Assembly-CSharp
+    - Name: icon
+      Entry: 6
+      Data: 
+    - Name: effectName
+      Entry: 1
+      Data: "200%\u4F24\u5BB3"
+    - Name: description
+      Entry: 1
+      Data: "200%\u4F24\u5BB3"
+    - Name: stayCount
+      Entry: 3
+      Data: 0
+    - Name: needCaculateHitrate
+      Entry: 5
+      Data: false
+    - Name: baseHitRate
+      Entry: 4
+      Data: 0
+    - Name: OnStayCountChange
+      Entry: 6
+      Data: 
+    - Name: statCalculatetype
+      Entry: 3
+      Data: 1
+    - Name: executeTime
+      Entry: 3
+      Data: 0
+    - Name: sourceObject
+      Entry: 3
+      Data: 0
+    - Name: baseStat
+      Entry: 3
+      Data: 2
+    - Name: excuteStat
+      Entry: 3
+      Data: 0
+    - Name: value
+      Entry: 4
+      Data: -2
+    - Name: canCrit
+      Entry: 5
+      Data: true
+    - Name: canDef
+      Entry: 5
+      Data: true
+    - Name: canMulti
+      Entry: 5
+      Data: false
+    - Name: sourceData
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: specialEffect
+      Entry: 6
+      Data: 
+  icon: {fileID: 0}
+  key: "\u9020\u6210\u653B\u51FB200%\u4F24\u5BB3"
+  displayedName: 
+  prefab: {fileID: 0}
+  desc: 
+  note: 
+  effectType: 1
 --- !u!114 &-5668304598886410287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,9 +584,11 @@ MonoBehaviour:
   - {fileID: -3326183664943967092}
   - {fileID: -1409722200362235436}
   - {fileID: 9067456828917890805}
+  - {fileID: -5872654430614427623}
   - {fileID: -1316289956520362249}
   - {fileID: -8328164826558358575}
   - {fileID: 1748040263752676371}
+  - {fileID: -5832328661229938473}
 --- !u!114 &1748040263752676371
 MonoBehaviour:
   m_ObjectHideFlags: 0

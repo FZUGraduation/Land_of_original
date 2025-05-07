@@ -30,7 +30,6 @@ MonoBehaviour:
   needPoint: 1
   preTalents:
   - {fileID: 6907849050467208971}
-  - {fileID: 7604463465776363985}
 --- !u!114 &-1717651683333211803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,4 +216,4 @@ MonoBehaviour:
   note: 
   needPoint: 1
   preTalents:
-  - {fileID: 1400290224794341222}
+  - {fileID: -1717651683333211803}

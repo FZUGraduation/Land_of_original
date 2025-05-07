@@ -108,6 +108,7 @@ public class BaseEventCenter
                 catch (Exception e)
                 {
                     Debug.LogError($"Event {eventName} error: {e}");
+                    listeners.Remove(listener);
                 }
             }
             if (listeners.Count == 0)

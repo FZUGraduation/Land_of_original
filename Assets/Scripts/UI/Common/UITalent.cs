@@ -64,18 +64,18 @@ public class UITalent : BaseDialog
     {
         talentName.text = currTalent.name;
         talentDetail.text = currTalent.desc;
-        talentPoint.text = "金币: " + SaveSlotData.Instance.GetTalentPoint().ToString();
+        talentPoint.text = ":" + SaveSlotData.Instance.GetTalentPoint().ToString();
         bool isUnlock = SaveSlotData.Instance.CheckTalent(currTalent.key);
         bool canUnlock = SaveSlotData.Instance.CanUnlockTalent(currTalent.key);
         unlockButton.gameObject.SetActive(!isUnlock);
         usePointTip.gameObject.SetActive(!isUnlock);
-        if (canUnlock)
+        if (SaveSlotData.Instance.IsUnlockPreTalent(currTalent.key))
         {
-            usePointTip.text = "需解锁前置天赋";
+            usePointTip.text = "需要金币: " + currTalent.needPoint.ToString();
         }
         else
         {
-            usePointTip.text = "需要金币: " + currTalent.needPoint.ToString();
+            usePointTip.text = "需解锁前置天赋";
         }
 
         unlockButton.interactable = canUnlock;

@@ -20,6 +20,7 @@ public class UIStartHeroSelect : BaseDialog
         var heros = Datalib.Instance.GetDatas<HeroConfigData>();
         for (int i = 0; i < heros.Count; i++)
         {
+            if (i == 1 || heros[i].isPlayer == false) continue; //跳过第二个英雄
             var slot = Instantiate(Resources.Load<GameObject>("Prefabs/UI/StartScene/NodeHeroSeleceItem"), heroItemRoot);
             slot.name = $"HeroSelectItem_{i}";
             var heroItem = slot.GetComponent<NodeHeroSeleceItem>();

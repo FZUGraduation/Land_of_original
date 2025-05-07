@@ -22,7 +22,7 @@ public class UIDetailShow : MonoBehaviour
         switch (data)
         {
             case SkillConfigData skillConfig:
-                title.text = skillConfig.key + "  MP:" + skillConfig.mpCost;
+                title.text = skillConfig.key;
                 desc.text = skillConfig.desc;
                 transform.position = pos;
                 break;

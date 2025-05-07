@@ -26,7 +26,8 @@ public class SingleTalkData
     public string content;
     [LabelText("对话选项"), ShowIf("type", TalkType.Option)]
     public List<TalkOption> optionList;
-
+    [ShowIf("type", TalkType.End)]
+    public TalkEvent talkEvent = TalkEvent.None;
     public void OnTypeChanged()
     {
         if (type == TalkType.Dialogue)
@@ -75,4 +76,12 @@ public enum TalkOptionType
     Continue,
     End,
     Battle,
+}
+
+public enum TalkEvent
+{
+    None,
+    GetFriend,
+    GetItem,
+    GetBody,
 }

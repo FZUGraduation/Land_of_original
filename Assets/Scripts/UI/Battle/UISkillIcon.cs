@@ -12,6 +12,7 @@ public class UISkillIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public TextMeshProUGUI coolDownText = null;
     public Button button = null;
     public GameObject desc = null;
+    public Transform mpCostParent;
     private string skillName;
     private BattleHeroData heroData;
     private SkillConfigData skillConfig;
@@ -38,6 +39,10 @@ public class UISkillIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         button.interactable = skillConfig.mpCost <= BattleData.Instance.MP && !isInCoolDown;
         //如果被沉默，且不是普攻，则显示沉默图标
         slientIcon.gameObject.SetActive(isSlient && skillConfig.isBasicAttack == false);
+        for (int i = 0; i < skillConfig.mpCost; i++)
+        {
+            mpCostParent.GetChild(i).gameObject.SetActive(true);
+        }
     }
     public void SetSelect(bool isSelect)
     {

@@ -35,17 +35,20 @@ MonoBehaviour:
     talker: {fileID: 507164878133279125, guid: e900af0bcf05e954e890d34232863fc4, type: 2}
     content: 11111
     optionList: []
+    talkEvent: 0
   - type: 0
     isLeft: 0
     talker: {fileID: 4482615294390416954, guid: e900af0bcf05e954e890d34232863fc4,
       type: 2}
     content: 55555
     optionList: []
+    talkEvent: 0
   - type: 2
     isLeft: 1
     talker: {fileID: 0}
     content: 
     optionList: []
+    talkEvent: 0
 --- !u!114 &-7101930451259479810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,7 +59,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88360d2282af7d24a90d19f88fac04d7, type: 3}
-  m_Name: TestTalk1
+  m_Name: GuardNPC
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -68,64 +71,117 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   icon: {fileID: 0}
-  key: TestTalk1
+  key: GuardNPC
   displayedName: TestTalk1
   prefab: {fileID: 0}
   desc: 
   note: 
-  category: 1
+  category: 2
   priority: 0
   talkDataList:
   - type: 0
     isLeft: 1
-    talker: {fileID: 507164878133279125, guid: e900af0bcf05e954e890d34232863fc4, type: 2}
-    content: 11111
+    talker: {fileID: 4482615294390416954, guid: e900af0bcf05e954e890d34232863fc4,
+      type: 2}
+    content: "\u7AD9\u4F4F\uFF0C\u65C5\u4EBA\uFF01\u524D\u9762\u7684\u5E9F\u589F\u4E0D\u662F\u4F60\u4EEC\u8BE5\u6765\u7684\u5730\u65B9\u2026\u2026\uFF08\u54B3\u55FD\uFF09\u90A3\u4E9B\u602A\u7269\uFF0C\u8FD8\u6709\u2018\u5B83\u2019\u2026\u2026\u8FDB\u53BB\u7684\u4EBA\u4ECE\u6CA1\u56DE\u6765\u8FC7\u3002"
     optionList: []
+    talkEvent: 0
   - type: 1
     isLeft: 1
-    talker: {fileID: 4482615294390416954, guid: e900af0bcf05e954e890d34232863fc4,
-      type: 2}
+    talker: {fileID: 0}
     content: 
     optionList:
-    - content: JumpTalk
+    - content: "\u8FD9\u91CC\u53D1\u751F\u4E86\u4EC0\u4E48"
       optionType: 0
-      nextTalk: {fileID: -8956941283111570876}
+      nextTalk: {fileID: -3840391283928436330}
       battle: {fileID: 0}
-    - content: Continue
-      optionType: 1
-      nextTalk: {fileID: 0}
+    - content: "\u2018\u5B83\u2019\u662F\u4EC0\u4E48\uFF1F"
+      optionType: 0
+      nextTalk: {fileID: 6997789726990880604}
       battle: {fileID: 0}
-    - content: End
-      optionType: 2
-      nextTalk: {fileID: 0}
-      battle: {fileID: 0}
-    - content: GoToBattle
-      optionType: 3
-      nextTalk: {fileID: 0}
-      battle: {fileID: -7364409373857153333, guid: f4b6ab7e55bb3874c91216bc6faa0963,
-        type: 2}
-  - type: 0
-    isLeft: 0
-    talker: {fileID: 4482615294390416954, guid: e900af0bcf05e954e890d34232863fc4,
-      type: 2}
-    content: 22222
-    optionList: []
-  - type: 0
-    isLeft: 1
-    talker: {fileID: 507164878133279125, guid: e900af0bcf05e954e890d34232863fc4, type: 2}
-    content: 3333
-    optionList: []
-  - type: 0
-    isLeft: 1
-    talker: {fileID: 4482615294390416954, guid: e900af0bcf05e954e890d34232863fc4,
-      type: 2}
-    content: 4444
-    optionList: []
+    talkEvent: 0
   - type: 2
     isLeft: 1
     talker: {fileID: 0}
     content: 
     optionList: []
+    talkEvent: 0
+--- !u!114 &-3840391283928436330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88360d2282af7d24a90d19f88fac04d7, type: 3}
+  m_Name: GuardNPC1
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  icon: {fileID: 0}
+  key: GuardNPC1
+  displayedName: TestTalk1
+  prefab: {fileID: 0}
+  desc: 
+  note: 
+  category: 2
+  priority: 0
+  talkDataList:
+  - type: 0
+    isLeft: 1
+    talker: {fileID: 4482615294390416954, guid: e900af0bcf05e954e890d34232863fc4,
+      type: 2}
+    content: "\uFF08\u82E6\u7B11\uFF09\u8FD9\u91CC\u66FE\u662F\u53E4\u6587\u660E\u2018\u963F\u5C14\u5361\u8FEA\u4E9A\u2019\u7684\u5723\u5730\u2026\u2026\u76F4\u5230\u4ED6\u4EEC\u89E6\u6012\u4E86\u795E\u660E\u3002\u4E00\u591C\u4E4B\u95F4\uFF0C\u57CE\u5E02\u5D29\u584C\uFF0C\u6D3B\u4E0B\u6765\u7684\u4EBA\u53D8\u6210\u4E86\u6E38\u8361\u7684\u602A\u7269\u3002"
+    optionList: []
+    talkEvent: 0
+  - type: 0
+    isLeft: 1
+    talker: {fileID: 4482615294390416954, guid: e900af0bcf05e954e890d34232863fc4,
+      type: 2}
+    content: "\u800C\u73B0\u5728\u2014\u2014\uFF08\u538B\u4F4E\u58F0\u97F3\uFF09\u6700\u6DF1\u5904\u7684\u2018\u77F3\u4E4B\u5DE8\u4EBA\u2019\u82CF\u9192\u4E86\uFF0C\u5B83\u6495\u788E\u4E00\u5207\u95EF\u5165\u8005\u2026\u2026\u8FDE\u6211\u7684\u5C0F\u961F\u4E5F\u2026\u2026"
+    optionList: []
+    talkEvent: 0
+  - type: 0
+    isLeft: 1
+    talker: {fileID: 507164878133279125, guid: e900af0bcf05e954e890d34232863fc4, type: 2}
+    content: "\u4F60\u7684\u5C0F\u961F\uFF1F\u8FD8\u6709\u5176\u4ED6\u5E78\u5B58\u8005\u5417\uFF1F"
+    optionList: []
+    talkEvent: 0
+  - type: 0
+    isLeft: 1
+    talker: {fileID: 4482615294390416954, guid: e900af0bcf05e954e890d34232863fc4,
+      type: 2}
+    content: "\uFF08\u6447\u5934\uFF09\u53EA\u5269\u6211\u4E86\u2026\u2026"
+    optionList: []
+    talkEvent: 0
+  - type: 0
+    isLeft: 1
+    talker: {fileID: 4482615294390416954, guid: e900af0bcf05e954e890d34232863fc4,
+      type: 2}
+    content: "\uFF08\u6447\u5934\uFF09\u53EA\u5269\u6211\u4E86\u2026\u2026\u5982\u679C\u4F60\u6267\u610F\u8981\u9001\u6B7B\uFF0C\uFF08\u9012\u8FC7\u4E00\u5957\u76D4\u7532\uFF09\u8FD9\u8EAB\u88C5\u5907\u4E5F\u8BB8\u80FD\u5E2E\u52A9\u4F60\u3002"
+    optionList: []
+    talkEvent: 0
+  - type: 0
+    isLeft: 1
+    talker: {fileID: 507164878133279125, guid: e900af0bcf05e954e890d34232863fc4, type: 2}
+    content: "\u611F\u8C22\u4F60"
+    optionList: []
+    talkEvent: 0
+  - type: 2
+    isLeft: 1
+    talker: {fileID: 0}
+    content: 
+    optionList: []
+    talkEvent: 3
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,4 +214,131 @@ MonoBehaviour:
       Data: 
   datas:
   - {fileID: -7101930451259479810}
+  - {fileID: -3840391283928436330}
+  - {fileID: 6997789726990880604}
+  - {fileID: 3751576900243098180}
   - {fileID: -8956941283111570876}
+--- !u!114 &3751576900243098180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88360d2282af7d24a90d19f88fac04d7, type: 3}
+  m_Name: GuardNPCNormal
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  icon: {fileID: 0}
+  key: GuardNPCNormal
+  displayedName: TestTalk1
+  prefab: {fileID: 0}
+  desc: 
+  note: 
+  category: 2
+  priority: 0
+  talkDataList:
+  - type: 0
+    isLeft: 1
+    talker: {fileID: 4482615294390416954, guid: e900af0bcf05e954e890d34232863fc4,
+      type: 2}
+    content: "\u51C6\u5907\u597D\u6218\u6597\u4E86\u4E48"
+    optionList: []
+    talkEvent: 0
+  - type: 2
+    isLeft: 1
+    talker: {fileID: 0}
+    content: 
+    optionList: []
+    talkEvent: 0
+--- !u!114 &6997789726990880604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88360d2282af7d24a90d19f88fac04d7, type: 3}
+  m_Name: GuardNPC2
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  icon: {fileID: 0}
+  key: GuardNPC2
+  displayedName: TestTalk1
+  prefab: {fileID: 0}
+  desc: 
+  note: 
+  category: 2
+  priority: 0
+  talkDataList:
+  - type: 0
+    isLeft: 1
+    talker: {fileID: 4482615294390416954, guid: e900af0bcf05e954e890d34232863fc4,
+      type: 2}
+    content: "\uFF08\u98A4\u6296\uFF09\u90A3\u602A\u7269\u2026\u2026\u6839\u672C\u4E0D\u662F\u81EA\u7136\u5F62\u6210\u7684\u3002\uFF08\u6380\u5F00\u80F8\u7532\u9732\u51FA\u707C\u4F24\uFF09\u6211\u4EEC\u7684\u5200\u5251\u5728\u5B83\u8EAB\u4E0A\u7559\u4E0D\u4E0B\u4E00\u9053\u5212\u75D5"
+    optionList: []
+    talkEvent: 0
+  - type: 0
+    isLeft: 1
+    talker: {fileID: 4482615294390416954, guid: e900af0bcf05e954e890d34232863fc4,
+      type: 2}
+    content: "\u800C\u5B83\u4E00\u62F3\u5C31\u80FD\u2014\u2014\uFF08\u7A81\u7136\u5664\u58F0\uFF09\u2026\u2026\u4F60\u542C\uFF0C\u5B83\u53C8\u5728\u543C\u53EB\u4E86\u3002"
+    optionList: []
+    talkEvent: 0
+  - type: 2
+    isLeft: 1
+    talker: {fileID: 0}
+    content: 
+    optionList: []
+    talkEvent: 0
+  - type: 0
+    isLeft: 1
+    talker: {fileID: 507164878133279125, guid: e900af0bcf05e954e890d34232863fc4, type: 2}
+    content: "\u542C\u8D77\u6765\u4F60\u6068\u5B83\u2026\u2026"
+    optionList: []
+    talkEvent: 0
+  - type: 0
+    isLeft: 1
+    talker: {fileID: 4482615294390416954, guid: e900af0bcf05e954e890d34232863fc4,
+      type: 2}
+    content: "\u5B83\u6495\u788E\u4E00\u5207\u95EF\u5165\u8005\u2026\u2026\u8FDE\u6211\u7684\u5C0F\u961F\u4E5F\u2026\u2026"
+    optionList: []
+    talkEvent: 0
+  - type: 0
+    isLeft: 1
+    talker: {fileID: 507164878133279125, guid: e900af0bcf05e954e890d34232863fc4, type: 2}
+    content: "\u8981\u4E00\u8D77\u590D\u4EC7\u5417\uFF1F"
+    optionList: []
+    talkEvent: 0
+  - type: 0
+    isLeft: 1
+    talker: {fileID: 507164878133279125, guid: e900af0bcf05e954e890d34232863fc4, type: 2}
+    content: "\u771F\u7684\u4E48\uFF0C\u8C22\u8C22\u4F60\u7ED9\u6211\u8FD9\u4E2A\u673A\u4F1A"
+    optionList: []
+    talkEvent: 0
+  - type: 2
+    isLeft: 1
+    talker: {fileID: 0}
+    content: 
+    optionList: []
+    talkEvent: 1

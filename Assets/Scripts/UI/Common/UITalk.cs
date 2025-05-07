@@ -142,7 +142,11 @@ public class UITalk : BaseDialog
         // End类型处理
         else if (talkData.type == TalkType.End)
         {
-            // dialogPanel.SetActive(false);
+            if (talkData.talkEvent != TalkEvent.None)
+            {
+                // 触发事件
+                HandleEvent(talkData.talkEvent);
+            }
             Close();
         }
     }
@@ -226,6 +230,27 @@ public class UITalk : BaseDialog
             yield return new WaitForSeconds(tyepSpeed);
         }
         isTypeDone = true;
+    }
+
+    private void HandleEvent(TalkEvent talkEvent)
+    {
+        switch (talkEvent)
+        {
+            case TalkEvent.None:
+                break;
+            case TalkEvent.GetBody:
+                List<ItemCost> itemCosts = new List<ItemCost>
+                {
+                    new ItemCost("守卫套装", 1)
+                };
+                WindowManager.Instance.ShowDialog(UIDefine.UIGetItem, UIIndex.STACK, itemCosts);
+                break;
+            case TalkEvent.GetFriend:
+                WindowManager.Instance.ShowDialog(UIDefine.UIConfirmBox, UIIndex.STACK, "获得新的伙伴，可在角色中查看", null);
+                break;
+            default:
+                break;
+        }
     }
 }
 

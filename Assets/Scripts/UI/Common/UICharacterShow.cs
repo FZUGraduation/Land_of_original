@@ -71,11 +71,26 @@ public class UICharacterShow : BaseDialog
         {
             go.GetComponent<CharacterModelController>()?.SetWeapon(data.equipmentData[EquipmentType.Weapon]);
         }
+        InitEquipmentSlots();
         Debug.Log($"OnCellSelected: {index}, {configData.key}");
     }
 
     private void InitEquipmentSlots()
     {
+        // if (selectedHeroData.ConfigData.isPlayer == false)
+        // {
+        //     headSlot.gameObject.SetActive(false);
+        //     bodySlot.gameObject.SetActive(false);
+        //     legsSlot.gameObject.SetActive(false);
+        //     backSlot.gameObject.SetActive(false);
+        //     weaponSlot.gameObject.SetActive(false);
+        //     return;
+        // }
+        // else
+        // {
+        //     bodySlot.gameObject.SetActive(false);
+        //     weaponSlot.gameObject.SetActive(false);
+        // }
         foreach (var item in equipmentSlot)
         {
             item.Value.transform.GetChild(2).gameObject.SetActive(true);
@@ -204,6 +219,11 @@ public class UICharacterShow : BaseDialog
 
     private void OnEquipButtonClick()
     {
+        if (selectedHeroData.ConfigData.isPlayer == false)
+        {
+            WindowManager.Instance.ShowDialog(UIDefine.UIConfirmBox, UIIndex.STACK, "只能给主角装备物品", null);
+            return;
+        }
         var equipCfg = selectedItem.itemData.ConfigData as EquipmentConfigData;
         var oldEquipKey = selectedHeroData.SwitchEquipment(equipCfg.equipmentType, selectedItem.itemData.ConfigKey);
         bagData.UseItem(equipCfg.key, 1);

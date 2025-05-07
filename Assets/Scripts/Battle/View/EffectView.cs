@@ -26,12 +26,17 @@ public class EffectView : MonoBehaviour
                 return;
             }
             // 设置粒子系统播放完成后自动销毁
-            var main = particleSystem.main;
+            // var main = particleSystem.main;
+            // if (info.destoryOnEnd == true)
+            // {
+            //     main.stopAction = ParticleSystemStopAction.Destroy;
+            // }
+            particleSystem.Play();
+            // 使用协程延迟销毁对象
             if (info.destoryOnEnd == true)
             {
-                main.stopAction = ParticleSystemStopAction.Destroy;
+                StartCoroutine(DestroyEffect(1f));
             }
-            particleSystem.Play();
         }
         else if (info.effectViewType == EffectViewType.Bullet)
         {
@@ -50,5 +55,11 @@ public class EffectView : MonoBehaviour
     {
         this.info = info;
         targetPosition = position;
+    }
+
+    public IEnumerator DestroyEffect(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Destroy(gameObject); // 延迟销毁对象
     }
 }

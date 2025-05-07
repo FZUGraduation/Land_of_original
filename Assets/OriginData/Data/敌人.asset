@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8adb2641e87d764fae19a706c746c56, type: 3}
-  m_Name: Enemy1
+  m_Name: "\u77F3\u5934\u4EBA"
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -22,15 +22,17 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   icon: {fileID: 21300000, guid: 5edbaf1857e961244a4251210c1df0cc, type: 3}
-  key: Enemy1
+  key: "\u77F3\u5934\u4EBA"
   displayedName: 
   prefab: {fileID: 4771152712502093131, guid: c93205f62c9e53745a03c2ed54214df9, type: 3}
   desc: 
   note: 
   modelPrefab: {fileID: 0}
+  worldPrefab: {fileID: 0}
+  bodyicon: {fileID: 0}
   hp: 200
   mp: 5
-  atk: 5
+  atk: 100
   def: 55
   speed: 132.1
   critRate: 0.235
@@ -51,7 +53,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8adb2641e87d764fae19a706c746c56, type: 3}
-  m_Name: Enemy2
+  m_Name: "\u8718\u86DB\u673A\u5668\u4EBA"
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -63,23 +65,24 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   icon: {fileID: 21300000, guid: 8b3589ec04fa13c488925c33e9ed35c4, type: 3}
-  key: Enemy2
+  key: "\u8718\u86DB\u673A\u5668\u4EBA"
   displayedName: 
   prefab: {fileID: 4771152712502093131, guid: 2ab809d422c70b24bb4fb81f6760c53e, type: 3}
   desc: 
   note: 
   modelPrefab: {fileID: 0}
+  worldPrefab: {fileID: 0}
+  bodyicon: {fileID: 0}
   hp: 200
   mp: 5
-  atk: 5
+  atk: 50
   def: 55
   speed: 132.1
   critRate: 0.235
   critDamage: 1.702
   hitRate: 0
   skills:
-  - {fileID: 7068928617378887902, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
-  - {fileID: 7791752213047137225, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
+  - {fileID: -3153923325134820209, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
   defaultSkillIndex: 0
   level: 0
 --- !u!114 &11400000

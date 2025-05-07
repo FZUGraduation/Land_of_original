@@ -31,7 +31,8 @@ public class Datalib : Singleton<Datalib>
             (typeof(EffectConfigData),"技能效果","技能效果",GetEffectTypeName),
             (typeof(SkillConfigData),"技能","技能",null),
             (typeof(TalentConfigData),"天赋","天赋",null),
-            (typeof(OutSideGrowthConfigData),"局外成长","局外成长",null),};
+            (typeof(OutSideGrowthConfigData),"局外成长","局外成长",null),
+            (typeof(TreasureConfigData),"宝箱","宝箱",null),};
     public static string GetTalkCategoryName(ConfigData data)
     {
         var itemData = data as TalkConfigData;

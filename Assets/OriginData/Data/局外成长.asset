@@ -96,10 +96,10 @@ MonoBehaviour:
       Data: 
   datas:
   - {fileID: 173619102147687950}
+  - {fileID: -3927890339534602745}
   - {fileID: -5636642991367229498}
   - {fileID: 2123673269702631505}
   - {fileID: 7436695607390210753}
-  - {fileID: -3927890339534602745}
 --- !u!114 &173619102147687950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,8 +128,8 @@ MonoBehaviour:
   desc: 
   note: 
   statCalculatetype: 1
-  excuteStat: 2
-  value: 0.1
+  excuteStat: 4
+  value: 0.5
   talentConfigData:
   - {fileID: 1457896684954142326, guid: a88ec62fad2757b428723438e3448603, type: 2}
 --- !u!114 &2123673269702631505

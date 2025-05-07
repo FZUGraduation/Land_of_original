@@ -17,9 +17,13 @@ public class WaterRipple : MonoBehaviour
 
     private void Update()
     {
+        if (Player == null || Water == null || Ripple == null)
+        {
+            return;
+        }
         Ripple.transform.position = new Vector3(Player.transform.position.x, Water.transform.position.y, Player.transform.position.z);
-        
-        if (Player.transform.position.y<Water.transform.position.y)
+
+        if (Player.transform.position.y < Water.transform.position.y)
         {
             Ripple.SetActive(true);
             timelock = Time.time + WaitTime;
@@ -31,6 +35,6 @@ public class WaterRipple : MonoBehaviour
                 Ripple.SetActive(false);
             }
         }
-        
+
     }
 }
