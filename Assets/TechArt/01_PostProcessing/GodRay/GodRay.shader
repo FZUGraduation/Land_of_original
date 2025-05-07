@@ -180,7 +180,7 @@ Shader "URP/PostProcessing/GodRay"
                 half3 godRayRange = SAMPLE_TEXTURE2D(_GodRayRangeTexture,sampler_GodRayRangeTexture,i.texcoord);
                 float intensity = 1-_Intensity;
                 godRayRange = 1-saturate(lerp(0,100,godRayRange));
-                half3 finalRGB = lerp(albedo*intensity,albedo,godRayRange);//godRayRange*albedo*intensity*_BaseColor+albedo;
+                half3 finalRGB = lerp(albedo*intensity,albedo*1.1f,godRayRange);//godRayRange*albedo*intensity*_BaseColor+albedo;
                 half4 result = half4(finalRGB,1.0);
                 return result;
             }
