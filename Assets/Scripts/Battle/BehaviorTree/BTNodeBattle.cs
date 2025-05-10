@@ -265,6 +265,7 @@ public class GotBack : BtActionNode
             startPosition = character.transform.position;
             targetPosition = (Vector3)blackboard.objectDir["startPosition"];
             isJumping = true;
+            AudioManager.Instance.PlaySE("30_Jump_03");
         }
         if (isJumping)
         {

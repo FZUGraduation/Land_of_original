@@ -410,6 +410,10 @@ public class BattleData : BaseEventCenter
                 effectView.transform.localRotation = Quaternion.identity;
                 var skillEffectView = effectView.GetComponent<EffectView>();
                 skillEffectView.SetInfo(skillConfig.effectView, target.characterMono.transform.position);
+                if (string.IsNullOrEmpty(skillConfig.soundPath) == false)
+                {
+                    AudioManager.Instance.PlaySE(skillConfig.soundPath);
+                }
             });
         }
         foreach (var effect in effects)

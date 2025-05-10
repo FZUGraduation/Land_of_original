@@ -36,8 +36,8 @@ public class SaveSlotData : RuntimeData
     public Dictionary<string, bool> unlockTreasure = new();//已经获得的宝箱
     public List<string> talkedKey = new();//用来存储已经对话
     public float bgmVolum = 0.5f;
-    public float seVolum = 0.5f;
-    public float voiceVolum = 0.5f;
+    public float seVolum = 1f;
+    public float voiceVolum = 1f;
     public List<HeroRuntimeData> heroDatas = new();//用来存储解锁的英雄
     public InventoryRuntimeData bagData = new();
     public List<string> passLevels = new();//用来存储通关的关卡

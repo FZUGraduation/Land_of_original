@@ -27,7 +27,7 @@ MonoBehaviour:
   prefab: {fileID: 0}
   desc: "\u521D\u59CBMP+1"
   note: 
-  needPoint: 1
+  needPoint: 5
   preTalents:
   - {fileID: 6907849050467208971}
 --- !u!114 &-1717651683333211803
@@ -57,7 +57,7 @@ MonoBehaviour:
   prefab: {fileID: 0}
   desc: "\u8840\u91CF\u63D0\u534710%"
   note: 
-  needPoint: 1
+  needPoint: 5
   preTalents:
   - {fileID: 1457896684954142326}
 --- !u!114 &11400000
@@ -124,7 +124,7 @@ MonoBehaviour:
   prefab: {fileID: 0}
   desc: "\u66B4\u51FB\u7387\u63D0\u534710%"
   note: 
-  needPoint: 1
+  needPoint: 5
   preTalents:
   - {fileID: 6907849050467208971}
   - {fileID: -1717651683333211803}
@@ -155,7 +155,7 @@ MonoBehaviour:
   prefab: {fileID: 0}
   desc: "\u653B\u51FB\u63D0\u534710%"
   note: 
-  needPoint: 1
+  needPoint: 5
   preTalents: []
 --- !u!114 &6907849050467208971
 MonoBehaviour:
@@ -184,7 +184,7 @@ MonoBehaviour:
   prefab: {fileID: 0}
   desc: "\u901F\u5EA6\u63D0\u534710%"
   note: 
-  needPoint: 1
+  needPoint: 5
   preTalents:
   - {fileID: 1457896684954142326}
 --- !u!114 &7604463465776363985
@@ -214,6 +214,6 @@ MonoBehaviour:
   prefab: {fileID: 0}
   desc: "\u9632\u5FA1\u63D0\u534710%"
   note: 
-  needPoint: 1
+  needPoint: 5
   preTalents:
   - {fileID: -1717651683333211803}

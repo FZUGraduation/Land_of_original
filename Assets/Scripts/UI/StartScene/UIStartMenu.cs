@@ -14,6 +14,7 @@ public class UIStartMenu : BaseDialog
 
     private void OnStartBtnClick()
     {
+        AudioManager.Instance.PlaySE("013_Confirm_03");
         _ = WindowManager.Instance.ShowDialogAsync(UIDefine.UISlotSelect);
     }
 }

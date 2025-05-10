@@ -73,9 +73,12 @@ public class ConfigData : SerializedScriptableObject
 
     public virtual void Refresh()
     {
+#if UNITY_EDITOR
         this.name = key;
         EditorUtility.SetDirty(this);
+#endif
     }
+
     public override string ToString()
     {
         return key;

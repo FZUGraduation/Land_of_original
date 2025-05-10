@@ -104,6 +104,7 @@ MonoBehaviour:
   datas:
   - {fileID: -7364409373857153333}
   - {fileID: 5334841278865601046}
+  - {fileID: 8154741176442704170}
 --- !u!114 &5334841278865601046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,4 +159,65 @@ MonoBehaviour:
   desc: 
   note: 
   battleType: 0
-  itemReward: []
+  itemReward:
+  - configData: {fileID: 7201032753890965791, guid: b5f0d8d41da55c24cb77812ec87d2668,
+      type: 2}
+    amount: 10
+--- !u!114 &8154741176442704170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3201d1069e3be184f95d1e7c7d1c4275, type: 3}
+  m_Name: Level3
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: -8948407470553864456, guid: bfdaf790d5f3623498e7d0572b3833e1, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: enemyDatas
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[BattleEnemyConfigData, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|BattleEnemyConfigData, Assembly-CSharp
+    - Name: enemyConfig
+      Entry: 10
+      Data: 0
+    - Name: position
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  icon: {fileID: 0}
+  key: Level3
+  displayedName: 
+  prefab: {fileID: 0}
+  desc: 
+  note: 
+  battleType: 0
+  itemReward:
+  - configData: {fileID: 7201032753890965791, guid: b5f0d8d41da55c24cb77812ec87d2668,
+      type: 2}
+    amount: 10

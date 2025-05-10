@@ -53,6 +53,7 @@ MonoBehaviour:
   elseAnimTime: -0.5
   needGotoTargetPos: 1
   heroskillType: 0
+  soundPath: 03_Claw_03
 --- !u!114 &-2493689293589992625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,6 +107,7 @@ MonoBehaviour:
   elseAnimTime: 0
   needGotoTargetPos: 1
   heroskillType: 0
+  soundPath: 02_Heal_02
 --- !u!114 &-65826455168272949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,6 +161,7 @@ MonoBehaviour:
   elseAnimTime: -0.8
   needGotoTargetPos: 1
   heroskillType: 0
+  soundPath: 25_Wind_01
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +252,7 @@ MonoBehaviour:
   elseAnimTime: -1
   needGotoTargetPos: 0
   heroskillType: 0
+  soundPath: 77_flesh_02
 --- !u!114 &7791752213047137225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,6 +306,7 @@ MonoBehaviour:
   elseAnimTime: -1
   needGotoTargetPos: 0
   heroskillType: 0
+  soundPath: 04_Fire_explosion_04_medium
 --- !u!114 &9218938522647048434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,3 +360,4 @@ MonoBehaviour:
   elseAnimTime: -0.8
   needGotoTargetPos: 1
   heroskillType: 0
+  soundPath: 77_flesh_02

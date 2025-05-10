@@ -12,8 +12,10 @@ public class BaseCharacter : SerializedMonoBehaviour, ISelectable, IFocusable
 {
     [OdinSerialize, HideReferenceObjectPicker, OpenView]
     public BehaviourTreeData TreeData;
+#if UNITY_EDITOR
     [Button("把当前物体设为脏数据")]
     public void SetDirty() => EditorUtility.SetDirty(this);
+#endif
     public BehaviourTreeData GetBtData() => TreeData;
     protected Transform statusBarTransform;
     protected BlackBoard blackboard = null;

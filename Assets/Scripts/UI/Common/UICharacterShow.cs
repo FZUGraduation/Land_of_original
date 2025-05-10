@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using Sirenix.OdinInspector.Demos.RPGEditor;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

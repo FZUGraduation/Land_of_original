@@ -1,4 +1,4 @@
-
+#if UNITY_EDITOR
 using System.Linq;
 using Sirenix.OdinInspector.Editor;
 using Sirenix.Utilities;
@@ -6,7 +6,7 @@ using Sirenix.Utilities.Editor;
 using UnityEditor;
 using UnityEngine;
 
-#if UNITY_EDITOR
+
 public class DatalibEditorWindow : OdinMenuEditorWindow
 {
     Datalib datalib;

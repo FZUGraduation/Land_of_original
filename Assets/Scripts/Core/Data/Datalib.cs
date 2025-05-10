@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
+using UnityEngine;
+using UnityEngine.AddressableAssets;
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.AddressableAssets;
 using UnityEditor.AddressableAssets.Settings;
-using UnityEngine;
-using UnityEngine.AddressableAssets;
-
+#endif
 public class Datalib : Singleton<Datalib>
 {
     public Dictionary<Type, List<ConfigData>> dataDict = null;
     public Dictionary<string, (string intro, string main)> bgmConfig = new Dictionary<string, (string intro, string main)>() { };
-#if UNITY_EDITOR
     public List<EntityCreator> creatorList = null;
-#endif
     const string configDataRoot = "Assets/OriginData/Data/";
 #if UNITY_EDITOR
     public delegate string GetSubPathDel(ConfigData data);
-    public static readonly List<(Type type, string dpName, string path, GetSubPathDel subPath)> configTypeOrder = new List<(Type, string, string, GetSubPathDel)>(){
+    public static readonly List<(Type type, string dpName, string path, GetSubPathDel subPath)> configTypeOrder =
+    new List<(Type, string, string, GetSubPathDel)>(){
             (typeof(ItemConfigData), "物品", "物品", null),
             (typeof(HeroConfigData),"角色","角色",null),
             (typeof(EquipmentConfigData),"装备","装备",null),
@@ -249,6 +249,7 @@ public class Datalib : Singleton<Datalib>
         return null;
     }
 
+#if UNITY_EDITOR
     public void AddData(ConfigData data)
     {
         var type = data.GetType();
@@ -287,5 +288,6 @@ public class Datalib : Singleton<Datalib>
             // }
         }
     }
+#endif
 };
 

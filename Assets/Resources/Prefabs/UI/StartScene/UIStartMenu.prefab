@@ -471,4 +471,6 @@ MonoBehaviour:
   canMultiple: 0
   closeBtn: {fileID: 0}
   isFadeIn: 1
+  needHide: 1
+  needHideOther: 1
   startBtn: {fileID: 6160438479633215084}

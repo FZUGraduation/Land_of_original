@@ -66,7 +66,6 @@ public class GameManager : SingletonMono<GameManager>
 
     public bool ToJsonAndSave(string path, object data)
     {
-        //同步
         try
         {
             var json = JsonConvert.SerializeObject(data);
@@ -89,7 +88,6 @@ public class GameManager : SingletonMono<GameManager>
             {
                 var json = File.ReadAllText(path);
                 var deserializedData = JsonConvert.DeserializeObject<T>(json);
-                //同步
                 T tmpObj = deserializedData;
                 Debug.Log("Loaded" + path);
                 return tmpObj;

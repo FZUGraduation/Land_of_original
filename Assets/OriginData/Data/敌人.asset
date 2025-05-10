@@ -1,5 +1,47 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8948407470553864456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8adb2641e87d764fae19a706c746c56, type: 3}
+  m_Name: "\u65B9\u76D2\u673A\u5668\u4EBA"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  icon: {fileID: 21300000, guid: a3a14de1884c5a046b646032a22ad9d1, type: 3}
+  key: "\u65B9\u76D2\u673A\u5668\u4EBA"
+  displayedName: 
+  prefab: {fileID: 4771152712502093131, guid: 2de432864463272479f7fd89d912d3f1, type: 3}
+  desc: 
+  note: 
+  modelPrefab: {fileID: 0}
+  worldPrefab: {fileID: 0}
+  bodyicon: {fileID: 0}
+  hp: 200
+  mp: 5
+  atk: 50
+  def: 55
+  speed: 132.1
+  critRate: 0.235
+  critDamage: 1.702
+  hitRate: 0
+  skills:
+  - {fileID: -3153923325134820209, guid: 819c1f36b5701524ba2d8241a99c068d, type: 2}
+  defaultSkillIndex: 0
+  level: 0
 --- !u!114 &-8289599882472916812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,3 +160,4 @@ MonoBehaviour:
   datas:
   - {fileID: -8289599882472916812}
   - {fileID: -2602840204037222771}
+  - {fileID: -8948407470553864456}
