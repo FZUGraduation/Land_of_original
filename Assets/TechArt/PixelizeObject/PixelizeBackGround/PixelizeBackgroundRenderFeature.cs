@@ -10,6 +10,7 @@ public class PixelizeBackgroundRenderFeature : ScriptableRendererFeature
      public class Settings
     {
         public RenderPassEvent renderPassEvent = RenderPassEvent.BeforeRenderingPostProcessing;
+        public Shader shader;
     }
      
     class PixelizeBackgroundRenderPass : ScriptableRenderPass
@@ -29,6 +30,10 @@ public class PixelizeBackgroundRenderFeature : ScriptableRendererFeature
         {
             renderPassEvent = settings.renderPassEvent; //传入设置的渲染事件顺序(renderPassEvent在基类ScriptableRenderPass中)
             Shader shader = Shader.Find("URP/PostProcessing/PixelizeBackground");
+            if (settings.shader != null)
+            {
+                shader = settings.shader;
+            }
             material = CoreUtils.CreateEngineMaterial(shader);//根据传入的Shader创建material;
         }
 

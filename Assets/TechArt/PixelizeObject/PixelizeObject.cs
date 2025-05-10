@@ -271,8 +271,8 @@ public class PixelizeObject : ScriptableRendererFeature
             }
             
             RenderingUtils.ReAllocateIfNeeded(ref temp, desc);
-            
         }
+        
         public void GetTempRT(ref RTHandle temp, in RenderingData data)
         {
             RenderTextureDescriptor desc = data.cameraData.cameraTargetDescriptor;

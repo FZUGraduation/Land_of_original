@@ -32,6 +32,7 @@ MonoBehaviour:
   m_Active: 1
   settings:
     renderPassEvent: 550
+    shader: {fileID: 4800000, guid: 5894e2fe031c94bc58637f6e8470e7f4, type: 3}
 --- !u!114 &-2623940579936093264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,6 +48,7 @@ MonoBehaviour:
   m_Active: 1
   settings:
     renderPassEvent: 550
+    shader: {fileID: 4800000, guid: 01e7a6fa448b1964a89575727e5c2dfd, type: 3}
 --- !u!114 &-1878332245247344467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,6 +202,7 @@ MonoBehaviour:
   m_Active: 1
   settings:
     renderPassEvent: 400
+    shader: {fileID: 4800000, guid: f419ffad6368f174fac2d961df680203, type: 3}
 --- !u!114 &8638798513119794423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,3 +218,4 @@ MonoBehaviour:
   m_Active: 1
   settings:
     renderPassEvent: 200
+    shader: {fileID: 4800000, guid: 1cee35138b572d8438c0c1327d8a9008, type: 3}

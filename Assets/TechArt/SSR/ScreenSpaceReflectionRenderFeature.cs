@@ -8,15 +8,14 @@ public class ScreenSpaceReflectionRenderFeature : ScriptableRendererFeature
      public class Settings
     {
         public RenderPassEvent renderPassEvent = RenderPassEvent.BeforeRenderingPostProcessing;
+        public Shader shader;
     }
      
      //自定义的Pass
     class CustomRenderPass : ScriptableRenderPass
     {
-        private RenderingData renderingData;
-        
         //定义一个 ProfilerTag 方便设置在FrameDebugger里查看
-        private const string ProfilerTag = "ScreenSpaceReflection";
+        private const string ProfilerTag = "Screen Space Reflection";
         
         private Material material;
         
@@ -26,12 +25,16 @@ public class ScreenSpaceReflectionRenderFeature : ScriptableRendererFeature
         private RTHandle tempRTHandle;
         
         //自定义Pass的构造函数(用于传参)
-        public CustomRenderPass(RenderPassEvent evt)
+        public CustomRenderPass(Settings settings)
         {
-            renderPassEvent = evt; //传入设置的渲染事件顺序(renderPassEvent在基类ScriptableRenderPass中)
+            renderPassEvent = settings.renderPassEvent; //传入设置的渲染事件顺序(renderPassEvent在基类ScriptableRenderPass中)
             
             //根据传入的Shader创建material;
             Shader shader= Shader.Find("URP/PostProcessing/ScreenSpaceReflection");
+            if (settings.shader != null)
+            {
+                shader = settings.shader;
+            }
             material = CoreUtils.CreateEngineMaterial(shader);
             
         }
@@ -43,10 +46,9 @@ public class ScreenSpaceReflectionRenderFeature : ScriptableRendererFeature
             RenderingUtils.ReAllocateIfNeeded(ref temp, desc);//使用该函数申请一张与相机大小一致的TempRT;
         }
 
-        public void Setup(RTHandle cameraColor, RenderingData data)
+        public void Setup(RTHandle cameraColor)
         {
             cameraColorRTHandle = cameraColor;
-            renderingData = data;
         }
         
         //此方法由渲染器在渲染相机之前调用
@@ -118,7 +120,7 @@ public class ScreenSpaceReflectionRenderFeature : ScriptableRendererFeature
     //初始化时调用
     public override void Create()
     {
-        m_ScriptablePass = new CustomRenderPass(settings.renderPassEvent);
+        m_ScriptablePass = new CustomRenderPass(settings);
     }
     
     //每帧调用,将pass添加进流程
@@ -130,7 +132,7 @@ public class ScreenSpaceReflectionRenderFeature : ScriptableRendererFeature
     //每帧调用,渲染目标初始化后的回调。这允许在创建并准备好目标后从渲染器访问目标
     public override void SetupRenderPasses(ScriptableRenderer renderer, in RenderingData renderingData)
     {
-        m_ScriptablePass.Setup(renderer.cameraColorTargetHandle,renderingData);//可以理解为传入GameView_RenderTarget的句柄和相机渲染数据（相机渲染数据用于创建TempRT）
+        m_ScriptablePass.Setup(renderer.cameraColorTargetHandle);//可以理解为传入GameView_RenderTarget的句柄和相机渲染数据（相机渲染数据用于创建TempRT）
     }
     
     protected override void Dispose(bool disposing)

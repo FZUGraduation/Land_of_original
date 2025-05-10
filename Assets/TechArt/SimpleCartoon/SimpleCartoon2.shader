@@ -88,6 +88,7 @@ Shader "URP/Cartoon/SimpleCartoon2"
             SAMPLER(sampler_MainTex);//定义采样器
             TEXTURE2D(_MatCap);
             SAMPLER(sampler_MatCap);
+            TEXTURE2D(_m_CameraNormalsTexture);
             //----------贴图声明结束-----------
             
             

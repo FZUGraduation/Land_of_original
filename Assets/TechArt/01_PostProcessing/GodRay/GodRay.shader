@@ -7,14 +7,11 @@ Shader "URP/PostProcessing/GodRay"
     
     SubShader
     {
-        Tags{
-            "RenderPipeline" = "UniversalRenderPipeline"  
+        Tags
+        {
             "RenderType"="Opaque"
+            "RenderPipeline" = "UniversalPipeline"  
         }
-        
-        Cull Off 
-        ZWrite Off
-        ZTest Always
         
         HLSLINCLUDE
         #define MAIN_LIGHT_CALCULATE_SHADOWS  //定义阴影采样

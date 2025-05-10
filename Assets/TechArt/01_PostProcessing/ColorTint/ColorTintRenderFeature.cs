@@ -27,10 +27,15 @@ public class ColorTintRenderFeature : ScriptableRendererFeature
         private RTHandle tempRTHandle;
 
         //自定义Pass的构造函数(用于传参)
-        public CustomRenderPass(RenderPassEvent evt, Shader shader)
+        public CustomRenderPass(Settings settings)
         {
-            renderPassEvent = evt; //传入设置的渲染事件顺序(renderPassEvent在基类ScriptableRenderPass中)
-            material = CoreUtils.CreateEngineMaterial(shader);//根据传入的Shader创建material;
+            renderPassEvent = settings.renderPassEvent; //传入设置的渲染事件顺序(renderPassEvent在基类ScriptableRenderPass中)
+            Shader m_Shader = Shader.Find("URP/PostProcessing/ColorTint");
+            if (settings.shader != null)
+            {
+                m_Shader = settings.shader;
+            }
+            material = CoreUtils.CreateEngineMaterial(m_Shader);//根据传入的Shader创建material;
         }
 
         public void GetTempRT(ref RTHandle temp, in RenderingData data)
@@ -95,7 +100,7 @@ public class ColorTintRenderFeature : ScriptableRendererFeature
     //初始化时调用
     public override void Create()
     {
-        m_ScriptablePass = new CustomRenderPass(settings.renderPassEvent,settings.shader);
+        m_ScriptablePass = new CustomRenderPass(settings);
     }
     
     //每帧调用,将pass添加进流程
