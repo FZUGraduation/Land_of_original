@@ -36,6 +36,7 @@ public class WorldNPC : MonoBehaviour
 
     void Update()
     {
+        if (player == null) return; // 如果玩家对象为空，则不进行交互检查
         // 检查与玩家的距离
         float distance = Vector3.Distance(transform.position, player.transform.position);
         if (player && !canTalk && distance < talkRadius)

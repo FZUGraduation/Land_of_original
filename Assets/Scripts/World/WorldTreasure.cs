@@ -33,7 +33,7 @@ public class WorldTreasure : MonoBehaviour
 
     void Update()
     {
-        if (isOpen) return; // 如果宝箱已打开，则不进行交互检查
+        if (isOpen || !player) return; // 如果宝箱已打开，则不进行交互检查
 
         // 检查与玩家的距离
         float distance = Vector3.Distance(transform.position, player.transform.position);

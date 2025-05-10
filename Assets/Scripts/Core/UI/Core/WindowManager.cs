@@ -167,6 +167,7 @@ public class WindowManager : Singleton<WindowManager>
                 uiDialogues[index - 1]?.OnBackToTop();
             }
             GameObject.Destroy(dialog.gameObject);
+            Debug.Log("关闭窗口:" + dialog.name);
             uiDialogues.RemoveAt(index);
         }
         else

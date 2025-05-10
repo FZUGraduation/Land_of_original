@@ -83,6 +83,7 @@ public class BaseDialog : MonoBehaviour
     }
     private void OnCloseCallback()
     {
+        Debug.Log($"Close UIPanel {gameObject.name}");
         OnClose();
         OnPopNode();
     }

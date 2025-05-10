@@ -176,7 +176,7 @@ public class Datalib : Singleton<Datalib>
     /// <summary>  运行时 load data，不要在Editor相关的代码中调用。 </summary>
     public async UniTask LoadDataAsync()
     {
-        await semaphore.WaitAsync();
+        // await semaphore.WaitAsync();
         dataDict = new Dictionary<Type, List<ConfigData>>();
         creatorList = new List<EntityCreator>();
         try
@@ -191,16 +191,20 @@ public class Datalib : Singleton<Datalib>
             {
                 foreach (var asset in mainAsset)
                 {
-                    if (asset is EntityCreator)
+                    if (asset is EntityCreator creator)
                     {
-                        var creator = asset as EntityCreator;
                         creatorList.Add(creator);
-                        dataDict.Add(creator.type, creator.datas);
+                        // 检查键是否已存在
+                        if (!dataDict.ContainsKey(creator.type))
+                        {
+                            Debug.Log($"Key {creator.type} does not exist in dataDict. Adding it.");
+                            dataDict.Add(creator.type, creator.datas);
+                        }
+                        else
+                        {
+                            Debug.LogWarning($"Key {creator.type} already exists in dataDict. Skipping duplicate.");
+                        }
                     }
-                    // else if (asset is GlobalDB)
-                    // {
-                    //     globalDB = asset as GlobalDB;
-                    // }
                 }
                 Debug.Log("Load OSDatalib success");
             }
@@ -209,10 +213,10 @@ public class Datalib : Singleton<Datalib>
         {
             Debug.Log("An exception occurred: " + ex.Message);
         }
-        finally
-        {
-            semaphore.Release();
-        }
+        // finally
+        // {
+        //     semaphore.Release();
+        // }
     }
 
     public T GetData<T>(string key) where T : ConfigData
