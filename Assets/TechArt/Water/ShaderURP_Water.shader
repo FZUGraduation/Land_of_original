@@ -247,7 +247,6 @@ Shader "URP/ShaderURP_Water"
                 float3 nDirWS : TEXCOORD3;
                 float3 tDirWS : TEXCOORD4;
                 float3 bDirWS : TEXCOORD5;
-            	float4 shadowCoord : TEXCOORD6;
             };
 
             vertexOutput vert (vertexInput v)
@@ -270,7 +269,6 @@ Shader "URP/ShaderURP_Water"
             	o.tDirWS = normalize(TransformObjectToWorld(v.tangent));
             	o.bDirWS = normalize(mul(o.nDirWS,o.tDirWS)*v.tangent.w);
                 o.uv = v.uv;
-            	o.shadowCoord = TransformWorldToShadowCoord(o.posWS);
                 return o;
             }
 
@@ -321,9 +319,9 @@ Shader "URP/ShaderURP_Water"
                 float3 posWS_frag1 = ReconstructWorldPositionFromDepth(i.screenPos,rawDepth1);
 
             	//Get Reflection And Refraction Mask
-            	float ReflectionAndReflectionMask = step(posWS_frag1.y,i.posWS.y);
+            	float ReflectionAndRefractionMask = step(posWS_frag1.y,i.posWS.y);
             	grabUV = screenPos;
-            	grabUV.x += noiseUV*_NormalNoise/max(i.screenPos.w,1.2f)*ReflectionAndReflectionMask*_RefractionInt;
+            	grabUV.x += noiseUV*_NormalNoise/max(i.screenPos.w,1.2f)*ReflectionAndRefractionMask*_RefractionInt;
 
             	//Secondly Sample Depth Texture (Remove the parts that should not be distorted)
             	float rawDepth2 =  SAMPLE_TEXTURE2D(_CameraDepthTexture,sampler_PointClamp,grabUV).r;
@@ -339,15 +337,17 @@ Shader "URP/ShaderURP_Water"
                 half3 CausiticsCol1 = SAMPLE_TEXTURE2D(_CausiticsTex,sampler_CausiticsTex,causiticsUV1+float2(0.1f,0.2f));
                 half3 CausiticsCol2 = SAMPLE_TEXTURE2D(_CausiticsTex,sampler_CausiticsTex,causiticsUV2);
             	float3 CameraNormal = SAMPLE_TEXTURE2D(_CameraNormalsTexture,sampler_CameraNormalsTexture,grabUV);
+            	float shadow0 = MainLightRealtimeShadow(TransformWorldToShadowCoord(posWS_frag2));
             	float CausticsMask1 = saturate(CameraNormal.y*CameraNormal.y);
-            	float CausticsMask2 = saturate(dot(CameraNormal,_MainLightPosition));
+            	float CausticsMask2 = saturate(dot(CameraNormal,_MainLightPosition))*shadow0;
             	float CausticsMask = CausticsMask1*CausticsMask2;
                 half3 CausiticsCol = min(CausiticsCol1,CausiticsCol2)*causitics_range*_CausiticsIntensity*CausticsMask;
-
+            	
             	//ReflectionColor
             	float2 reflectUV = screenPos;
-            	reflectUV.x += noiseUV*_NormalNoise*ReflectionAndReflectionMask;
+            	reflectUV.x += noiseUV*_NormalNoise*ReflectionAndRefractionMask;
             	half4 refCol = SAMPLE_TEXTURE2D(_ScreenSpaceReflectionTexture,sampler_ScreenSpaceReflectionTexture,reflectUV);
+            	
 
             	//Refraction UnderWater
 				half3 underWaterCol = SAMPLE_TEXTURE2D(_CameraOpaqueTexture,sampler_CameraOpaqueTexture,grabUV);
@@ -370,18 +370,19 @@ Shader "URP/ShaderURP_Water"
             	waterCol.rgb = lerp(refCol*saturate(waterCol+0.3),waterCol,1-_RefIntensity)*halfLambert_Modified;
             	
             	//shadow
-            	float shadow = MainLightRealtimeShadow(i.shadowCoord);
+            	float shadow = MainLightRealtimeShadow(TransformWorldToShadowCoord(posWS_frag2));
             	shadow = remap(shadow,0,1,0.7,1);
             	
             	float FinalA = waterCol.a;
             	
             	half3 WaterFinalColor = saturate(lerp(underWaterCol*waterCol,waterCol,FinalA)+SpecLight);
             	
+            	
             	//ShoreEdge
             	half3 shoreCol = _ShoreCol;
                 float shoreRange = saturate(exp(-max(waterDepth0,waterDepth)/_ShoreRange));
                 half3 shoreEdge = smoothstep(0.1,1-(_ShoreEdgeWidth-0.2),shoreRange)*shoreCol*_ShoreEdgeIntensity;
-
+            	
             	//Foam
                 float foamX = saturate(1-waterDepth/_FoamRange);
                 float foamRange = 1-smoothstep(_FoamBend-0.1,1,saturate(max(waterDepth0,waterDepth)/_FoamRange));//遮罩
