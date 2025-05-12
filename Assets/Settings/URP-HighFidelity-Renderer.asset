@@ -109,7 +109,8 @@ MonoBehaviour:
   - {fileID: -2892500506307103261}
   - {fileID: 1519850369081802172}
   - {fileID: -2623940579936093264}
-  m_RendererFeatureMap: adc0de57c6d2eee5fa22ae9ca4290924f794ad347a2de37743f056308d8bb358234ea558ab9ce8c8e375ed581dc6dbd7bcfdddb0db971715b03b2dddf1e395db
+  - {fileID: 8174520499621806750}
+  m_RendererFeatureMap: adc0de57c6d2eee5fa22ae9ca4290924f794ad347a2de37743f056308d8bb358234ea558ab9ce8c8e375ed581dc6dbd7bcfdddb0db971715b03b2dddf1e395db9e421b7d15bb7171
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -203,6 +204,20 @@ MonoBehaviour:
   settings:
     renderPassEvent: 400
     shader: {fileID: 4800000, guid: f419ffad6368f174fac2d961df680203, type: 3}
+--- !u!114 &8174520499621806750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1b0542a0af2474d942b790ee2cccd8, type: 3}
+  m_Name: DepthNormalsFeature
+  m_EditorClassIdentifier: 
+  m_Active: 0
+  NormalTexture: 1
 --- !u!114 &8638798513119794423
 MonoBehaviour:
   m_ObjectHideFlags: 0
