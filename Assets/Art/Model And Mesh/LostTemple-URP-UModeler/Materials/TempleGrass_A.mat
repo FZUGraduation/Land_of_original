@@ -252,6 +252,7 @@ Material:
     - _EmissiveIntensity: 1
     - _EmissiveIntensityUnit: 0
     - _EnableBlendModePreserveSpecularLighting: 1
+    - _EnableCustomShadowColor: 0
     - _EnableFogOnTransparent: 1
     - _EnableGeometricSpecularAA: 0
     - _EnableInline: 0
@@ -300,6 +301,7 @@ Material:
     - _RefractionModel: 0
     - _SSRefractionProjectionModel: 0
     - _Shades: 6
+    - _ShadowIntensity: 1
     - _SmoothValue: 0
     - _Smoothness: 0.06
     - _SmoothnessRemapMax: 0.5836947
@@ -352,6 +354,7 @@ Material:
     - _BaseColor: {r: 0.9568628, g: 0.9333334, b: 0.8431373, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 0.5490196, g: 0.5098038, b: 0.42745093, a: 1}
+    - _CustomShadowColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}

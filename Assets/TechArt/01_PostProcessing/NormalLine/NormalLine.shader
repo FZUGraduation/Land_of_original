@@ -60,7 +60,7 @@ Shader "URP/PostProcessing/NormalLine"
                     float sampleRawDepth = SAMPLE_TEXTURE2D(_m_CameraDepthTexture,sampler_PointClamp, sampleScreenPos).r;
                     float mc_sample= dot(nDirWS_sample,lum);
 
-                    if ((abs(rawDepth-sampleRawDepth)>0.001))
+                    if ((max(0,rawDepth-sampleRawDepth)>0.001))
                     {
                         return half3(0,0,1);
                     }

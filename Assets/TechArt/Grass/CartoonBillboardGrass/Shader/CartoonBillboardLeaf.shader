@@ -306,6 +306,7 @@ Shader "URP/Cartoon/BillboardLeaf"
         	Name "DepthOnly"
 
         	Tags{"LightMode" = "DepthOnly"}
+        	Cull Off
         	
             HLSLPROGRAM
 
@@ -335,23 +336,24 @@ Shader "URP/Cartoon/BillboardLeaf"
                 float4 pos : SV_POSITION;
                 float2 uv : TEXCOORD0;
                 float3 nDirWS : TEXCOORD1;
-            	float4 screenPos : TEXCOORD2;
-            	UNITY_VERTEX_INPUT_INSTANCE_ID
+                float3 posWS : TEXCOORD2;
+                float4 color : TEXCOORD3;
+                UNITY_VERTEX_INPUT_INSTANCE_ID
             };
 
             vertexOutput vert (vertexInput v)
             {
                 vertexOutput o;
-            	UNITY_SETUP_INSTANCE_ID(v);
+                UNITY_SETUP_INSTANCE_ID(v);
                 UNITY_TRANSFER_INSTANCE_ID(v, o);
 
-            	//Instance变量
+                //Instance变量
                 float windStrength = UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial,_WindStrength);
                 float2 windDistorationMap_FlowSpeed = float2(UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial,_U_Speed),UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial,_V_Speed));
                 float4 windDistortionMap_ST = UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial,_WindDistortionMap_ST);
                 float bias = UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial,_Bias);
-
-            	float3 centerOffset = float3(0, 0, 0);
+                
+                 float3 centerOffset = float3(0, 0, 0);
                 
                 #ifdef _EnableMultipleMeshMode
                     centerOffset = v.color;
@@ -361,30 +363,15 @@ Shader "URP/Cartoon/BillboardLeaf"
                     centerOffset = (float4(v.uv2,v.uv3)*2.0-1.0)*UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial,_DecodeValue);
                 #endif
                 v.vertex.xyz -= centerOffset;
-
-                float4 originalPosCS = TransformObjectToHClip(float3(0,0,0)+centerOffset);
-                float3 cameraPos;
-                if (unity_OrthoParams.w>0.5)
-                {
-                    float4 screenPos = ComputeScreenPos(originalPosCS);
-                    float2 ndcPos = screenPos.xy/screenPos.w*2-1;//map[0,1] -> [-1,1]
-                    float3 viewPos = float3(unity_OrthoParams.xy * ndcPos.xy, 0);
-                    cameraPos = mul(UNITY_MATRIX_I_V, float4(viewPos, 1)).xyz;
-                }
-                else
-                {
-                    cameraPos = _WorldSpaceCameraPos; //摄像机上的世界坐标
-                }
                     
                 //Billboard
-                float3 camPosOS = TransformWorldToObject(cameraPos);//将摄像机的坐标转换到物体模型空间
-                float3 newForwardDir = -normalize(camPosOS - centerOffset); //计算新的forward轴
+                float3 camPosOS = TransformWorldToObject(_WorldSpaceCameraPos);//将摄像机的坐标转换到物体模型空间
+                float3 newForwardDir = normalize(camPosOS - centerOffset); //计算新的forward轴
                 float3 newRightDir = normalize(cross(float3(0, 1, 0), newForwardDir)); //计算新的right轴
                 float3 newUpDir = normalize(cross(newForwardDir,newRightDir)); //计算新的up轴
                 v.vertex.xyz = newRightDir * v.vertex.x + newUpDir * v.vertex.y + newForwardDir*v.vertex.z; //将原本的xyz坐标以在新轴上计算，相当于一个线性变换【原模型空间】->【新模型空间】
                 
                 //Wind
-                float3 positionWS = TransformObjectToWorld(v.vertex.xyz+centerOffset);
                 float3 positionWS_0 = TransformObjectToWorld(float3(0,0,0)+centerOffset);
                 windStrength = max(0.0001f,windStrength);
                 float2 windUV = positionWS_0.xz*windDistortionMap_ST.xy + windDistortionMap_ST.zw + windDistorationMap_FlowSpeed*_Time.z;
@@ -394,12 +381,12 @@ Shader "URP/Cartoon/BillboardLeaf"
                 v.vertex.xyz = mul(windRotation,v.vertex.xyz);
                 
                 v.vertex.xyz += centerOffset;
-            	
-            	float4 posCS = TransformObjectToHClip(v.vertex.xyz);
-                o.pos = posCS;
-                o.nDirWS = normalize(TransformObjectToWorldNormal(v.normal));
+                
+                o.pos = TransformObjectToHClip(v.vertex.xyz);
+                o.nDirWS = TransformObjectToWorldNormal(v.normal);
                 o.uv = v.uv;
-            	o.screenPos = ComputeScreenPos(posCS);
+                o.posWS = TransformObjectToWorld(v.vertex.xyz);
+                o.color = v.color;
                 return o;
             }
 
@@ -448,6 +435,7 @@ Shader "URP/Cartoon/BillboardLeaf"
         {
         	Name "CustomNormalsPass"
 
+        	Cull Off
         	Tags{"LightMode" = "DepthNormals"}
         	
             HLSLPROGRAM
@@ -462,7 +450,7 @@ Shader "URP/Cartoon/BillboardLeaf"
             //开启GPU Instance
             #pragma multi_compile_instancing
             
-            struct vertexInput
+           struct vertexInput
             {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
@@ -478,23 +466,24 @@ Shader "URP/Cartoon/BillboardLeaf"
                 float4 pos : SV_POSITION;
                 float2 uv : TEXCOORD0;
                 float3 nDirWS : TEXCOORD1;
-            	float4 screenPos : TEXCOORD2;
-            	UNITY_VERTEX_INPUT_INSTANCE_ID
+                float3 posWS : TEXCOORD2;
+                float4 color : TEXCOORD3;
+                UNITY_VERTEX_INPUT_INSTANCE_ID
             };
 
             vertexOutput vert (vertexInput v)
             {
                 vertexOutput o;
-            	UNITY_SETUP_INSTANCE_ID(v);
+                UNITY_SETUP_INSTANCE_ID(v);
                 UNITY_TRANSFER_INSTANCE_ID(v, o);
 
-            	//Instance变量
+                //Instance变量
                 float windStrength = UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial,_WindStrength);
                 float2 windDistorationMap_FlowSpeed = float2(UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial,_U_Speed),UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial,_V_Speed));
                 float4 windDistortionMap_ST = UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial,_WindDistortionMap_ST);
                 float bias = UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial,_Bias);
-
-            	float3 centerOffset = float3(0, 0, 0);
+                
+                 float3 centerOffset = float3(0, 0, 0);
                 
                 #ifdef _EnableMultipleMeshMode
                     centerOffset = v.color;
@@ -504,30 +493,15 @@ Shader "URP/Cartoon/BillboardLeaf"
                     centerOffset = (float4(v.uv2,v.uv3)*2.0-1.0)*UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial,_DecodeValue);
                 #endif
                 v.vertex.xyz -= centerOffset;
-
-                float4 originalPosCS = TransformObjectToHClip(float3(0,0,0)+centerOffset);
-                float3 cameraPos;
-                if (unity_OrthoParams.w>0.5)
-                {
-                    float4 screenPos = ComputeScreenPos(originalPosCS);
-                    float2 ndcPos = screenPos.xy/screenPos.w*2-1;//map[0,1] -> [-1,1]
-                    float3 viewPos = float3(unity_OrthoParams.xy * ndcPos.xy, 0);
-                    cameraPos = mul(UNITY_MATRIX_I_V, float4(viewPos, 1)).xyz;
-                }
-                else
-                {
-                    cameraPos = _WorldSpaceCameraPos; //摄像机上的世界坐标
-                }
                     
                 //Billboard
-                float3 camPosOS = TransformWorldToObject(cameraPos);//将摄像机的坐标转换到物体模型空间
-                float3 newForwardDir = -normalize(camPosOS - centerOffset); //计算新的forward轴
+                float3 camPosOS = TransformWorldToObject(_WorldSpaceCameraPos);//将摄像机的坐标转换到物体模型空间
+                float3 newForwardDir = normalize(camPosOS - centerOffset); //计算新的forward轴
                 float3 newRightDir = normalize(cross(float3(0, 1, 0), newForwardDir)); //计算新的right轴
                 float3 newUpDir = normalize(cross(newForwardDir,newRightDir)); //计算新的up轴
                 v.vertex.xyz = newRightDir * v.vertex.x + newUpDir * v.vertex.y + newForwardDir*v.vertex.z; //将原本的xyz坐标以在新轴上计算，相当于一个线性变换【原模型空间】->【新模型空间】
                 
                 //Wind
-                float3 positionWS = TransformObjectToWorld(v.vertex.xyz+centerOffset);
                 float3 positionWS_0 = TransformObjectToWorld(float3(0,0,0)+centerOffset);
                 windStrength = max(0.0001f,windStrength);
                 float2 windUV = positionWS_0.xz*windDistortionMap_ST.xy + windDistortionMap_ST.zw + windDistorationMap_FlowSpeed*_Time.z;
@@ -537,12 +511,12 @@ Shader "URP/Cartoon/BillboardLeaf"
                 v.vertex.xyz = mul(windRotation,v.vertex.xyz);
                 
                 v.vertex.xyz += centerOffset;
-            	
-            	float4 posCS = TransformObjectToHClip(v.vertex.xyz);
-                o.pos = posCS;
-                o.nDirWS = normalize(TransformObjectToWorldNormal(v.normal));
+                
+                o.pos = TransformObjectToHClip(v.vertex.xyz);
+                o.nDirWS = TransformObjectToWorldNormal(v.normal);
                 o.uv = v.uv;
-            	o.screenPos = ComputeScreenPos(posCS);
+                o.posWS = TransformObjectToWorld(v.vertex.xyz);
+                o.color = v.color;
                 return o;
             }
 
@@ -578,10 +552,7 @@ Shader "URP/Cartoon/BillboardLeaf"
 			    {
 				    discard;
 			    }
-            	
-            	float vertexRawDepth = i.pos.z;
-            	float2 screenPos = i.screenPos.xy/i.screenPos.w;
-            	
+                
             	float3 normalWS = NormalizeNormalPerPixel(i.nDirWS);
             	return float4(normalWS,1);
             }
