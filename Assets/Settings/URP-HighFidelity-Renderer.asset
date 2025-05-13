@@ -49,7 +49,7 @@ MonoBehaviour:
   settings:
     renderPassEvent: 550
     shader: {fileID: 4800000, guid: 01e7a6fa448b1964a89575727e5c2dfd, type: 3}
---- !u!114 &-1878332245247344467
+--- !u!114 &-1721924224199899744
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,32 +58,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f62c9c65cf3354c93be831c8bc075510, type: 3}
-  m_Name: SSAO
+  m_Script: {fileID: 11500000, guid: 94ff9300870858148ad0ae369586cb5f, type: 3}
+  m_Name: CustomSSAORenderFeature
   m_EditorClassIdentifier: 
   m_Active: 1
-  m_Settings:
-    AOMethod: 1
-    Downsample: 0
-    AfterOpaque: 0
-    Source: 1
-    NormalSamples: 1
-    Intensity: 0.5
-    DirectLightingStrength: 0.25
-    Radius: 0.25
-    Samples: 0
-    BlurQuality: 0
-    Falloff: 100
-    SampleCount: -1
-  m_BlueNoise256Textures:
-  - {fileID: 2800000, guid: 36f118343fc974119bee3d09e2111500, type: 3}
-  - {fileID: 2800000, guid: 4b7b083e6b6734e8bb2838b0b50a0bc8, type: 3}
-  - {fileID: 2800000, guid: c06cc21c692f94f5fb5206247191eeee, type: 3}
-  - {fileID: 2800000, guid: cb76dd40fa7654f9587f6a344f125c9a, type: 3}
-  - {fileID: 2800000, guid: e32226222ff144b24bf3a5a451de54bc, type: 3}
-  - {fileID: 2800000, guid: 3302065f671a8450b82c9ddf07426f3a, type: 3}
-  - {fileID: 2800000, guid: 56a77a3e8d64f47b6afe9e3c95cb57d5, type: 3}
-  m_Shader: {fileID: 4800000, guid: 0849e84e3d62649e8882e9d6f056a017, type: 3}
+  settings:
+    renderPassEvent: 550
+    shader: {fileID: 4800000, guid: c328789bda9c26843a54da7810d2b2e2, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,7 +82,6 @@ MonoBehaviour:
       type: 3}
     hdrDebugViewPS: {fileID: 4800000, guid: 573620ae32aec764abd4d728906d2587, type: 3}
   m_RendererFeatures:
-  - {fileID: -1878332245247344467}
   - {fileID: 2596652447135834874}
   - {fileID: 8638798513119794423}
   - {fileID: 6391605734686519363}
@@ -110,7 +90,8 @@ MonoBehaviour:
   - {fileID: 1519850369081802172}
   - {fileID: -2623940579936093264}
   - {fileID: 8174520499621806750}
-  m_RendererFeatureMap: adc0de57c6d2eee5fa22ae9ca4290924f794ad347a2de37743f056308d8bb358234ea558ab9ce8c8e375ed581dc6dbd7bcfdddb0db971715b03b2dddf1e395db9e421b7d15bb7171
+  - {fileID: -1721924224199899744}
+  m_RendererFeatureMap: fa22ae9ca4290924f794ad347a2de37743f056308d8bb358234ea558ab9ce8c8e375ed581dc6dbd7bcfdddb0db971715b03b2dddf1e395db9e421b7d15bb7171a0c56c8e0a7f1ae8
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -216,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1b0542a0af2474d942b790ee2cccd8, type: 3}
   m_Name: DepthNormalsFeature
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1
   NormalTexture: 1
 --- !u!114 &8638798513119794423
 MonoBehaviour:

@@ -4,6 +4,7 @@ Shader "URP/Cartoon/SimpleCartoon2"
     {
         [Header(Tint)]
         _BaseColor("Base Color",Color) = (1.0,1.0,1.0,1.0)
+        _ShadowIntensity("Shadow Intensity",Range(0,1)) = 1
         [Toggle(_EnableCustomShadowColor)]_EnableCustomShadowColor("Enable Custom Shadow Color",float) = 0
         _CustomShadowColor("Custom Shadow Color",Color) = (0.2,0.2,0.2,1.0)
         
@@ -42,6 +43,7 @@ Shader "URP/Cartoon/SimpleCartoon2"
          CBUFFER_START(UnityPerMaterial)
             //----------变量声明开始-----------
             half4 _BaseColor;
+            float _ShadowIntensity;
             half4 _CustomShadowColor;
             float _SmoothValue;
             float _MatCapLerp;
@@ -175,7 +177,7 @@ Shader "URP/Cartoon/SimpleCartoon2"
 				}
 
                 float diffuse = mainDiffuse+additionalDiffuse;
-                float mask1 = saturate((1-smoothstep(0.2-_SmoothValue,0.2,diffuse))+1-shadow);
+                float mask1 = saturate((1-smoothstep(0.2-_SmoothValue,0.2,diffuse))+(1-shadow)*_ShadowIntensity);
                 float mask2 = 1-smoothstep(0.41-_SmoothValue,0.41,diffuse);
                 float mask3 = 1-smoothstep(0.624-_SmoothValue,0.624,diffuse);
                 float mask4 = 1-smoothstep(0.823-_SmoothValue,0.823,diffuse);

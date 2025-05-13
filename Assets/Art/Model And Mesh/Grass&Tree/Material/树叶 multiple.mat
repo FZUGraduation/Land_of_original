@@ -127,6 +127,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _ShadowIntensity: 0
     - _ShadowValue: 0.322
     - _SmoothValue: 0
     - _Smoothness: 0.5

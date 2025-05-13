@@ -75,6 +75,89 @@ MonoBehaviour:
   rounded:
     m_OverrideState: 0
     m_Value: 0
+--- !u!114 &-6168890819120543525
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea1a422aa11785446b55c952d839dca8, type: 3}
+  m_Name: Custom_SSAO_Volume
+  m_EditorClassIdentifier: 
+  active: 1
+  EnableEffect:
+    m_OverrideState: 1
+    m_Value: 1
+  Intensity:
+    m_OverrideState: 1
+    m_Value: 0.2
+  CullValue:
+    m_OverrideState: 1
+    m_Value: 0.2
+  DepthBias:
+    m_OverrideState: 1
+    m_Value: 0.00012
+  SampleCount:
+    m_OverrideState: 1
+    m_Value: 16
+  SampleRadius:
+    m_OverrideState: 1
+    m_Value: 0.32
+  InsideRadius:
+    m_OverrideState: 1
+    m_Value: 0.08
+  Blur:
+    m_OverrideState: 1
+    m_Value: 1
+  BlurRadius:
+    m_OverrideState: 1
+    m_Value: 2
+  BilaterFilterStrength:
+    m_OverrideState: 1
+    m_Value: 0.003
+  SSAO_Only:
+    m_OverrideState: 1
+    m_Value: 0
+--- !u!114 &-3849360658199961713
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91ab3351c6d48543b57d5dec439971c, type: 3}
+  m_Name: GodRayVolume
+  m_EditorClassIdentifier: 
+  active: 1
+  EnableEffect:
+    m_OverrideState: 1
+    m_Value: 1
+  ColorChange:
+    m_OverrideState: 1
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+  Intensity:
+    m_OverrideState: 1
+    m_Value: 0.2
+  Scattering:
+    m_OverrideState: 0
+    m_Value: 0.25
+  StepTime:
+    m_OverrideState: 0
+    m_Value: 16
+  RandomNumber:
+    m_OverrideState: 0
+    m_Value: 0
+  DownSample:
+    m_OverrideState: 0
+    m_Value: 2
+  BlurRange:
+    m_OverrideState: 0
+    m_Value: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,6 +175,8 @@ MonoBehaviour:
   - {fileID: -7893295128165547882}
   - {fileID: -7011558710299706105}
   - {fileID: 3222513256064480515}
+  - {fileID: -3849360658199961713}
+  - {fileID: -6168890819120543525}
 --- !u!114 &849379129802519247
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -144,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9e39aaea9e20d844917684fb990679f, type: 3}
   m_Name: PixelizeBackgroundVolume
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   ColorChange:
     m_OverrideState: 1
     m_Value: {r: 1, g: 1, b: 1, a: 1}
