@@ -93,7 +93,7 @@ MonoBehaviour:
     m_Value: 1
   Intensity:
     m_OverrideState: 1
-    m_Value: 0.2
+    m_Value: 0.1
   CullValue:
     m_OverrideState: 1
     m_Value: 0.2
