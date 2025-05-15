@@ -66,6 +66,7 @@ MonoBehaviour:
   - {fileID: -1597893765548415535}
   - {fileID: -6367424004658213922}
   - {fileID: 2431328629252800785}
+  - {fileID: 3315433098629289170}
 --- !u!114 &2431328629252800785
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -103,6 +104,52 @@ MonoBehaviour:
   BlurRange:
     m_OverrideState: 1
     m_Value: 2
+--- !u!114 &3315433098629289170
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea1a422aa11785446b55c952d839dca8, type: 3}
+  m_Name: Custom_SSAO_Volume
+  m_EditorClassIdentifier: 
+  active: 1
+  EnableEffect:
+    m_OverrideState: 1
+    m_Value: 1
+  Intensity:
+    m_OverrideState: 1
+    m_Value: 0.1
+  CullValue:
+    m_OverrideState: 1
+    m_Value: 0.0288
+  DepthBias:
+    m_OverrideState: 1
+    m_Value: 0.000038
+  SampleCount:
+    m_OverrideState: 1
+    m_Value: 16
+  SampleRadius:
+    m_OverrideState: 1
+    m_Value: 0.5
+  InsideRadius:
+    m_OverrideState: 1
+    m_Value: 0.003
+  Blur:
+    m_OverrideState: 1
+    m_Value: 1
+  BlurRadius:
+    m_OverrideState: 1
+    m_Value: 2
+  BilaterFilterStrength:
+    m_OverrideState: 1
+    m_Value: 0.01
+  SSAO_Only:
+    m_OverrideState: 1
+    m_Value: 0
 --- !u!114 &5363497732543142071
 MonoBehaviour:
   m_ObjectHideFlags: 3

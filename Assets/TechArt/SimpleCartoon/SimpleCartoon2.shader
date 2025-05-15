@@ -4,11 +4,10 @@ Shader "URP/Cartoon/SimpleCartoon2"
     {
         [Header(Tint)]
         _BaseColor("Base Color",Color) = (1.0,1.0,1.0,1.0)
-        _ShadowIntensity("Shadow Intensity",Range(0,1)) = 1
-        [Toggle(_EnableCustomShadowColor)]_EnableCustomShadowColor("Enable Custom Shadow Color",float) = 0
-        _CustomShadowColor("Custom Shadow Color",Color) = (0.2,0.2,0.2,1.0)
-        
+        [Toggle(_EnableVertexColorMask)]_EnableVertexColorMask("Enable Vertex Color Mask",float) = 0
+        _BaseColor2("Base Color 2",Color) = (1.0,1.0,1.0,1.0)
         _MainTex("MainTex",2D) = "white"{}
+         
         
         [Header(MatCap)]
         _MatCap("Mat Cap",2D) = "white"{}
@@ -16,6 +15,9 @@ Shader "URP/Cartoon/SimpleCartoon2"
         
          [Header(Diffuse)]
         _SmoothValue("Smooth Value",Range(0,0.1)) = 0
+        _ShadowIntensity("Shadow Intensity",Range(0,1)) = 1
+        [Toggle(_EnableCustomShadowColor)]_EnableCustomShadowColor("Enable Custom Shadow Color",float) = 0
+        _CustomShadowColor("Custom Shadow Color",Color) = (0.2,0.2,0.2,1.0)
         
         [Header(Outline)]
         _OutlineColor("Outline Color",Color) = (0.0,0.0,0.0,0.0)
@@ -43,6 +45,7 @@ Shader "URP/Cartoon/SimpleCartoon2"
          CBUFFER_START(UnityPerMaterial)
             //----------变量声明开始-----------
             half4 _BaseColor;
+            half4 _BaseColor2;
             float _ShadowIntensity;
             half4 _CustomShadowColor;
             float _SmoothValue;
@@ -75,6 +78,7 @@ Shader "URP/Cartoon/SimpleCartoon2"
             #pragma shader_feature _EnableNormalInline
             #pragma shader_feature _EnableNormalOutline
             #pragma shader_feature _EnableCustomShadowColor
+            #pragma shader_feature _EnableVertexColorMask
             
             // 主光源和阴影
             #pragma multi_compile _ _MAIN_LIGHT_SHADOWS
@@ -106,6 +110,7 @@ Shader "URP/Cartoon/SimpleCartoon2"
             {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
+                half4 color : COLOR;
                 float2 uv : TEXCOORD0;
             };
 
@@ -116,6 +121,7 @@ Shader "URP/Cartoon/SimpleCartoon2"
                 float3 nDirWS : TEXCOORD1;
                 float3 posWS : TEXCOORD2;
                 float4 screenPos : TEXCOORD3;
+                half4 color : TEXCOORD4;
             };
 
             vertexOutput vert (vertexInput v)
@@ -128,6 +134,7 @@ Shader "URP/Cartoon/SimpleCartoon2"
                 float3 positionWS = TransformObjectToWorld(v.vertex.xyz);
                 o.posWS = positionWS;
                 o.screenPos = ComputeScreenPos(posCS);
+                o.color = v.color;
                 return o;
             }
 
@@ -153,8 +160,12 @@ Shader "URP/Cartoon/SimpleCartoon2"
                 float3 nDirVS = TransformWorldToViewDir(i.nDirWS);
                 half3 matcap = SAMPLE_TEXTURE2D(_MatCap,sampler_MatCap,abs(nDirVS.xy*0.5+0.5)).rgb;
 
-                half4 mainTex = SAMPLE_TEXTURE2D(_MainTex,sampler_MainTex,i.uv*_MainTex_ST.xy+_MainTex_ST.zw);
-                half4 albedo = _BaseColor*mainTex;
+                half3 mainTex = SAMPLE_TEXTURE2D(_MainTex,sampler_MainTex,i.uv*_MainTex_ST.xy+_MainTex_ST.zw);
+                half3 baseColor = _BaseColor;
+                #ifdef _EnableVertexColorMask
+                  baseColor = lerp(_BaseColor,_BaseColor2,i.color.r);
+                #endif
+                half3 albedo = baseColor*mainTex;
 
                 float shadow = 1;
                 float mainLightRadiance = mainLight.distanceAttenuation;
