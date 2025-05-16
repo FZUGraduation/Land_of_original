@@ -123,7 +123,7 @@ Material:
     - _DelayTime: 5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DownSampleValue: 0
+    - _DownSampleValue: 5
     - _DstBlend: 0
     - _EnableDecodeMode: 0
     - _EnableFrameTexture: 1
