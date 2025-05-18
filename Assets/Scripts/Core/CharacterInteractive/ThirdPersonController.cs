@@ -131,6 +131,7 @@ namespace StarterAssets
                 _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             }
             _animator = GetComponentInChildren<Animator>();
+            FrameEvent.Instance.On(FrameEvent.MoveEnable, OnMoveEnable, this);
         }
 
         private void Start()
@@ -165,6 +166,15 @@ namespace StarterAssets
         private void LateUpdate()
         {
             CameraRotation();
+        }
+
+        private void OnMoveEnable(object[] args)
+        {
+            if (args[0] is bool isEnable)
+            {
+                _input.enabled = isEnable;
+                _playerInput.enabled = isEnable;
+            }
         }
 
         private void AssignAnimationIDs()

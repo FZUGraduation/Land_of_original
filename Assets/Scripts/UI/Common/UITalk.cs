@@ -47,6 +47,7 @@ public class UITalk : BaseDialog
         btn_Continue.GetComponent<Button>().onClick.AddListener(OnClickNextDialog);
         Instance = this;
         SetDialogID(dialogKey);
+        FrameEvent.Instance.Emit(FrameEvent.MoveEnable, false, this);
     }
     #endregion
 
@@ -252,6 +253,12 @@ public class UITalk : BaseDialog
                 break;
         }
     }
+
+    protected override void OnClose()
+    {
+        FrameEvent.Instance.Emit(FrameEvent.MoveEnable, true, this);
+    }
+
 }
 
 

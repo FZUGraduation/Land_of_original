@@ -7,7 +7,7 @@ public class CameraController25 : MonoBehaviour
     public Transform target; // 主角的 Transform
     public Vector3 offset = new(0, 5, -10); // 相机相对于主角的偏移量
     public float smoothSpeed = 0.125f; // 平滑跟随的速度
-
+    public Vector4 cameraBounds = new(0, 0, 0, 0); // 相机xz边界
     void Awake()
     {
         if (Instance != null)
@@ -48,6 +48,10 @@ public class CameraController25 : MonoBehaviour
 
         // 平滑地移动相机到目标位置
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+
+        // 限制相机在指定的边界内
+        smoothedPosition.x = Mathf.Clamp(smoothedPosition.x, cameraBounds.x, cameraBounds.y);
+        smoothedPosition.z = Mathf.Clamp(smoothedPosition.z, cameraBounds.z, cameraBounds.w);
 
         // 设置相机的位置
         transform.position = smoothedPosition;

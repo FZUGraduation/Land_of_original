@@ -13,6 +13,7 @@ public enum BagSlotType
 public class NodeBagItem : MonoBehaviour
 {
     public Image icon;
+    public GameObject coinGO;
     public Image bg;
     public TextMeshProUGUI amountText;
     public Button button;
@@ -61,6 +62,15 @@ public class NodeBagItem : MonoBehaviour
             amountText.text = "";
         }
         this.callback = callback;
+        if (this.itemData != null && itemData.ConfigData.key == "金币")
+        {
+            coinGO.SetActive(true);
+            icon.gameObject.SetActive(false);
+        }
+        else
+        {
+            coinGO.SetActive(false);
+        }
     }
 
     public void InitWithConfig(ItemConfigData configData, int num)
